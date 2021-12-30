@@ -54,10 +54,10 @@ nav img {
 
 /* 2. 메인영역 */
 main {
-    widows: 727px;
+    width: 727px;
     margin: 0 auto;
     /* 마영호! */
-    text-align: center;
+    /* text-align: center; */
     /* 인라인요소 중앙정렬 */
 }
 
