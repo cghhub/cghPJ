@@ -6,7 +6,7 @@
     </head>
     <body>
         <!-- 1상단영역 -->
-        <div>
+        <header>
             <!-- 1-1제목 -->
             <h1>네이버 요약뉴스</h1>
             <!-- 1-2.메뉴 -->
@@ -25,12 +25,32 @@
             </nav>
             <!-- nav요소:네비게이션을 넣는 블록박스요소
             (navigation에서 나온말) -->
-        </div>
+        </header>
         <!-- div요소:컨텐츠를 구분해주는 블록박스요소
         (divide, division에서 온말) -->
         <!-- 2.메인영역 -->
-        <div></div>
+        <main>
+            <img src="./images/main.jpg" alt="메인이미지"
+        </main>
         <!-- 3.하단영역 -->
-        <div></div>
+        <footer></footer>
+        <!-- 
+            [html 핵심 요소들 - 페이지에 단 한번만 나옴]
+            1.html : 최상위 부모(root)
+            2.head : 기본정보영역
+            3.body : 화면출력영역
+
+            [레이아웃 관련 요소들 -블록요소]
+            1.div : divide/division 구분구역을 위한 요소
+            2.header : 머리부분(각 부분에 여러번사용가능)
+            3.footer : 하단부분(각 부분에 여러번사용가능)
+            4.main : 중앙 내용부분(주이:웹 페이지에서 한번만사용)
+            5.nav : 네비게이션 영역
+            6.aside : 주변내용 영역
+
+            ※레이아웃용 태그인 header, footer, main, mav 등은
+            div를 구체적인 내용으로 변경한 형제들이다!
+            (유의미하다 해서 시멘틱요소라고 함!) semantic
+         -->
     </body>
 </html>
