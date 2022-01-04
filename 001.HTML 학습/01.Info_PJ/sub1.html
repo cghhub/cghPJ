@@ -16,11 +16,11 @@
 
 <body>
     <!-- 1상단영역 -->
-    <header>
+    <header id="top">
         <!-- 1-1제목 -->
         <h1>네이버 요약뉴스 - 정치</h1>
         <!-- 1-2.메뉴 -->
-        <nav>
+        <nav class="gnb">
             <!-- 로고 -->
             <a href="index.html">
                 <img src="./images/naver.png" alt="네이버로고" style="width: 20px;">
@@ -39,11 +39,11 @@
     <!-- div요소:컨텐츠를 구분해주는 블록박스요소
         (divide, division에서 온말) -->
     <!-- 2.메인영역 -->
-    <main>
+    <main id="cont">
         <!-- 언론사로고 -->
         <img src="images/atp1.png" alt="newsis">
         <!-- 2-1.제목 -->
-        <h2>주한미군 역대 최다 확진에 깜짝…험프리스 일부 폐쇄</h2>
+        <h2>주한미군 <span class="fc">역대 최다 확진에</span> 깜짝…험프리스 일부 폐쇄</h2>
         <!-- 2-2.기사이미지 -->
         <figure>
             <img src="images/at1.jpg" alt="정치이미지">
@@ -88,7 +88,7 @@
 
         <hr>
         <h3>정치 주요뉴스</h3>
-        <ul style="list-style-type: square;">
+        <ul class="pnews" style="list-style-type: square;">
             <li>
                 <a href="https://news.naver.com/main/read.naver?mode=LS2D&mid=shm&sid1=100&sid2=267&oid=003&aid=0010918722"
                     target="_blank">
@@ -112,7 +112,7 @@
         <hr>
 
         <h3>뉴시스 랭킹 뉴스</h3>
-        <ol>
+        <ol class="rnews">
             <li>
                 <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=003&aid=0010923994&rankingType=RANKING"
                     target="_blank">
@@ -204,7 +204,7 @@
             원본기사</a>
     </main>
     <!-- 3.하단영역 -->
-    <footer>
+    <footer id="info">
         <address>
             서울시 강남구 역삼동 119 대호빌딩 8층 <br>
             대표:cgh <br>

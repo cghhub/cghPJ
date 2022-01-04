@@ -3,7 +3,12 @@
 이것이전엔 아무것도 쓰면 안된다!! */
 
 /* 1. 상단영역 */
-header {
+#top {}
+
+/* 상단영역과 하단영역에 보더 넣기 */
+/* 선택자를 콤마(,)로 연걸->그룹선택자 */
+#top,
+#info {
     border: 1px solid silver;
     /* border: 두께 종류 색상; (두종색)
                 박스의 테두리 속성
@@ -28,16 +33,65 @@ header {
     background-color: #f5db9b;
 }
 
+/* 속성선택자[] */
+/* =정확히 일치 */
+/* ^=시작하는 문자 */
+/* $=끝나는 문자 */
+/* *=내용중 문자 */
+/* [href="722"]{} */
+[href^="http"] {
+    color: #222;
+    text-decoration: none;
+    /* a요소 기본값 변경하기 */
+}
+
+/* 마우스 오버시 밑줄 */
+[href^="http"]:hover {
+    text-decoration: underline;
+}
+
+/* 정치 주요뉴스에 사이 구분선 넣기 */
+/* li+li 앞에 li형제가 있는 형제li요소 선택 */
+/* +는 형제선택자 */
+.pnews li+li {
+    border-top: 4px dotted hotpink;
+}
+
+/* [href$="722"]{} */
+/* [href*="tp"]{} */
+
+/* 첫번째 li를 선택하기 */
+/* 마치 클래스를 준것 같다하여 가상클래스라고함! */
+/* .rnews li:first-child{ */
+/* .rnews li:nth-child(2){ */
+
+.rnews li:first-child {
+    font-size: 22px;
+}
+
+/* 랭킹뉴스에 사이 구분선 넣기 */
+/* 선택자~선택자 : 앞의 선택자 뒤의 형제요소 모두선택 */
+/* ~(틸드) 다중형제선택자 */
+.rnews li:first-child~li{
+    border-top: 4px dashed green;
+}
 /* 큰제목 */
-header h1 {
+#top h1 {
     color: #00e7e7;
     text-shadow: 2px 2px 2px #5a5a5a;
     /* 글자그림자
                 text-shadow: x축 y축 블러 색; */
 }
 
+/* 제목 일부 글자색변경 */
+/* .(점)은 클래스 선택자 */
+.fc {
+    color: red;
+}
+
 /* 메뉴 a요소 */
-nav a {
+/* 요소명.클래스명 - 종속선택자 */
+nav.gnb>a {
     color: #2c9105;
     /* 글자색 */
     text-decoration: none;
@@ -47,7 +101,7 @@ nav a {
 }
 
 /* 로고이미지 */
-nav img {
+nav.gnb img {
     vertical-align: -4px;
     /* 인라인요소간 세로정렬 */
 }
@@ -60,8 +114,9 @@ main {
     /* text-align: center; */
     /* 인라인요소 중앙정렬 */
 }
+
 /* 메인 문단 */
-main p{
+main p {
     /* font-style: italic; */
     /* 글자스타일 - 기본 normal */
 
@@ -70,7 +125,7 @@ main p{
 
     font-size: 17px;
     /* 글자크기 */
-    font-family: "굴림","궁서";
+    font-family: "굴림", "궁서";
     /* 글자체-여러글자체는 우선순위임(없으면 뒤에것이 나옴) */
     line-height: 1.4;
     /* 줄간격-숫자만 쓰면 글자크기의 배수
