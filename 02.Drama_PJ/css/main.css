@@ -60,7 +60,6 @@ h1.tit{
     border-radius: 10px;
     /* 테두리 둥근 모서리 */
    
-    background-color: red;
 }
 /* 두번째,네번째td (짝수)*/
 #drama td:nth-child(even){
