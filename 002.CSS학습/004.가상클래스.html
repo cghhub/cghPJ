@@ -88,9 +88,10 @@
         }
 
         /* 일반적으로 a요소 자체 디자인을 잡는다! */
-        h2 a{
+        h2 a {
             color: hotpink;
             text-decoration: none;
+            text-shadow: 2px 2px 2px #777;
         }
 
         /* :hover 마우스 오버상태 */
@@ -263,14 +264,27 @@
         }
 
         /* 두번째 div */
-        
+        .part2 div:nth-of-type(2){
+            font-size: 30px;
+            font-family: "궁서";
+            color: blueviolet;
+        }
 
         /* 첫번째 i */
-        
+        .part2 i:first-of-type{
+            font-size: 30px;
+            font-weight: bold;
+            color: #000;
+        }
        
 
         /* 3번째 div 이후 div형제요소 모두 */
-        
+        /* .part2 div:nth-of-type(3)~i{ 이후의 i태그만 */
+        /* .part2 div:nth-of-type(3)~*{ 이후의 모든 태그들 */
+        .part2 div:nth-of-type(3)~div{
+            font-family: "궁서";
+            color: red;
+        }
        
 
 
