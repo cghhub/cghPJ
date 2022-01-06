@@ -80,26 +80,42 @@
         /* a요소 가상클래스 주기 */
 
         /* :link 링크최초상태 */
-        /* h2 a:link{
+        h2 a:link{
             color: red;
             text-decoration: none;
-        } */
+            text-shadow: 2 2 2 #777;
+
+        }
 
         /* 일반적으로 a요소 자체 디자인을 잡는다! */
-        
+        h2 a{
+            color: hotpink;
+            text-decoration: none;
+        }
 
         /* :hover 마우스 오버상태 */
-        
+        h2 a:hover{
+            color: red;
+            text-decoration: overline;
+        }
        
 
         /* :active 마우스로 눌려진상태(클!) */
-        
+        /* h2 a:active{
+            color: hotpink;
+            text-decoration: none;
+            text-shadow: 2 2 2 #777;
+        } */
 
         /* :visited 링크 방문후(한번클릭후) */
-        
+        /* h2 a:visited{
+            color: blue;
+        } */
 
         /* :focus 요소를 클릭하여 초점이 올때 */
-        
+        h2 a:focus{
+            outline: 10px dotted orange;
+        }
         
 
         /* 시인이름 */
@@ -137,10 +153,18 @@
         }
 
         /* 1번 li */
-        
+        .part1 li:first-child:hover{
+            font-size: 40px;
+            color: red;
+        }
 
         /* 오버시(:hover) */        
-        
+        .part1 li:nth-child(2){
+            font-size: 30px;
+            font-family: "굴림";
+            color: lightcoral;
+            font-weight: bold;
+        }
 
         /* 2번째 li */
        
@@ -148,33 +172,71 @@
         
         
         /* 3번째 li */
-        
+        .part1 li:nth-child(3){
+            font-size: 24px;
+            font-family: "굴림";
+            color: lightcoral;
+            font-weight: bold;
+            font-weight: bold;
+            font-style: italic;
+        }
         
         /* 오버시 */
-        
+        .part1 li:nth-child(3):hover{
+            font-style: normal;
+        }
         
 
         /* 4번째 li */
-        
+        .part li:nth-child(4){
+            font-size: 50px;
+            font-family: "궁서";
+            color: dodgerblue;
+        }
 
         /* 처음에 한글(b태그)숨기기 */
-        
+        .part li:nth-child(4) b {
+            display: none;
+        }
 
         /* 오버시 한글(b태그)보이고 한자(span태그)숨기기 */
-        
+        .part li:nth-child(4):hover b {
+            display: inline;
+            /* 원래 display로 */
+        }
+        .part li:nth-child(4):hover span {
+            display: none;
+        }
+            /* 한자숨기기 */
 
         /* 오버시 li에 노란배경색 */
-        
+        .part li:nth-child(4):hover {
+            background-color: #ff0;
+        }
 
         /* 4번 이후 모든 li 전부셋팅 */
         /* 틸드(~)를 사용한 다중형제 요소 선택 */
-       
+        .part li:nth-child(4)~li{
+            font-size: 25px;
+            font-family: "궁서";
+            color: orange;
+
+        }
 
         /* 오버시 */
-        
+        .part li:nth-child(4)~li:hover{
+            font-size: 28px;
+            font-family: "궁서";
+            color: blue;
+
+        }
 
         /* 마지막 li */
-       
+        body .part1 li:last-child{
+        font-size: 40px;
+        font-family: "맑은 고딕";
+        color: coral;
+    }
         /* 
             틸드(~)를 사용한 CSS가 한단계 더 선택하여서
             우선 순위가 높으므로 이것보다 우선순위를 
