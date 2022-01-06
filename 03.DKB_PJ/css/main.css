@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 /* 도깨비 PJ메인 CSS - main.css */
+
 /* 기본리셋 */
 html,
 body {
@@ -17,6 +18,26 @@ h4 {
     font-size: 100%;
     /* 글자크기가 100%는 기본글자크기에 맞춤(16px) */
 }
+/* 공통 class */
+
+/* 스크롤바 디자인 class */
+/* -webkit- 벤더사명(크롬,사파리) 접두어 */
+.scbar::-webkit-scrollbar{
+    /* 전체 스크롤바 크기변경 */
+    width: 7px;
+}
+.scbar::-webkit-scrollbar-thumb{
+    /* 스크롤바 */
+    background-color: #666;
+    border-radius:5px;
+}
+.scbar::-webkit-scrollbar-track{
+    /* 스크롤바 트랙 */
+    background-color: #ddd;
+    border-radius: 5
+    ;
+}
+
 
 /* 공사중 박스표시 */
 /* 별표시(*)는 모든 요소를 선택함! */
@@ -39,8 +60,8 @@ height값을 설정하지 않으면
 body {
      /* 배경: 색이반고윙/크 */
      background: 
-     url(../images/bg_mainvisual.jpg); no-repeat fixed 10% 30%.10%,
-     url(../images/bg_mainvisual.jpg); no-repeat fixed center/cover;
+     url(../images/bg_logo_a_01.png) no-repeat fixed 10% 30% 10%,
+     url(../images/bg_mainvisual.jpg)    no-repeat fixed center/cover;
      /* 첫번째 배경이미지가 위! 10% 30% 위치값 슬래쉬(/)뒤가 가로크기 10% */
     /* 1.배경색 */
     /* background-color: #b3b3b3; */
@@ -75,12 +96,28 @@ body {
 /********* 2.메인영역 *********/
 .cont {
     height: 800px;
+    overflow:hidden;
+    /* 자식요소 마진탑 포함셋팅! */
 }
 /* 캐릭터박스 */
 #cbx{
     width: 90%;
     margin: 0 auto;
     /* 마영오! - 블록가로중앙 */
+    margin-top: 400px;
+    /* 
+        자식요소 블럭박스에 마진탑을 줄경우
+        부모박스 바깥으로 마진값이 나가게 된가!(기본특성)
+        ->마진탑을 부모박스 내부로 포함시키는 방법은?
+        ->overflow:hidden
+        ->만약 위의 숨김속성을 쓸수 없을 경우엔
+        부모박스의 패딩탑으로 밀고 보더박스 처리해서
+        크기가 커지지 않게 한다!
+        부모요소{
+            padding-top: 몇px;
+            box-sizing: border-box
+        }
+    */
 }
 
 /* 가상요소로 clear:both  */
@@ -96,7 +133,13 @@ body {
 /* 캐릭터박스 공통 */
 .cat{
     /* 4등분 가로 크기%는?  25% */
-    width: 25%;
+    width: 24%;
+    margin: 0 .5%;
+    /* 양쪽마진은 합해서 1% 가로폭 25%에 맞춤! */
+    /* margin:0 .5%;
+    마진:위아래 0, 양쪽 0.5%
+    0.몇 수치일때 앞의 0은 자주 생략된다! */
+    /* 패딩 때문에 박스가 커지는것을 방지! 크기유지! */
     float: left;
     /* 블록요소를 옆으로 흘러가게 하는 속성은?
     float속성
@@ -116,7 +159,14 @@ body {
         맨뒤 추가 가상요소는 ::after
     */
 }
-
+/* 캐릭터 이미지 박스 */
+.ci{
+    transition: margin-top .6s ease-out;
+}
+/* 마우스 오버시 */
+.cat:hover .ci{
+    margin-top: -60%;
+}
 
 /* 캐릭터 이미지 */
 .ci>img{
@@ -124,6 +174,73 @@ body {
     /* 이미지는 가로나 세로중 하나만 설정하면
     나머지는 자동으로 비율유지로 변경한다! */
 }
+/* 캐릭터 이름박스 */
+.ci span{
+    display: block;
+    /* 블록으로 변경해서 부모박스 끝까지 차지함! */
+    text-align: center;
+    /* 인라인요소 중앙정렬 */
+    margin-top: -21%;
+    /* 비율로 이미지가 변경되므로 마진도 상대적으로 변경해야 위치가 일정하다! */
+}
+/* 케릭터 이름 이미지 */
+.ci span img{
+    width: 40%;
+}
+/* 캐릭터 이름 첫번째 이미지 숨기기 */
+.ci span img:first-child{
+    display: none;
+}
+/* .cat박스에 마우스 오버시 */
+/* 캐릭터 이름 첫번째 이미지 보이기 */
+.cat:hover .ci span img:first-child{
+    display: inline;
+}
+/* 캐릭터 이름 첫번째 이미지 보이기 */
+.cat:hover .ci span img:last-child{
+    display: none;
+}
+
+/* 캐릭터 설명 박스 */
+.cd{
+    height: 0;
+    /* .cat 오버시 250px로 높이값이 변경! */
+    overflow-y: scroll;
+    /* y축 스크롤만 생겨서 넘치는 자식요소 보이기 */
+    background: url(../images/eachBG.jpg) no-repeat center/cover;
+    margin-top: 15px;
+    border-radius: 20PX 0 0 20PX;
+    /* 
+        둥근모서리 방향별주기:왼쪽위부터 시계방향
+        왼위 오른위 오른아래 왼아래
+        (하나의 값을 쓰면 4방향)
+        w3schools 참고
+
+    */
+    /* 트랜지션 : 속성 시간 이징 지연시간*/
+    transition: height .6s ease-out;
+}
+/* 오버시 높이값 변경! */
+.cat:hover .cd{
+    height: 250px;
+}
+/* 캐릭터 설명 타이틀 */
+.cd h3{
+    font-size: 24px;
+    font-weight: normal;
+    padding: 5xp 10px 0;
+    /* 패딩:위5px, 양쪽10px, 아래0 */
+}
+
+/* 캐릭터 설명 문단 */
+.cd p{
+    font-size: 20px;
+    line-height: 1.7;
+    padding: 10px;
+    text-align: justify;
+    /* 양쪽정렬 */
+}
+
 /********* 3.하단영역 *********/
 .info {
     height: 240px;
