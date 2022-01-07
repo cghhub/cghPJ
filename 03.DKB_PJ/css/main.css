@@ -2,6 +2,13 @@
 
 /* 도깨비 PJ메인 CSS - main.css */
 
+/* 웹폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Stylish&display=swap');
+/* 
+    font-family: 'Gamja Flower', cursive;
+font-family: 'Stylish', sans-serif;
+*/
+
 /* 기본리셋 */
 html,
 body {
@@ -18,24 +25,26 @@ h4 {
     font-size: 100%;
     /* 글자크기가 100%는 기본글자크기에 맞춤(16px) */
 }
+
 /* 공통 class */
 
 /* 스크롤바 디자인 class */
 /* -webkit- 벤더사명(크롬,사파리) 접두어 */
-.scbar::-webkit-scrollbar{
+.scbar::-webkit-scrollbar {
     /* 전체 스크롤바 크기변경 */
     width: 7px;
 }
-.scbar::-webkit-scrollbar-thumb{
+
+.scbar::-webkit-scrollbar-thumb {
     /* 스크롤바 */
     background-color: #666;
-    border-radius:5px;
+    border-radius: 5px;
 }
-.scbar::-webkit-scrollbar-track{
+
+.scbar::-webkit-scrollbar-track {
     /* 스크롤바 트랙 */
     background-color: #ddd;
-    border-radius: 5
-    ;
+    border-radius: 5;
 }
 
 
@@ -58,11 +67,11 @@ height값을 설정하지 않으면
 
 /* 전체배경넣기 */
 body {
-     /* 배경: 색이반고윙/크 */
-     background: 
-     url(../images/bg_logo_a_01.png) no-repeat fixed 10% 30%/10% auto,
-     url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover;
-     /* 첫번째 배경이미지가 위! 10% 30% 위치값 슬래쉬(/)뒤가 가로크기 10% */
+    /* 배경: 색이반고윙/크 */
+    background:
+        url(../images/bg_logo_a_01.png) no-repeat fixed 10% 30%/10% auto,
+        url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover;
+    /* 첫번째 배경이미지가 위! 10% 30% 위치값 슬래쉬(/)뒤가 가로크기 10% */
     /* 1.배경색 */
     /* background-color: #b3b3b3; */
     /* 2.배경이미지 */
@@ -91,16 +100,55 @@ body {
 /********* 1.상단영역 *********/
 .top {
     height: 124px;
+    background-color: #fff;
 }
-
+/* 로고박스 */
+#logo{
+    padding: 20px;
+    text-align: center;
+}
+#logo img{
+    width: 100px;
+}
+/* gnb 메뉴 */
+.gnb{
+    width: 574px;
+    margin: 0 auto;
+    /* 크기를 가지느 블록박스 중앙정렬 - 마영오 */
+    font-family: 'Nanum Gothic', sans-serif;
+}
+.gnb>ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* 3無 */
+}
+/* 가상요소 clear */
+.gnb>ul::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.gnb>ul>li>a{
+    float: left;
+}
+.gnb>ul>li>a{
+    color: #222;
+    padding: 0 15px;
+    line-height: 39px;
+    text-decoration: none;
+    font-size: 17px;
+}
+/* 가상요소로 clear */
 /********* 2.메인영역 *********/
 .cont {
     height: 800px;
-    overflow:hidden;
+    overflow: hidden;
     /* 자식요소 마진탑 포함셋팅! */
 }
+
 /* 캐릭터박스 */
-#cbx{
+#cbx {
     width: 90%;
     margin: 0 auto;
     /* 마영오! - 블록가로중앙 */
@@ -121,7 +169,7 @@ body {
 }
 
 /* 가상요소로 clear:both  */
-#cbx::after{
+#cbx::after {
     content: '';
     /* 빈content속서은 마치 span 태그를 쓴것 같다~! */
     display: block;
@@ -131,7 +179,7 @@ body {
 }
 
 /* 캐릭터박스 공통 */
-.cat{
+.cat {
     /* 4등분 가로 크기%는?  25% */
     width: 24%;
     margin: 0 .5%;
@@ -159,23 +207,26 @@ body {
         맨뒤 추가 가상요소는 ::after
     */
 }
+
 /* 캐릭터 이미지 박스 */
-.ci{
+.ci {
     transition: margin-top .6s ease-out;
 }
+
 /* 마우스 오버시 */
-.cat:hover .ci{
+.cat:hover .ci {
     margin-top: -60%;
 }
 
 /* 캐릭터 이미지 */
-.ci>img{
+.ci>img {
     width: 100%;
     /* 이미지는 가로나 세로중 하나만 설정하면
     나머지는 자동으로 비율유지로 변경한다! */
 }
+
 /* 캐릭터 이름박스 */
-.ci span{
+.ci span {
     display: block;
     /* 블록으로 변경해서 부모박스 끝까지 차지함! */
     text-align: center;
@@ -183,26 +234,31 @@ body {
     margin-top: -21%;
     /* 비율로 이미지가 변경되므로 마진도 상대적으로 변경해야 위치가 일정하다! */
 }
+
 /* 케릭터 이름 이미지 */
-.ci span img{
+.ci span img {
     width: 40%;
 }
+
 /* 캐릭터 이름 첫번째 이미지 숨기기 */
-.ci span img:first-child{
+.ci span img:first-child {
     display: none;
 }
+
 /* .cat박스에 마우스 오버시 */
 /* 캐릭터 이름 첫번째 이미지 보이기 */
-.cat:hover .ci span img:first-child{
+.cat:hover .ci span img:first-child {
     display: inline;
 }
+
 /* 캐릭터 이름 첫번째 이미지 보이기 */
-.cat:hover .ci span img:last-child{
+.cat:hover .ci span img:last-child {
     display: none;
 }
 
 /* 캐릭터 설명 박스 */
-.cd{
+.cd {
+
     height: 0;
     /* .cat 오버시 250px로 높이값이 변경! */
     overflow-y: scroll;
@@ -220,21 +276,26 @@ body {
     /* 트랜지션 : 속성 시간 이징 지연시간*/
     transition: height .6s ease-out;
 }
+
 /* 오버시 높이값 변경! */
-.cat:hover .cd{
+.cat:hover .cd {
     height: 250px;
 }
+
 /* 캐릭터 설명 타이틀 */
-.cd h3{
-    font-size: 24px;
+.cd h3 {
+    font-family: 'Gamja Flower', cursive;
+    font-size: 2vw;
     font-weight: normal;
-    padding: 5xp 10px 0;
+    padding: 5px 10px 0;
     /* 패딩:위5px, 양쪽10px, 아래0 */
+    white-space: nowrap;
 }
 
 /* 캐릭터 설명 문단 */
-.cd p{
-    font-size: 20px;
+.cd p {
+    font-family: 'Stylish', sans-serif;
+    font-size: min(1.4vw,17px);
     line-height: 1.7;
     padding: 10px;
     text-align: justify;
@@ -243,5 +304,68 @@ body {
 
 /********* 3.하단영역 *********/
 .info {
-    height: 240px;
+    /* height:240px; */
+    /* 높이값을 주지 않으면 auto가 되어 내용만큼 늘어남 */
+    padding: 15px;
+    background-color: rgba(238, 238, 238 0.7);
+}
+
+.blink{
+    width: 804px;
+    margin: 0 auto;
+    /* 크기를 가지는 블랙박스 마영오! */
+}
+/* 하단링크 */
+.bl1nk>ul{
+    margin: 0;
+    padding: 0;
+    letter-spacing: normal;
+    /* 3無 */
+}
+
+/* 가상요소로 clear */
+.blink>ul::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.blink>ul>li{
+    float: left;
+}
+
+/* 메뉴 a링크 */
+.blink>ul>li>a{
+    color: #222;
+    text-decoration: none;
+    padding: 0 15px;
+    line-height: 39px;
+    font-size: 14px;
+    font-weight: bold;
+
+}
+
+/* 메뉴 a링크 오버시 */
+.blink>ul>li>a:hover{
+    color: red;
+    text-decoration: underline;
+}
+
+/* 회사주소박스 */
+.addr{
+    width: 804px;
+    margin: 0 auto;
+    border: 4px double #222;
+    padding: 10px;
+    /* 크기유지-보더,패딩포함! */
+    text-align: center;
+    font-style: normal;
+    /* 기본 이탤릭해제! */
+    font-size: 14px;
+    line-height: 2;
+}
+/* 하단로고 박스 */
+.blogo{
+    text-align: center;
+    /* 인라인요소 중앙정렬 */
 }
