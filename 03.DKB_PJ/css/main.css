@@ -112,7 +112,7 @@ body {
 }
 /* gnb 메뉴 */
 .gnb{
-    width: 574px;
+    width: 600px;
     margin: 0 auto;
     /* 크기를 가지느 블록박스 중앙정렬 - 마영오 */
     font-family: 'Nanum Gothic', sans-serif;
@@ -129,7 +129,7 @@ body {
     display: block;
     clear: both;
 }
-.gnb>ul>li>a{
+.gnb>ul>li{
     float: left;
 }
 .gnb>ul>li>a{
@@ -285,9 +285,9 @@ body {
 /* 캐릭터 설명 타이틀 */
 .cd h3 {
     font-family: 'Gamja Flower', cursive;
-    font-size: 2vw;
+    font-size: min(2vw,30px);
     font-weight: normal;
-    padding: 5px 10px 0;
+    padding: 1vw 1.7vw 0;
     /* 패딩:위5px, 양쪽10px, 아래0 */
     white-space: nowrap;
 }
@@ -297,7 +297,7 @@ body {
     font-family: 'Stylish', sans-serif;
     font-size: min(1.4vw,17px);
     line-height: 1.7;
-    padding: 10px;
+    padding: 1vw;
     text-align: justify;
     /* 양쪽정렬 */
 }
@@ -311,15 +311,15 @@ body {
 }
 
 .blink{
-    width: 804px;
+    width: 800px;
     margin: 0 auto;
     /* 크기를 가지는 블랙박스 마영오! */
 }
 /* 하단링크 */
-.bl1nk>ul{
+.blink>ul{
     margin: 0;
     padding: 0;
-    letter-spacing: normal;
+    list-style: none;
     /* 3無 */
 }
 
@@ -338,7 +338,7 @@ body {
 .blink>ul>li>a{
     color: #222;
     text-decoration: none;
-    padding: 0 15px;
+    padding: 0 11px;
     line-height: 39px;
     font-size: 14px;
     font-weight: bold;
@@ -354,9 +354,10 @@ body {
 /* 회사주소박스 */
 .addr{
     width: 804px;
-    margin: 0 auto;
+    margin: 10px auto;
     border: 4px double #222;
     padding: 10px;
+    box-sizing: border-box;
     /* 크기유지-보더,패딩포함! */
     text-align: center;
     font-style: normal;
