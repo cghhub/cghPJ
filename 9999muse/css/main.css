@@ -50,7 +50,7 @@ h4 {
 
 /* 공사중 박스표시 */
 /* 별표시(*)는 모든 요소를 선택함! */
-body * {
+body *{
     /* outline: 2px dashed #a19d9d; */
     /* 외곽선(아웃라인)속성
     -주변에 영향없이 테두리를 표시함
@@ -70,7 +70,7 @@ body {
     /* 배경: 색이반고윙/크 */
     background:
         url(../images/bg_logo_a_01.png) no-repeat fixed 10% 30%/10% auto,
-        url(../images/bgv.gif) no-repeat fixed center/cover;
+        url(../images/bgv2.gif) no-repeat fixed center/cover;
     /* 첫번째 배경이미지가 위! 10% 30% 위치값 슬래쉬(/)뒤가 가로크기 10% */
     /* 1.배경색 */
     /* background-color: #b3b3b3; */
@@ -98,17 +98,17 @@ body {
 }
 
 /********* 1.상단영역 *********/
-.top {
+/* .top {
     height: 124px;
     background-color: #fff;
-}
+} */
 /* 로고박스 */
 #logo{
-    padding: 20px;
+    padding: 40px;
     text-align: center;
 }
 #logo img{
-    width: 80px;
+    width: 20%;
 }
 /* gnb 메뉴 */
 .gnb{
@@ -132,8 +132,12 @@ body {
 .gnb>ul>li{
     float: left;
 }
+.gnb>ul>li:hover{
+    text-decoration-line: underline;
+}
+
 .gnb>ul>li>a{
-    color: #222;
+    color: gray;
     padding: 0 15px;
     line-height: 39px;
     text-decoration: none;
@@ -142,7 +146,7 @@ body {
 /* 가상요소로 clear */
 /********* 2.메인영역 *********/
 .cont {
-    height: 800px;
+    height: 700px;
     overflow: hidden;
     /* 자식요소 마진탑 포함셋팅! */
 }
@@ -152,7 +156,7 @@ body {
     width: 50%;
     margin: 0 auto;
     /* 마영오! - 블록가로중앙 */
-    margin-top: 200px;
+    margin-top: 120px;
     /* 
         자식요소 블럭박스에 마진탑을 줄경우
         부모박스 바깥으로 마진값이 나가게 된가!(기본특성)
@@ -290,13 +294,13 @@ body {
     font-family: 'Gamja Flower', cursive;
     font-size: min(2vw,20px);
     font-weight: normal;
-    padding: 1vw 1.7vw 0;
+    padding: 1vw 1vw 0;
     /* 패딩:위5px, 양쪽10px, 아래0 */
     white-space: nowrap;
 }
 
 /* 캐릭터 설명 문단 */
-.cd p {
+.cd ol {
     color: #fff;
     font-family: 'Stylish', sans-serif;
     font-size: min(1.4vw,17px);
@@ -340,7 +344,7 @@ body {
 
 /* 메뉴 a링크 */
 .blink>ul>li>a{
-    color: #222;
+    color: gray;
     text-decoration: none;
     padding: 0 11px;
     line-height: 39px;
@@ -359,7 +363,7 @@ body {
 .addr{
     width: 804px;
     margin: 10px auto;
-    border: 4px double #222;
+    border: 4px double gray;
     padding: 10px;
     box-sizing: border-box;
     /* 크기유지-보더,패딩포함! */
@@ -369,6 +373,12 @@ body {
     font-size: 14px;
     line-height: 2;
 }
+
+.addr p{
+    color: gray;
+}
+
+
 /* 하단로고 박스 */
 .blogo{
     text-align: center;
