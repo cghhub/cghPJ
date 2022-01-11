@@ -97,33 +97,37 @@
 
         #r1 {
             position: relative;
+            top: 50px;
+            left: 50px;
+            z-index: 1;
+
             color: #fff;
             background: url(./ab_img/ab5.jpg) no-repeat center;
 
-        }
+        }   
 
         #r2 {
-            color: #fff;
-            background: url(./ab_img/ab5.jpg) no-repeat center/cover;
             position: relative;
             bottom: 75px;
             right: -86px;
-
+            
             /* z-index값을 마이너스 주면 static보다 아래! */
+            color: #fff;
+            background: url(./ab_img/ab5.jpg) no-repeat center/cover;
         }
 
         #a2 {
             position: absolute;
-            bottom: 0;
+            top: 0;
             right: 0;
-            /* 나의 보모는? 보이는 화면(window) */
+            /* 나의 부모는? 보이는 화면(window) */
 
             color: #fff;
             background: url(./ab_img/ab5.jpg) no-repeat center/cover;
 
 
         }
-
+        /* 앱솔루트를 싸고있는 요소공통 */
         .bx2 {
             border: 2px dotted orange;
             padding: 50px;
@@ -138,11 +142,11 @@
         /* 젠틀앱솔루트! */
         .a3 {
             position: absolute;
+            /* 스테틱요소 안에 가만히 있음! - 위치값 없음! */
             width: 50px;
             height: 50px;
             color: #fff;
             background: url(./ab_img/ab5.jpg) no-repeat center/cover;
-            /* 스테틱요소 안에 가만히 있음! - 위치값 없음! */
 
         }
 
@@ -153,7 +157,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            /* 나의 부모는  */
+            /* 나의 부모는  static이 아닌 포지션을 가진 가상요소중 선택*/
 
 
 
@@ -170,7 +174,7 @@
         }
 
         .s5{
-            /* position: relative; */
+            position: relative;
             background: rgb(136, 74, 74);
         }
         .s6{
