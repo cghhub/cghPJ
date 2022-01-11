@@ -24,7 +24,7 @@ body {
 
 /* 전체제목 */
 .tit {
-    font-family: 'monoton'cursive;
+    font-family: 'Monoton', cursive;
     font-size: 70px;
     text-align: center;
     color: #fff;
@@ -66,9 +66,19 @@ body {
 /* 케릭터 각 박스 공통 */
 .abg>div{
     position: absolute;
-    top: 0;
-    left: 0;
+    /* 자식요소 .cat에 대한 부모자격도 있음! */
+    top: 128px;
+    left: 105px;
     /* 부모는? .abg */
+    opacity: 0;
+    /* 투명 */
+
+    /* 트랜지션:속시이지 */
+    transition: all 2s ease-in-out;
+    /* 
+        트랜지션 애니매이션은 top,left,opactiy 세가지를 적용함!
+    */
+    
 }
 /* 캐릭터 이미지 공통 */
 .abg>div>img{
@@ -76,4 +86,74 @@ body {
     box-shadow: 0 0 20px 1px yellow;
     /* box-shadow: x y blur spread color */
     /* 박스그림자를 밝은 색으로 주면 글로우효과를 줄수 있음! */
+}
+
+/* 공통설명박스 */
+.cat{
+    position: absolute;
+    top: 70px;
+    /* 부모는? .abs>div */
+    opacity: 0;
+    font-family: 'Single Day', cursive;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+
+    width: 300px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.515);
+
+    transition: all .6s ease-in-out;
+
+}
+
+/* 케릭터박스에 오버시 설명보이기 */
+.abg>div:hover .cat{
+    top: 0;
+    opacity: 1;
+}
+
+/* 설명박스 오른쪽 클래스 */
+.rtxt{
+    left: 120%;
+}
+/*  설명박스 외쪽 클래스 */
+.ltxt{
+    right: 120%;
+}
+
+
+/* 캐릭터별 위치값 */
+/* 1.아이언맨 */
+body:hover .abg>div:first-child{
+    top: -99px;
+    left: -99px;
+
+}
+/* 2.타노스 */
+body:hover .abg>div:nth-child(1){
+    top: -99px;
+    left: -99px;
+
+}
+/* 2.타노스 */
+body:hover .abg>div:nth-child(2) {
+    top: 188px;
+    left: -99px;
+}
+/* 3.토르 */
+body:hover .abg>div:nth-child(3) {
+    top: 417px;
+    left: 82px;
+}
+/*트레인져 */
+body:hover .abg>div:nth-child(4) {
+    top: 292px;
+    left: 299px;
+}
+/* 5.스타로드 */
+body:hover .abg>div:last-child {
+    top: -107px;
+    left: 283px;
 }
