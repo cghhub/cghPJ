@@ -50,14 +50,14 @@ h4 {
 
 /* 공사중 박스표시 */
 /* 별표시(*)는 모든 요소를 선택함! */
-body * {
+/* body * {
     outline: 2px dashed #a19d9d;
-    /* 외곽선(아웃라인)속성
-    -주변에 영향없이 테두리를 표시함
-    -임시표시하거나 포커스표시 등으로 사용
-    -박스모델에는 포함되지 않음!
-    outline: 두깨 종류 색상; */
-}
+} */
+/* 외곽선(아웃라인)속성
+-주변에 영향없이 테두리를 표시함
+-임시표시하거나 포커스표시 등으로 사용
+-박스모델에는 포함되지 않음!
+outline: 두깨 종류 색상; */
 
 /* 기본적으로 block요소는
 width:auto 로 설정되어서
@@ -99,49 +99,162 @@ body {
 
 /********* 1.상단영역 *********/
 .top {
-    height: 124px;
+    position: relative;
+    /* z-index를 적용하기 위해 relative사용! */
     background-color: #fff;
+    border-bottom: 1px solid silver;
+    z-index: 999;
+    height: 124px;
 }
+
 /* 로고박스 */
-#logo{
+#logo {
     padding: 20px;
     text-align: center;
 }
-#logo img{
+
+#logo img {
     width: 100px;
 }
+
 /* gnb 메뉴 */
-.gnb{
+.gnb {
     width: 600px;
     margin: 0 auto;
     /* 크기를 가지느 블록박스 중앙정렬 - 마영오 */
     font-family: 'Nanum Gothic', sans-serif;
 }
-.gnb>ul{
+
+.gnb>ul {
     margin: 0;
     padding: 0;
     list-style: none;
     /* 3無 */
 }
+
 /* 가상요소 clear */
-.gnb>ul::after{
+.gnb>ul::after {
     content: '';
     display: block;
     clear: both;
 }
-.gnb>ul>li{
+
+.gnb>ul>li {
     float: left;
 }
-.gnb>ul>li>a{
+
+.gnb>ul>li:hover>a {
+    border-bottom: 2px solid red;
+
+}
+.gnb>ul>li>a {
     color: #222;
     padding: 0 15px;
-    line-height: 39px;
+    line-height: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    /* 오버시 생기는 보더가 내부에 포함(크기유지) */
     text-decoration: none;
     font-size: 17px;
+    display: block;
 }
+
+/* 서브메뉴 */
+.smenu {
+    position: absolute;
+    /* 젠틀앱솔루트 */
+    z-index: 1;
+    height: 0;
+    overflow: hidden;
+    /* 서브메뉴 숨기기 */
+
+    /* 트랜지션:속시이지 */
+    transition: height .4s ease-out;
+}
+
+.smenu ol {
+    margin: 0;
+    padding: 10px 0;
+    margin-top: 1px;
+    /* 상단영역 최상위부모(.top) 하단보더를 보이게 하기위해
+    마진탑만 1px이동함!*/
+    list-style: none;
+    background-color: #fff;
+}
+
+.smenu a {
+    padding: 0 15px;
+    line-height: 30px;
+    font-size: 14px;
+
+    /* a요소 필수설정-글자색,밑줄없앰 */
+    color: #222;
+    text-decoration: none;
+}
+
+/* 서브메뉴 100%배경박스 가상요소 만들기! */
+.gnb>ul>li::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    /* 부모는? .top(z-index때문에 relative를 줘서 이제 부모다!) */
+    margin-top: 1px;
+    /* 최외곽박스(top)의 하단보더가 1px보이게 하기위해
+    top대신 margin-top 으로 이동하여 보이게 한다! top은 젠틀앱솔루투이기
+    때문에 설정하기가 어렵다!!! */
+    width: 100%;
+    /* 앱솔루투의 크기가 %일 경우 부모자격요소를 기준한다 */
+    /* 처음에 안보임! */
+    height: 0;
+    background-color: white;
+    /* 트랜지션:속시이지 */
+    transition: height .4s ease-out;
+}
+
+/* 상위메뉴 오버시 서브메뉴 보이기 */
+/* 
+    서브메뉴와 상위li의 가상요소로 만든 서브배경을 같은 높이값으로
+    애니메이션하기+하단빨간색 보더 적용하기
+    +
+*/
+/* 1번째 메뉴 */
+.gnb>ul>li:first-child:hover .smenu,
+.gnb>ul>li:first-child:hover::after {
+    height: 110px;
+    
+}
+
+/* 3번째 메뉴 */
+.gnb>ul>li:nth-child(3):hover .smenu,
+.gnb>ul>li:nth-child(3):hover::after {
+    height: 140px;
+     
+}
+/* 4번째 메뉴 */
+.gnb>ul>li:nth-child(4):hover .smenu,
+.gnb>ul>li:nth-child(4):hover::after {
+     
+    height: 80px;
+}
+
+/* 2번째 메뉴 */
+/* 3번째 메뉴 */
+/* 4번째 메뉴 */
+
+/* 하단보더처리 */
+.gnb>ul>li:first-child:hover::after,
+.gnb>ul>li:nth-child(3):hover::after,
+.gnb>ul>li:nth-child(4):hover::after{
+border-bottom: 2px solid red;
+}
+
+
 /* 가상요소로 clear */
 /********* 2.메인영역 *********/
 .cont {
+    position: relative;
+    /* 부모자격! */
     height: 800px;
     overflow: hidden;
     /* 자식요소 마진탑 포함셋팅! */
@@ -285,7 +398,7 @@ body {
 /* 캐릭터 설명 타이틀 */
 .cd h3 {
     font-family: 'Gamja Flower', cursive;
-    font-size: min(2vw,30px);
+    font-size: min(2vw, 30px);
     font-weight: normal;
     padding: 1vw 1.7vw 0;
     /* 패딩:위5px, 양쪽10px, 아래0 */
@@ -295,13 +408,27 @@ body {
 /* 캐릭터 설명 문단 */
 .cd p {
     font-family: 'Stylish', sans-serif;
-    font-size: min(1.4vw,17px);
+    font-size: min(1.4vw, 17px);
     line-height: 1.7;
     padding: 1vw;
     text-align: justify;
     /* 양쪽정렬 */
 }
 
+/* 오프닝 문구박스 */
+.optxt{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    /* 부모는? #cont */
+    opacity: 0;
+
+    /* 트랜렌션:속시이지 */
+    transition: opacity 2s ease-in-out 1s;
+}
+body:hover .optxt{
+    opacity: 1;
+}
 /********* 3.하단영역 *********/
 .info {
     /* height:240px; */
@@ -310,13 +437,14 @@ body {
     background-color: rgba(238, 238, 238 0.7);
 }
 
-.blink{
+.blink {
     width: 800px;
     margin: 0 auto;
     /* 크기를 가지는 블랙박스 마영오! */
 }
+
 /* 하단링크 */
-.blink>ul{
+.blink>ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -324,18 +452,18 @@ body {
 }
 
 /* 가상요소로 clear */
-.blink>ul::after{
+.blink>ul::after {
     content: '';
     display: block;
     clear: both;
 }
 
-.blink>ul>li{
+.blink>ul>li {
     float: left;
 }
 
 /* 메뉴 a링크 */
-.blink>ul>li>a{
+.blink>ul>li>a {
     color: #222;
     text-decoration: none;
     padding: 0 11px;
@@ -346,13 +474,13 @@ body {
 }
 
 /* 메뉴 a링크 오버시 */
-.blink>ul>li>a:hover{
+.blink>ul>li>a:hover {
     color: red;
     text-decoration: underline;
 }
 
 /* 회사주소박스 */
-.addr{
+.addr {
     width: 804px;
     margin: 10px auto;
     border: 4px double #222;
@@ -365,8 +493,9 @@ body {
     font-size: 14px;
     line-height: 2;
 }
+
 /* 하단로고 박스 */
-.blogo{
+.blogo {
     text-align: center;
     /* 인라인요소 중앙정렬 */
 }

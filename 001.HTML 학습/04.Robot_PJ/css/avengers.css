@@ -43,7 +43,7 @@ body {
     /* height가 400xp이므로 절반인 200px을 빼서 이동 */
     left: calc(50% - 150px);
     /* width가 300px 이므로 절반인 150px를 빼서 이동 */
-    
+
     /*15
        정중앙 이동원리:위치값을 top, left 각각 50%를 이동후
         자신의 가로크기의 절반을 left값에서 빼고
@@ -61,10 +61,22 @@ body {
     border-radius: 50%;
     /* 원형 */
     background: url(../ab_img/ab0.jpg) no-repeat center/cover;
+
+    box-shadow: 0px 5px 5px 2px cyan;
+    /*  */
+    /* box-shadow :inset hoff voff blue color;
+    박스그림자: inset(내부그림자)
+                hoff(x축이동값)
+                voff(y축이동값)
+                blue(경계선흐림)
+                spread(그림자크기) - 안쓰면 같은크기
+                color(그림자색) */
+
+    transition: all .6s ease-in-out;
 }
 
 /* 케릭터 각 박스 공통 */
-.abg>div{
+.abg>div {
     position: absolute;
     /* 자식요소 .cat에 대한 부모자격도 있음! */
     top: 128px;
@@ -78,10 +90,11 @@ body {
     /* 
         트랜지션 애니매이션은 top,left,opactiy 세가지를 적용함!
     */
-    
+
 }
+
 /* 캐릭터 이미지 공통 */
-.abg>div>img{
+.abg>div>img {
     border-radius: 50%;
     box-shadow: 0 0 20px 1px yellow;
     /* box-shadow: x y blur spread color */
@@ -89,7 +102,7 @@ body {
 }
 
 /* 공통설명박스 */
-.cat{
+.cat {
     position: absolute;
     top: 70px;
     /* 부모는? .abs>div */
@@ -104,54 +117,68 @@ body {
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.515);
 
-    transition: all .6s ease-in-out;
+
 
 }
 
 /* 케릭터박스에 오버시 설명보이기 */
-.abg>div:hover .cat{
+.abg>div:hover .cat {
     top: 0;
     opacity: 1;
 }
 
 /* 설명박스 오른쪽 클래스 */
-.rtxt{
+.rtxt {
     left: 120%;
 }
+
 /*  설명박스 외쪽 클래스 */
-.ltxt{
+.ltxt {
     right: 120%;
 }
+.ltxt h2{
+    text-align: right;
+    /* 설명제목 오른쪽 정렬 */
+}
 
+/* body에 오버시 캐릭터박스 opacity */
+body:hover .abg>div{
+    opacity: 1;
+}
 
 /* 캐릭터별 위치값 */
 /* 1.아이언맨 */
-body:hover .abg>div:first-child{
+body:hover .abg>div:first-child {
     top: -99px;
     left: -99px;
 
 }
+
 /* 2.타노스 */
-body:hover .abg>div:nth-child(1){
+body:hover .abg>div:nth-child(1) {
     top: -99px;
     left: -99px;
 
 }
+
 /* 2.타노스 */
 body:hover .abg>div:nth-child(2) {
     top: 188px;
     left: -99px;
 }
+
 /* 3.토르 */
 body:hover .abg>div:nth-child(3) {
     top: 417px;
     left: 82px;
 }
+
 /*트레인져 */
 body:hover .abg>div:nth-child(4) {
     top: 292px;
     left: 299px;
 }
+
 /* 5.스타로드 */
 body:hover .abg>div:last-child {
     top: -107px;
