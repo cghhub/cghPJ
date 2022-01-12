@@ -143,6 +143,7 @@ body {
 
 .gnb>ul>li {
     float: left;
+    padding: 0 15px;
 }
 
 .gnb>ul>li:hover>a {
@@ -186,7 +187,7 @@ body {
 }
 
 .smenu a {
-    padding: 0 15px;
+    /* padding: 0 15px; */
     line-height: 30px;
     font-size: 14px;
 
@@ -261,19 +262,25 @@ button.ham {
     border: none;
     background-color: transparent;
     font-size: 37px;
+
+    z-index: 999;
     display: none;
     /*  처음에 안보임! */
 }
 
 /* 햄버거 버튼에 가상요소로 글자넣기 */
-button.ham ::before {
+button.ham::before {
     content: '≡';
     /* 모바일 GNB 메뉴일 경우 닫기버튼으로 변경하기 위해! 
     .ham에 클래스 on 추가! */
 }
 
-button.ham.on ::before {
+button.ham.on::before {
     content: '×';
+}
+
+button.han.on{
+    position: fixed;
 }
 
 /* 가상요소로 clear */

@@ -4,26 +4,115 @@
 <head>
     <title>나의 첫페이지!</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width", initial-scale=1.0">
     <!-- 메타요소:웹페이지 기본정보 셋팅 
         charset="utf-8"  -> 인토딩형식 지정
         utf-8 한글등 2byte문자 안깨짐!
     -->
+    <style>
+        html,body,h1,h2{
+            margin: 0;
+            padding: 0;
+
+        }
+
+        body{
+            background: url(./imgs/worksbg.jpg) no-repeat center/cover;
+            overflow-x: hidden;   
+            
+            /* 첫번째 자식블록요소 마진탑포함 */
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a{
+            color: #222;
+            text-decoration: none;
+        }
+        .wrap{
+            max-width: 1200px;
+            background-color: rgba(255, 255, 255, 0.481);
+            margin: 0 auto;
+            margin-top: 50px;
+            border-radius: 15px;
+            padding: 15px;
+        }
+        .tit{
+            text-align: center;
+        }
+
+        .tit img{
+            min-width: 80%;
+        }
+        /* 프로젝트 박스 */
+        .pbx{
+            display: flex;
+            /* 자식 블록요소를 옆으로 흐르게함! */
+        }
+        .pbx>div{
+            flex: 1;
+            /* 부모가 flex인 자식을 등분할시 설정값은1 */
+        }
+
+        @media screen and (max-width:1000px){
+            .pbx{
+                flex-direction: column;
+                /* 레이아웃 진행방향 */
+            }
+        }   
+        /* 1000px이하 */
+    </style>
 </head>
 
 <body>
-    <h1>공통 프로젝트</h1>
-    <ul>
-        <li>
-            <a href="001.HTML 학습/01.Info_PJ/info.html" target="_blank">
-                기본전달사항
-        </li>
-        <li>
-            <a href="001.HTML 학습/01.Info_PJ/info.html" target="_blank">
-                기본전달사항
-        </li>
-    </ul>
+    <div class=""wrap>
+        <h1 class="tit">
+            <img src="imgs/mylogo_14.png" alt="아카이브로고">
+        </h1>
+        <div class="pbx">
+            <!--  공통프로젝트 -->
+        </div>
+        <div>
+            <h2>공통 프로젝트</h2>
+                <ul>
+                    <li>
+                        <a href="001.HTML 학습/01.Info_PJ/info.html" target="_blank">
+                            기본전달사항
+                    </li>
+                    <li>
+                        <a href="001.HTML 학습/01.Info_PJ/info.html" target="_blank">
+                            포폴괂리페이지
+                    </li>
+                    <li>
+                        <a href="001.HTML 학습/01.Info_PJ/info.html" target="_blank">
+                            도깨비
+                        </a>
+                    </li>
+                </ul>
+        </div>
+        <div>
+            <h2>개인프로젝트</h2>
+                <ul>
+                    <li>
+                        <a href="001.HTML 학습/01.Info_PJ/info.html" target="_blank">
+                            기본전달사항
+                    </li>
+                    <li>
+                        <a href="001.HTML 학습/01.Info_PJ/info.html" target="_blank">
+                            포폴괂리페이지
+                    </li>
+                    <li>
+                        <a href="001.HTML 학습/01.Info_PJ/info.html" target="_blank">
+                            도깨비
+                        </a>
+                    </li>
+                </ul>
+        </div>
+    </div>
 
-    </a>
+    
 </body>
 
 </html>
