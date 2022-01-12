@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+/* 도깨비 PJ 미디어쿼리 CSS - media.css */
+
+/* 800px이하일때 */
+@media screen and (max-width:800px) {
+
+    /* 1-1.디스플레이 없앰 - gnb, .blink, .optxt 
+    하단링크박스, 오프닝텍스트,서브메뉴,*/
+    .gnb,
+    .blink,
+    .optxt .smenu 
+    .gnb>ul>li::after 
+    {
+        display: none;
+    }
+
+    /* 1-2.디스플레이 보임 - .ham */
+    button.ham {
+        display: block;
+        z-index: 99;
+    }
+
+    /* 1-3. GNB변경하기 - gnb 에 클래스 on 을 추가하면 변경됨*/
+    .gnb.on {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 99;
+        background-color: lightblue;
+    }
+
+    /* GNB li 변경 */
+    .gnb>ul>li {
+        float: none;
+        text-align: center;
+        padding: 0;
+    }
+    /* 1-5. 메뉴 a링크 */
+    .gnb>ul>li>a {
+        padding: 0 15px;
+        line-height: 40px;
+        height: 40px;
+        font-size: 4vh;
+        }
+    /* 1-6.메뉴 마우스 오버시 a링크 보더 없앰 */
+    .gnb>ul>li>a{
+        
+    }
+    /* 2.상단영역 */
+    .top {
+        height: auto;
+        /* 기존크기를 자동으로 변환(내용만큼 늘어남) */
+    }
+
+    .cont {
+        height: auto;
+        padding-bottom: 50px;
+    }
+
+    .cbx {
+        margin-top: 50px;
+    }
+
+    .cat {
+        width: 100%;
+        margin: 0;
+    }
+
+    .cat:hover .ci {
+        margin-top: 0;
+    }
+
+    /* 캐릭터 설명 타이틀 */
+    .cd h3 {
+        font-size: min(2vw, 30px);
+        padding: 1vw 1.7vw 0;
+    }
+
+    /* 캐릭터 설명 문단 */
+    .cd p {
+        font-size: min(1.4vw, 17px);
+        padding: 3vw;
+    }
+}
+
+/*800px이하일때*/

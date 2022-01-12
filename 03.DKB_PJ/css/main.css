@@ -14,6 +14,8 @@ html,
 body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    /* 가로스크롤 없앰! - 모바일에서 넘치는 화면조절! */
 }
 
 h1,
@@ -147,6 +149,7 @@ body {
     border-bottom: 2px solid red;
 
 }
+
 .gnb>ul>li>a {
     color: #222;
     padding: 0 15px;
@@ -222,19 +225,20 @@ body {
 .gnb>ul>li:first-child:hover .smenu,
 .gnb>ul>li:first-child:hover::after {
     height: 110px;
-    
+
 }
 
 /* 3번째 메뉴 */
 .gnb>ul>li:nth-child(3):hover .smenu,
 .gnb>ul>li:nth-child(3):hover::after {
     height: 140px;
-     
+
 }
+
 /* 4번째 메뉴 */
 .gnb>ul>li:nth-child(4):hover .smenu,
 .gnb>ul>li:nth-child(4):hover::after {
-     
+
     height: 80px;
 }
 
@@ -245,10 +249,32 @@ body {
 /* 하단보더처리 */
 .gnb>ul>li:first-child:hover::after,
 .gnb>ul>li:nth-child(3):hover::after,
-.gnb>ul>li:nth-child(4):hover::after{
-border-bottom: 2px solid red;
+.gnb>ul>li:nth-child(4):hover::after {
+    border-bottom: 2px solid red;
 }
 
+/* 모바일용 햄버거 버튼 */
+button.ham {
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    border: none;
+    background-color: transparent;
+    font-size: 37px;
+    display: none;
+    /*  처음에 안보임! */
+}
+
+/* 햄버거 버튼에 가상요소로 글자넣기 */
+button.ham ::before {
+    content: '≡';
+    /* 모바일 GNB 메뉴일 경우 닫기버튼으로 변경하기 위해! 
+    .ham에 클래스 on 추가! */
+}
+
+button.ham.on ::before {
+    content: '×';
+}
 
 /* 가상요소로 clear */
 /********* 2.메인영역 *********/
@@ -416,7 +442,7 @@ border-bottom: 2px solid red;
 }
 
 /* 오프닝 문구박스 */
-.optxt{
+.optxt {
     position: absolute;
     top: 5%;
     right: 5%;
@@ -426,9 +452,11 @@ border-bottom: 2px solid red;
     /* 트랜렌션:속시이지 */
     transition: opacity 2s ease-in-out 1s;
 }
-body:hover .optxt{
+
+body:hover .optxt {
     opacity: 1;
 }
+
 /********* 3.하단영역 *********/
 .info {
     /* height:240px; */
@@ -438,7 +466,7 @@ body:hover .optxt{
 }
 
 .blink {
-    width: 800px;
+    max-width: 800px;
     margin: 0 auto;
     /* 크기를 가지는 블랙박스 마영오! */
 }
@@ -481,7 +509,7 @@ body:hover .optxt{
 
 /* 회사주소박스 */
 .addr {
-    width: 804px;
+    max-width: 804px;
     margin: 10px auto;
     border: 4px double #222;
     padding: 10px;
