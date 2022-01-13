@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>flex 레이아웃 연습</title>
     <style>
-        html,body{
+        html,
+        body {
             margin: 0;
             padding: 0;
             height: 100vh;
         }
-        ul,ol{
+
+        ul,
+        ol {
             margin: 0;
             padding: 0;
             list-style: none;
             /* 3無 */
         }
-        #wrap{
+
+        #wrap {
             height: 100%;
             /* 부모박스의 높이값을 채움! */
         }
+
         /* 파티션박스 ul */
-        #wrap>ul{
+        #wrap>ul {
             height: 100%;
             display: flex;
             /* 플렉스박스 */
@@ -50,8 +56,9 @@
             */
 
         }
+
         /* 파티션 li */
-        #wrap>ul>li{
+        #wrap>ul>li {
             flex: 1;
             /* 등분할 셋팅 */
             /* 높이값은 자동으로 부모채우기를 함! */
@@ -78,36 +85,268 @@
                 2)HEIGHT:100% - > 높이값 계산
                 3)float:left -> 옆으로 흐르게 설정\
                 4)부모요소에 가상요소로 clear:both 설정
-                
+
                 ->flex는 위의 모든 것이 불필요!!
             */
         }
+
         /* 각 파티션 배경이미지 */
-        #wrap>ul>li{
-        /* 배경공통 */
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
+        #wrap>ul>li {
+            /* 배경공통 */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
 
         }
 
-        #wrap>ul>li:nth-child(1){
+        #wrap>ul>li:nth-child(1) {
             background-image: url(./images/m01_bg.jpg);
         }
-        #wrap>ul>li:nth-child(2){
+
+        #wrap>ul>li:nth-child(2) {
             background-image: url(./images/m02_bg.jpg);
         }
-        #wrap>ul>li:nth-child(3){
+
+        #wrap>ul>li:nth-child(3) {
             background-image: url(./images/m03_bg.jpg);
         }
-        #wrap>ul>li:nth-child(4){
+
+        #wrap>ul>li:nth-child(4) {
             background-image: url(./images/m04_bg.jpg);
         }
-        #wrap>ul>li:nth-child(5){
+
+        #wrap>ul>li:nth-child(5) {
             background-image: url(./images/m05_bg.jpg);
+        }
+
+        /* 중앙타이틀 공통 */
+        .tit {
+            position: absolute;
+            left: calc(50% - 250px);
+            /* 가로중앙위치 계산! */
+            width: 500px;
+            height: 100px;
+            border: 5px double #fff;
+        }
+
+        /* 타이틀 하위  li 공통 */
+        .tit>li {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            /* 원 */
+            ;
+            font: bold 15px/50px;
+            /* [한줄에 font셋팅하기] 
+            font: 스두크/줄체;
+            font: 스타일 두깨 크기/줄간격 글자체;
+            */
+            color: #fff;
+            text-align: center;
+            background-color: ##f00;
+        }
+
+        /* 타이틀1 */
+        .t1 {
+            top: 50px;
+            /* 플렉스 박스 */
+            display: flex;
+            /* 자식요소가 특정크기가 있고 등분할이 아니라면 
+            부모가 flex 이면 옆으로 흘러간다! */
+
+            /* flex옵션 */
+            justify-content: space-evenly;
+            /* 
+                justify-content 속성:
+                -수평정렬속성(justify 양쪽정렬의 뜻)
+                -content 는 수평방향으로 여러개의 아이템요소가 
+                있으니까 컨텐트임!
+                1)flex-start :왼쪽끝(기본값)
+                1)flex-end :오른쪽끝
+                1)center :중앙
+                1)space-between :
+                    아이템 요소 양쪽끝에 붙고 사이간격일정
+                5)space-around :
+                    아이템 요소 양쪽간격일정
+                6)space-enenly :
+                    아이템 요소 양쪽과 사이간격 모두일정
+                
+            */
+            align-items: center;
+            /* 
+                align-items 속성:
+                -한줄 수직정렬 속성
+                1)flex-start :왼쪽끝(기본값)
+                1)flex-end :맨아래
+                1)center :세로중앙
+                1)stretch :세로방향 꽉채워 늘림
+                (단, height크기가 auto야야함!)
+                5)baseline: 각 요소에 글자가 있다면 
+                글자 아래쪽 기준선으로 정렬됨
+                (글자의 line-height를 변경해 보면됨!)
+            */
+        }
+
+        /* 타이틀 2 */
+        .t2 {
+            top: 200px;
+            /* 플렉스박스 */
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .t2 li:nth-child(2) {
+            line-height: 80px;
+        }
+
+        .t2 li:nth-child(4) {
+            line-height: 30px;
+        }
+
+        /* 타이틀3 */
+        .t3 {
+            top: 350px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 3번째 li부터 오른쪽끝으로 보내기! */
+        /* 왼쪽마진 auto를 사용함! */
+        .t3>li:nth-child(3) {
+            margin-left: auto;
+        }
+
+        /* 타이틀4 */
+        .t4 {
+            top: 50px;
+            left: 50px;
+            width: 150px;
+            height: 600px;
+
+            /*  플렉스 바스 */
+            display: flex;
+        }
+
+        /* 자식요소에 flex-shrink설정으로 크기유지위해 */
+        .t4>li {
+            flex-shrink: 0;
+            /* 부모박스가 작아질때 같이 자동으로 줄어들래? 0 아니 */
+            /* 
+                flex 속성을 셋팅하지 않았을때 기본값은 아래와 같다!
+                flex : initial
+                flex : 0 1 auto -> 두번째값이 flex-shrink:1로 셋팅
+                크기가 작아지면 줄어듦으로 이값을 0으로 변경시 
+                자신의 셋팅된 크기를 유지함!
+                줄바꿈은 절대안되고 부모바깥으로 나감!
+            */
+        }
+
+        /* 타이틀5 */
+        .t5 {
+            top: 200px;
+            left: 50px;
+            width: 150px;
+            height: 500px;
+            /* 플렉스박스 */
+            display: flex;
+            flex-direction: column;
+            /* 진행방향 세로! */
+            align-items: center;
+            /* 진행방향에 따라 가로/세로 정렬이 바뀜!
+            진행방향에 대한 수직정렬 */
+        }
+
+        /* 4번째 li만 맨끝으로 보내기 */
+        /* margin-top:auto를 사용함! */
+        .t5>li:nth-child(4) {
+            margin-top: auto;
+        }
+
+        /* 타이틀6 */
+        .t6 {
+            top: 450px;
+            height: 300px;
+            /* 플렉스박스 */
+            display: flex;
+            /* 플렉스 옵션 - 랩핑! */
+            flex-wrap: wrap;
+            /* 
+                flex-wrap 속성
+                -박스 가로크기 보다 아이템 요소가 많을 경우
+                아랫줄로 줄바꿈하려면 wrap로 설정함!
+                -기본값 nowrap
+
+                ->이설정을 하지 않으면?
+                자동적으로 가로크기가 줄어져서 한줄에 모두 나옴!
+                이유는 자식요소의 flex속성값으로
+                flex-shrink가 1로 기본설정 되어 있기때문
+            */
+            justify-content: space-between;
+            /* 가로정렬 */
+
+            align-content: space-around
+                /* 
+                align-content 속성:
+                여러줄일때 수직정렬
+                여러줄이니까 content
+            */
+        }
+
+        /* 글자수를 맞추기 */
+        .t6>li {
+            margin: 0 14px;
+            /* 앙쪽마진으로 조정! */
+
+            /* 
+                justify-content 속성:
+                -수평정렬속성(justify 양쪽정렬의 뜻)
+                -content 는 수평방향으로 여러개의 아이템요소가 
+                있으니까 컨텐트임!
+                1)flex-start :왼쪽끝(기본값)
+                1)flex-end :오른쪽끝
+                1)center :중앙
+                1)space-between :
+                    아이템 요소 상하에 붙고 사이간격일정
+                5)space-around :
+                    아이템 요소 상하간격일정
+                6)space-enenly :
+                    아이템 요소 상하와 사이간격 모두일정
+                비교)한줄 수직정렬은? align-items!
+            */
+        }
+        /* 타이틀7 */
+        .t7{
+            top: 50px;
+            right: 50px;
+            left: auto;
+            /* 기존left해제! */
+            width: 350px;
+            height: auto;
+            /* 높이값 자동! */
+            
+            /* 플렉스박스 */
+            display: flex;
+            flex-wrap: wrap;
+            /* 자동줄바꿈! */
+            justify-content: space-between;
+            /* 양쪽맨끝에 위치하고 사이간격 일정! */
+            /* 자식요소에 패딩으로 줄바꿈할때 양쪽 끝 간격이 
+            생기는 문제를 아래와 같이 해결함! */
+        }
+        /*  줄바꿈을 위한  li */
+        /* 원리는 줄바꿈할 부분에서 100% 를 차지하게 해서 줄바꿈함! */
+        .tit>li.brk{
+            flex-basis: 100%;
+            /* flex자식요소는 width대신 flex-basis 를 사용가능 */
+            height: 0;
+            border: none;
+            /* 안보이게 */
         }
     </style>
 </head>
+
 <body>
 
     <div id="wrap">
@@ -119,6 +358,89 @@
             <li></li>
             <li></li>
         </ul>
+
+        <!-- 타이트 박스1 -->
+        <ol class="tit t1">
+            <li>l</li>
+            <li>o</li>
+            <li>t</li>
+            <li>t</li>
+            <li>e</li>
+        </ol>
+        <!-- 타이트 박스2 -->
+        <ol class="tit t2">
+            <li>w</li>
+            <li>o</li>
+            <li>r
+            <li>
+            <li>l</li>
+            <li>d</li>
+        </ol>
+        <!-- 타이트 박스3 -->
+        <ol class="tit t3">
+            <li>w</li>
+            <li>o</li>
+            <li>r
+            <li>
+            <li>l</li>
+            <li>d</li>
+        </ol>
+        <!-- 타이트 박스4 -->
+        <ol class="tit t4">
+            <li>w</li>
+            <li>o</li>
+            <li>r
+            <li>
+            <li>l</li>
+            <li>d</li>
+        </ol>
+        <!-- 타이트 박스5 -->
+        <ol class="tit t5">
+            <li>w</li>
+            <li>o</li>
+            <li>r
+            <li>
+            <li>l</li>
+            <li>d</li>
+        </ol>
+        <!-- 타이트 박스6 -->
+        <ol class="tit t6">
+            <li>w</li>
+            <li>o</li>
+            <li>r
+            <li>
+            <li>l</li>
+            <li>d</li>
+
+            <li>l</li>
+            <li>o</li>
+            <li>t</li>
+            <li>t</li>
+            <li>e</li>
+
+            <li>w</li>
+            <li>o</li>
+            <li>r<li>
+            <li>l</li>
+            <li>d</li>
+        </ol>
+        <!-- 타이트 박스7 -->
+        <ol class="tit t7">
+            <li>w</li>
+            <li>o</li>
+            <li>r<li>
+            <li>l</li>
+            <li>d</li>
+
+            <li class="brk"></li>
+
+            <li>l</li>
+            <li>o</li>
+            <li>t</li>
+            <li>t</li>
+            <li>e</li>
+        </ol>
     </div>
 </body>
+
 </html>
