@@ -44,6 +44,7 @@
         padding: 0 15px;
         line-height: 12.5vh;
         height: 40px;
+        padding-top: 12.5vh;
         font-size: 4vh;
         }
     /* 1-6.메뉴 마우스 오버시 a링크 보더 없앰 */
@@ -86,7 +87,7 @@
 
     /* 캐릭터 설명 문단 */
     .cd p {
-        font-size: min(1.4vw, 17px);
+        font-size: min(4.4vw, 17px);
         padding: 3vw;
     }
 }

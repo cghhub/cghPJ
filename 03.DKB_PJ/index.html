@@ -12,7 +12,7 @@
         //자바스크립트 코딩구역은 JS문법만 사용가능!
         //js코드공간 - 함수 >>>  function (예약어:키워드)
         //함수형식: function 함수명(){코드}
-        function 보여줘(){
+        function 보여줘() {
             // alert("나야나!");
             //변경대상선정: .gnb, .ham
             //변경내용:각 대상에 클래스 on넣기/on빼기!
@@ -30,13 +30,13 @@
 
             //GNB 요소
             document.getElementsByClassName("gnb").item(0)
-            .classList.toggle("on");
+                .classList.toggle("on");
 
             //햄버거 버튼요소
             document.getElementsByClassName("ham").item(0)
-            .classList.toggle("on");
+                .classList.toggle("on");
 
-        }//////보여줘 함수 ///////
+        } //////보여줘 함수 ///////
 
         //이벤트가 발생하는 곳에서 햠수를 호출할때는
         //  >>> 함수면()
@@ -56,7 +56,7 @@
                 <li>
                     <a href="#">프로그램 소개</a>
                     <div class="smenu">
-                        <ol >
+                        <ol>
                             <li>
                                 <a href="#">프로그램 소개</a>
                             </li>
@@ -75,7 +75,7 @@
                 <li>
                     <a href="#">동영상</a>
                     <div class="smenu">
-                        <ol >
+                        <ol>
                             <li>
                                 <a href="#">클립영상</a>
                             </li>
@@ -94,7 +94,7 @@
                 <li>
                     <a href="#">사진첩</a>
                     <div class="smenu">
-                        <ol >
+                        <ol>
                             <li>
                                 <a href="#">현장 포토</a>
                             </li>
@@ -108,20 +108,19 @@
                     <a href="#">OST</a>
                 </li>
                 <li>
-                    <a href="#">시청자 게시판
-                    </a>
+                    <a href="#">시청자 게시판</a>
                 </li>
             </ul>
         </nav>
         <!-- 모바일용 햄버거버튼 -->
         <button class="ham" onclick="보여줘()"></button>
-            <!-- 
+        <!-- 
                 on이벤트명 -> html 이벤트 속성
                 onclick ="값"
                 ->클릭이벤트가 발생하면 값을 읽는다!(실행한다!)
                 ->값은 JS문법으로 표현되는 코드!
              -->
-        
+
 
     </header>
     <!-- 2.메인영역 -->
@@ -262,7 +261,7 @@
         <address class="addr">
             (주)씨제이이엔엠 CJ ENM 대표이사 강호성, 허민호 <br>
             주소 (03926) 서울시 마포구 상암산로 66 사업자 등록번호 106-81-51510 개인정보보호책임자 김재환 <br>
-            © CJ ENM. All Rights Reserved. 
+            © CJ ENM. All Rights Reserved.
         </address>
         <!-- 하단로고 -->
         <div class="blogo">
