@@ -1,7 +1,12 @@
 @charset "utf-8";
-
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 /* 로봇 PJ CSS - robot.css */
-
+html{
+    scroll-behavior: smooth;
+    /* 내부 아이디 위치이동시 스크롤
+    애니메이션을 부드럽게 처리함!
+    최상위 요소인 html에 셋팅함! */
+}
 html,body{
     margin: 0;
     padding: 0;
@@ -19,8 +24,164 @@ body{
     outline: 5px dashed lime;
 } */
 
+
+/* 로봇페이지 로고 */
+#logo{
+    z-index: 1;
+    /*  */
+    transform: scale(2);
+    position: fixed;
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+    /* 보이는 화면기준! */
+    width: 200px;
+    height: 200px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    /* 원 */
+    margin: 0;
+    /* h1요소의 기본마진 없앰! */
+    /* 글자중앙 */
+    text-align: center;
+    line-height: 200;
+    color: #fff;
+    font-family: "Vladimir Script";
+    font-size: 60px;
+    /* 배경 */
+    background: pink url(../images/robot_03.png) no-repeat center 10px/160px;
+    background-position: center 10px;
+    background-size: 160px;
+    text-shadow: 2px 2px 2px #000;
+    /* 글자그림자:x y blur 색 */
+    box-shadow: 0 0 20px pink,
+                inset 0 0 20px 5px #000;
+    /* 박스그림자 : 내부 x y blur spread 색 */
+    /* 박스그림자나 글자그림자는 콤마로 여러개
+     셋팅가능! */
+
+     /* 애니메이션:이시이시반방마 */
+     animation: logoAni 2s ease-in-out 2s forwards;
+}
+/* 로고 키프레임 */
+@keyframes logoAni {
+    /* from은 초기값과 같으므로 생략! */
+    from{
+        top: 50px;
+        left: 50px;
+        transform: scale(1);
+    }
+}
+/* logoAni 키프레임 */
+
+/*********************************************************** 
+    [css 로 애니메이션 하기]
+    -시간에 따라 css설정을 변경하여 애니메이션 하도록
+    키프레임을 설정하고 이것을 호출함으로 의도된 연출을
+    구현하는 것이 css 애니메이션이다!
+
+    [애니메이션 키프레임 만들기]
+    -키프레임이란? 애니메이션 장면을 넣는 코드
+    1.두장면 키프레임
+    @keyframes 키프레임이름{
+        from{시작css설정}
+        to{끝나는css설정}
+    }
+    
+    또는
+
+    @keyframes 키프레임이름{
+        0%{시작css설정}
+        100%{끝나는css설정}
+    }
+
+    -> 만약 from설정과 초기설정이 같다면 from을 생략할수 있다!
+    2.여러장면 키프레임
+    @keyframes 키프레임이름{
+        0%{css설정}
+        10%{css설정}
+        ...
+        90%{css설정}
+        100%{css설정}
+    }
+
+    (1) 장면에 대한 시간 계산은 어떻게 하나?
+    ->전체시간*설정된%/100
+
+    (2)전체시간설정은 호출시에 셋팅함!
+    [설정된 키프레임 호출하는 방법]
+    animation: 이시이지반방마
+    (이름 시간 이징 지연 반복 방향 마직막상태)
+    1.이름(animation-name):키프레임 이름
+    2.시간(animation-duration):애니메이션 동작시간
+        ->초단위(s)
+    3.이징(animation-timing-funtion):easing가속도
+    4.지연(animation-delay):애니메이션 시작지연시간(s)
+    5.반복(animation-iteration-count):애니메이션 반복
+        -기본값1,숫자를 쓰면 숫자만큼 반복함!
+        -영원히는 infinite(인피니트)
+    6.방향(animation-direction):시작->끝
+        -반복시 시작과 반대경로로 애니를 만들어줌
+        ->alternate:시작->끝, 끝->시작
+    7.마직막상태(animation-fill-mode):
+        -애니메이션이 끝났을때 처음으로 돌아가는게 기본인데
+        ->forwards(앞쪽에... 즉, 애니끝장면으로 마무리!)
+
+*************************************************************/
+
+
+
+/* 내용보기 링크 타이틀 */
+.link{
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    /* 부모는? 보이는 화면 */
+    font-family: 'Lobster', cursive;
+    font-size: 5vw;
+    font-weight: normal;
+    
+    
+
+}
+.link a{
+    color: #14bcff;
+    text-decoration: none;
+
+}
+
+.link a:hover{
+    color: #14bcff;
+    text-decoration: overline;
+
+}
+
+/* ㅇ위로이동버튼 */
+.btnTop{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    /* 보이는 화면 기준 */
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border-radius: 50%;
+    color: blue;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #ccc;
+}
+/* 버튼오버시 */
+.btnTop:hover{
+    background-color: #ff0;
+    color: red;
+}
+
+
 /* 로봇머리 */
 #head{
+    left: 100%;
+    /*  */
     position: relative;
     width: 250px;
     height: 250px;
@@ -88,6 +249,8 @@ body{
 
 /* 로봇몸 */
 #body{
+    left: -100%;
+    /* 왼쪽바깥에 나가있음! */
     position: relative;
     /* 부모자격 */
     width: 250px;
@@ -246,4 +409,10 @@ body{
     양쪽 정렬시 사용하면 보기 좋아진다! */
     text-indent: 20px;
     /* 첫줄 들여쓰기(마이너스값을 쓰면 내어쓰기임) */
+}
+/* 가상요소로 첫글자 디자인변경하기 */
+#dcbx p::first-letter{
+    font-size: 30px;
+    font-weight: bold;
+    color: lightsalmon;
 }
