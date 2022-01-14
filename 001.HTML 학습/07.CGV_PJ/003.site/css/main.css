@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+/* CGV PJ 메인 페이지 CSS - main.css */
+
+/* 외부파일 합치기 */
+@import url(reset.css);
+@import url(core.css);
+
+body{
+    background-color: #000;
+}
+
+body *{
+    outline: 1px dashed #ccc;
+}
+
+/* 레이아웃 공통 class */
+.part{
+    max-width: 1200px;
+    /* 최대 1200px, 이하일때 auto */
+    margin: 0 auto;
+    /* 마영오! - 가로중앙 */
+}
+/************************** 1.상단영역 **************************/
+#top{
+    height: 80px;
+    background: url(../images/curtain.jpg) repeat;
+}
+/* 1-1. 페이지타이틀 */
+h1.tit{
+    color: aquamarine;
+    font-size: 40px;
+    font-family: 'Jua', sans-serif;
+    text-align: center;
+    line-height: 80px;
+    /* 그림자를 이용한 Glow효과 */
+    text-shadow: 0 0 4px aquamarine;
+}
+/************************** 2.메인영역 **************************/
+#cont{
+    /* height: 788px; */
+    /* 높이값을 주지않고 비율유지 가상요소로 생성함! */
+    background: url(../images/bg.jpg) no-repeat ;
+    background-size: 100%;
+}
+
+/* 비율만들기 */
+#cont.rbx::before{
+    padding-top: 65.66%;
+    /* 
+        비율계산하기:
+        1200px : 788px = 100% : x%
+        x = 788px * 100% / 1200px
+          = 65.66%
+    */
+}
+
+/************************** 3.하단영역 **************************/
+#info{
+    height: 100px;
+}
