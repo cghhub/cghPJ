@@ -1,19 +1,22 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 /* 로봇 PJ CSS - robot.css */
-html{
+html {
     scroll-behavior: smooth;
     /* 내부 아이디 위치이동시 스크롤
     애니메이션을 부드럽게 처리함!
     최상위 요소인 html에 셋팅함! */
 }
-html,body{
+
+html,
+body {
     margin: 0;
     padding: 0;
 
 }
 
-body{
+body {
     background: url(../images/bg.jpg) no-repeat fixed top/cover;
     overflow-x: hidden;
     /* x축 스크롤바 없애기 */
@@ -26,7 +29,7 @@ body{
 
 
 /* 로봇페이지 로고 */
-#logo{
+#logo {
     z-index: 1;
     /*  */
     transform: scale(2);
@@ -54,23 +57,48 @@ body{
     text-shadow: 2px 2px 2px #000;
     /* 글자그림자:x y blur 색 */
     box-shadow: 0 0 20px pink,
-                inset 0 0 20px 5px #000;
+        inset 0 0 20px 5px #000;
     /* 박스그림자 : 내부 x y blur spread 색 */
     /* 박스그림자나 글자그림자는 콤마로 여러개
      셋팅가능! */
 
-     /* 애니메이션:이시이시반방마 */
-     animation: logoAni 2s ease-in-out 2s forwards;
+    /* 애니메이션:이시이시반방마 */
+    animation: logoAni 2s ease-in-out 2s forwards,
+        logoAni2 1s ease-in-out 4s infinite alternate;
 }
+
 /* 로고 키프레임 */
 @keyframes logoAni {
+
     /* from은 초기값과 같으므로 생략! */
-    from{
+    80% {
         top: 50px;
         left: 50px;
-        transform: scale(1);
+        transform: scale(1) rotate(0deg);
+    }
+
+    /* 80%~100%구간에 rotate각도만 20도로 변경애니
+        후속애니외 자연스럽게 연결됨! */
+    100% {
+        top: 50px;
+        left: 50px;
+        transform: scale(1) rotate(20deg);
     }
 }
+
+/* 로고 흔들기 키프레임 */
+@keyframes logoAni2 {
+    from {
+        transform: scale(1) rotate(20deg);
+    }
+
+    to {
+        transform: scale(1) rotate(-20deg);
+    }
+}
+
+/* logoAni2 키프레임 */
+
 /* logoAni 키프레임 */
 
 /*********************************************************** 
@@ -131,7 +159,7 @@ body{
 
 
 /* 내용보기 링크 타이틀 */
-.link{
+.link {
     position: absolute;
     top: 100px;
     right: 50px;
@@ -139,24 +167,59 @@ body{
     font-family: 'Lobster', cursive;
     font-size: 5vw;
     font-weight: normal;
-    
-    
+    opacity: 0;
+    /* 처음에 안보임 */
+
+    /* 링크,탑버튼, 로봇TV등장 키프레임 */
+    animation: showIt 2s ease-in 6s forwards;
 
 }
-.link a{
+
+@keyframes showIt {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.5;
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* showIT 키프레임 */
+
+
+
+.link a {
     color: #14bcff;
     text-decoration: none;
 
 }
 
-.link a:hover{
+.link a:hover {
     color: #14bcff;
     text-decoration: overline;
 
 }
 
 /* ㅇ위로이동버튼 */
-.btnTop{
+.btnTop {
+    opacity: 0;
     position: fixed;
     bottom: 50px;
     right: 50px;
@@ -170,16 +233,20 @@ body{
     font-weight: bold;
     text-decoration: none;
     background-color: #ccc;
+
+    /* 링크,탑버튼, 로봇TV등장 키프레임 */
+    animation: showIt 2s ease-in 6s forwards;
 }
+
 /* 버튼오버시 */
-.btnTop:hover{
+.btnTop:hover {
     background-color: #ff0;
     color: red;
 }
 
 
 /* 로봇머리 */
-#head{
+#head {
     left: 100%;
     /*  */
     position: relative;
@@ -188,9 +255,22 @@ body{
     background: url(../images/metal01.jpg) no-repeat center/cover;
     margin: 0 auto;
     margin-top: 100px;
+
+    /* 애니메이션:이시이지반방마 */
+    animation: robotAni 1.5s ease-out 4s forwards;
 }
+
+/* 로봇머리,몸 제자리 키프레임 */
+@keyframes robotAni {
+    to {
+        left: 0;
+    }
+}
+
+/* robotAni 키프레임 */
+
 /* 눈1 */
-#eye1{
+#eye1 {
     position: absolute;
     top: 50px;
     right: 150px;
@@ -198,7 +278,8 @@ body{
     height: 50px;
     background: url(../images/e1.jpg) no-repeat 0/100% 100%;
 }
-#eye2{
+
+#eye2 {
     position: absolute;
     top: 50px;
     right: 50px;
@@ -207,7 +288,8 @@ body{
     height: 50px;
     background: url(../images/e2.jpg) no-repeat 0/100% 100%;
 }
-#nose{
+
+#nose {
     position: absolute;
     top: 100px;
     right: 100px;
@@ -216,7 +298,8 @@ body{
     height: 70px;
     background: url(../images/nose.jpg) no-repeat 0/100% 100%;
 }
-#mouse{
+
+#mouse {
     position: absolute;
     top: 170px;
     right: 50px;
@@ -224,9 +307,22 @@ body{
     width: 150px;
     height: 70px;
     background: url(../images/mouth.png) no-repeat 0/100% 100%;
+
+    /* 링크,탑버튼, 로봇TV등장 키프레임 */
+    animation: mouthAni 1s linear 3s infinite alternate;
 }
 
-.ear{
+/* 입움직이기 키프레임 */
+@keyframes mouthAni {
+    0%{
+        transform: scaleY(1);
+    }    
+    100%{
+        transform: scaleY(.4);
+    }    
+}
+
+.ear {
     position: absolute;
     top: 70px;
     width: 50px;
@@ -236,19 +332,19 @@ body{
 }
 
 /* 귀1 */
-#ear1{
+#ear1 {
     left: -50px;
     border-radius: 10px 0 0 10px;
 }
 
 /* 귀2 */
-#ear2{
+#ear2 {
     right: -50px;
     border-right: 0 20px 20px 0;
 }
 
 /* 로봇몸 */
-#body{
+#body {
     left: -100%;
     /* 왼쪽바깥에 나가있음! */
     position: relative;
@@ -260,10 +356,13 @@ body{
     margin-bottom: 300px;
     /* 다리가 내려간 만큼 하단여유공간확보! */
     background: url(../images/metal01.jpg) no-repeat center/cover;
+
+    /* 애니메이션:이시이지반방마 */
+    animation: robotAni 1.5s ease-out 4s forwards;
 }
 
 /* 목 */
-#neck{
+#neck {
     position: absolute;
     top: -45px;
     left: 103px;
@@ -273,52 +372,85 @@ body{
 }
 
 /* 팔,다리공통 */
-.part{
+.part {
     position: absolute;
     width: 50px;
     height: 250px;
     background: url(../images/metal02.jpg) repeat-y 0/100%;
 }
+
 /* 왼팔 */
-#arm1{
+#arm1 {
+    top: 20px;
     left: -50px;
 }
+
 /* 오른팔 */
-#arm2{
+#arm2 {
+    top: 20px;
     right: -50px;
+    transform-origin: top;
+    /* 세로기준축을 맨위로 변경! */
+
+    /* 애니메이션 이시이지반방마 */
+    animation: armAni .5s ease-in-out 5s forwards,
+        armAni2 .4s ease-in-out 5.8s infinite alternate;
 }
+
+/* armAni */
+
+/* 오른팔 키프레임 */
+@keyframes armAni {
+    to {
+        transform: rotate(-152deg);
+    }
+}
+
+@keyframes armAni2 {
+    0% {
+        transform: rotate(-152deg);
+    }
+
+    100% {
+        transform: rotate(-132deg);
+    }
+}
+
 /* 왼다리 */
-#leg1{
+#leg1 {
     top: 100%;
     left: 50px;
 }
+
 /* 오른다리 */
-#leg2{
+#leg2 {
     top: 100%;
     right: 50px;
 }
 
 /* 어깨공통 */
-.sh{
+.sh {
     position: absolute;
     width: 80px;
     height: 80px;
     background: url(../images/metal01.jpg) no-repeat center/cover;
 }
+
 /* 왼쪽어깨 */
-#sh1{
+#sh1 {
     top: -10px;
     left: -80px;
     border-radius: 30px 0 0 30px;
 }
-#sh2{
+
+#sh2 {
     top: -10px;
     left: 250px;
-    border-radius:  0 30px 30px 0;
+    border-radius: 0 30px 30px 0;
 }
 
 /* TV */
-#tv{
+#tv {
     position: absolute;
     top: 50px;
     left: 20px;
@@ -327,9 +459,13 @@ body{
     height: 150px;
     background: url(../images/tv.jpg) no-repeat 0/100% 100%;
 
+    /* 링크,탑버튼, 로봇TV등장 키프레임 */
+    animation: showIt 2s ease-in 6s forwards;
+
 }
+
 /* 스크린 */
-#screen{
+#screen {
     position: absolute;
     top: 0;
     left: 0;
@@ -340,7 +476,7 @@ body{
 }
 
 /* 유튜브 아이프레임 */
-#screen iframe{
+#screen iframe {
     position: absolute;
     top: 3px;
     left: 11px;
@@ -349,7 +485,7 @@ body{
 }
 
 /* 로봇설명박스 */
-#dcbx{
+#dcbx {
     width: 800px;
     margin: 0 auto;
     /* 마영오 */
@@ -366,8 +502,9 @@ body{
     /* 박스그림자:내부x y 블러 (크기) 색 */
 
 }
+
 /* 로봇설명 제목 */
-#dcbx h2{
+#dcbx h2 {
     position: sticky;
     top: 0;
     font-size: 35px;
@@ -375,16 +512,18 @@ body{
     color: lime;
     background-color: #e25252;
 }
+
 /* 설명출처 */
-#dcbx small{
+#dcbx small {
     text-align: center;
     display: block;
     /* 텍스트 중앙정렬위해 */
     color: #ff0;
 
 }
+
 /* 설명문단 */
-#dcbx p{
+#dcbx p {
     font-size: 15px;
     /* 기본글자크기 16px */
     line-height: 1.8;
@@ -410,8 +549,9 @@ body{
     text-indent: 20px;
     /* 첫줄 들여쓰기(마이너스값을 쓰면 내어쓰기임) */
 }
+
 /* 가상요소로 첫글자 디자인변경하기 */
-#dcbx p::first-letter{
+#dcbx p::first-letter {
     font-size: 30px;
     font-weight: bold;
     color: lightsalmon;
