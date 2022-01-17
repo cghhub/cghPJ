@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>CSS심화 - Sprites, IR</title>
     <style>
-        .icons{
+        .icons {
             /* 3無 */
             margin: 0;
             padding: 0;
@@ -16,6 +16,7 @@
 
             outline: 1px solid red;
         }
+
         .icons li {
             width: 128px;
             height: 128px;
@@ -28,33 +29,43 @@
 
             outline: 1px dotted blue;
         }
+
         /* 트위터 */
-        .icons li:nth-child(1){
+        .icons li:nth-child(1) {
             background-position: 0 0;
         }
+
         /* 트위터 오버시 */
-        .icons li:nth-child(1):hover{
+        .icons li:nth-child(1):hover {
             background-position: 0 -128px;
         }
+
         /* 인스타 */
-        .icons li:nth-child(2){
+        .icons li:nth-child(2) {
             background-position: 128px 0;
         }
+
         /* 인스타 오버시 */
-        .icons li:nth-child(2):hover{
+        .icons li:nth-child(2):hover {
             background-position: 128px -128px;
         }
+
         /* 페북 */
-        .icons li:nth-child(3){
+        .icons li:nth-child(3) {
             background-position: -256px 0;
         }
+
         /* 페북 오버시 */
-        .icons li:nth-child(3):hover{
+        .icons li:nth-child(3):hover {
             background-position: -256px -128px;
         }
 
         /* a요소 확장 */
-        
+        .icons a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
 
         /*************************************************
 
@@ -88,7 +99,13 @@
 
                 예) background-position: -551px -429px;
 
-                
+                3. 이미지크기는 그림판의 선택툴로 크기를 잡고
+                하단에 보면 크기정보가 표시된다!
+
+                4.만약에 이미지가 원본 배경보다 작게 사용한다면
+                위치,크기가 달라지므로 그림판의 "크기조정" 메뉴로
+                비율을 유지하며 가로크기를 원하는 만큼 조정하여 적용후
+                위치와 크기를 측정한다!
             **********************************************/
 
 
@@ -125,9 +142,34 @@
                 ChromeVox Classic Extension
             
             ***********************************************/
-            
+
         /* IR 숨기기 class */
-        
+        .ir{
+            display: block;
+            width: 0;
+            overflow: hidden;
+        }
+        /* 스프라이트 연습 */
+        .sp {
+            background: url(./images/sp_main_dba1af.png) no-repeat;
+            background-size: 457px;
+            /* 원본이미지 크기의 반으로 줄임!
+            확대시 깨짐 방지로 이미지를 의도한 이미지보다 크게만듦! */
+        }
+
+        .sp1 {
+            border: 2px solid blue;
+            width: 222px;
+            height: 52px;
+            background-position: 0 -156px;
+        }
+
+        .sp2 {
+            border: 2px solid blue;
+            width: 84px;
+            height: 23px;
+            background-position: -196px -268px;
+        }
     </style>
 </head>
 
@@ -135,7 +177,7 @@
     <ul class="icons">
         <li>
             <a href="#">
-                <span>트위터바로가기</span>
+                <span class="ir">트위터바로가기</span>
             </a>
         </li>
         <li>
@@ -150,6 +192,13 @@
 
         </li>
     </ul>
+    <!-- 스프라이트 연습 -->
+    <div class="sp sp1">
+        <div class="ir">네이버로고</div>
+    </div>
+    <div class="sp sp2">
+        <div class="ir">오디오클립 하하하</div>
+    </div>
 </body>
 
 </html>

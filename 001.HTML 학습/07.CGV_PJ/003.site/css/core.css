@@ -34,3 +34,11 @@
     bottom: 0;
     right: 0;
 }
+
+/* ir(image replacement) 플래스 */
+.ir{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
