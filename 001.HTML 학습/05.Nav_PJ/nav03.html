@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>유형3.가로네비 서브별 드롭다운 전체창</title>
+    <style>
+        /* ul,ol초기화 */
+        ul,
+        ol {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            /* 3無 */
+        }
+
+        .fll li {}
+
+        /* FLOAT:LEFT 설정용 클래스 */
+        .fll {
+            display: flex;
+        }
+
+
+
+
+        /* body *{
+            outline: 2px dotted red;
+        } */
+
+        /* gnb메뉴 */
+        .gnb {
+            position: relative;
+            /* 부모자격 서브메뉴 배경 가상요소 */
+            background-color: rgb(36, 52, 145);
+        }
+
+        .gnb>ul {
+            width: 800px;
+            margin: 0 auto;
+            /* 크기를 가진 블록박스 가로중앙 */
+        }
+
+        .gnb>ul>li {
+            width: 200px;
+            text-align: center;
+        }
+
+        /* 요소 */
+        .gnb>ul>li>a {
+            width: 200px;
+            display: block;
+            line-height: 50px;
+            color: #fff;
+            text-decoration: none;
+            /* a는 inline요소이므로 크기적용안됨! */
+            /* 그래서 block으로 변경 */
+
+            /* 트랜지션:속시이지 */
+            transition: all .4s;
+        }
+
+        /* li에 마우스 오버시 a요소 디자인 변경 */
+        .gnb>ul>li:hover>a {
+            background-color: rgb(133, 128, 202);
+            color: navy;
+
+        }
+
+        /* 서브메뉴 */
+        .smenu {
+            position: absolute;
+            height: 0;
+            overflow: hidden;
+            /* 높이값0, 넘치는 자식요소 숨기기로 서브안보이게 함! */
+            background-color: rgb(186, 202, 190);
+
+            /* 트랜지션:속시이지 */
+            transition: height .4s ease-out;
+        }
+
+        /* 상위 ul에 마우스 오버시 서브메뉴 전체보이기 */
+        .gnb>ul:hover>li .smenu {
+            height: 180px;
+        }
+
+
+        /* 서브메뉴 ol */
+        .smenu ol {
+            padding: 10px;
+        }
+
+        .smenu a {
+            display: block;
+            width: 180px;
+            line-height: 40px;
+            font-size: 14px;
+            color: navy;
+            text-decoration: none;
+            /* a요소 필수 재설정! 글자색+밑줄해제 */
+            /* margin: 0 5px;
+            padding: 0 10px; */
+
+            transition: all .4s;
+
+        }
+
+        /* 서브메뉴 a에 오버시 */
+        .smenu a:hover {
+            background-color: rgb(124, 64, 64);
+            color: #000;
+        }
+
+        /* ul 에 가상요소로 서브메뉴 배경만들기 */
+        .gnb>ul::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            width: 100%;
+            /* 나의부모는? */
+            height: 0;
+            /* 처음에 안보인다 */
+
+
+            background-color: rgb(186, 202, 190);
+            z-index: -1;
+
+            /* 트랜지션:속시이지 */
+            transition: height .4s ease-out;
+
+        }
+
+        /* 상위메뉴 li에 오버시 서브배경 가상요소 보이기 */
+        .gnb>ul>ul:hover::after{
+            height: 180px;
+            border-bottom: 3px solid #000;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>유형2.가로네비 서브별 드롭다운 세로형</h1>
+
+    <!-- gnb네비게이션 -->
+    <div class="gnb">
+        <ul class="fll">
+            <li>
+                <a href="#">home</a>
+            </li>
+            <li>
+                <a href="#">웹개발</a>
+                <div class="smenu">
+                    <ol >
+                        <li>
+                            <a href="#">웹디자인</a>
+                        </li>
+                        <li>
+                            <a href="#">HTML5+CSS3</a>
+                        </li>
+                        <li>
+                            <a href="#">JQUERY</a>
+                        </li>
+                        <li>
+                            <a href="#">웹+모바일</a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                    </ol>
+                </div>
+            </li>
+            <li>
+                <a href="#">게시판</a>
+                <div class="smenu">
+                    <ol >
+                        <li>
+                            <a href="#">q&AMP;A</a>
+                        </li>
+                        <li>
+                            <a href="#">HTML5+CSS3</a>
+                        </li>
+                        <li>
+                        </li>
+                    </ol>
+                </div>
+            </li>
+            <li>
+                <a href="#">프로필</a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
