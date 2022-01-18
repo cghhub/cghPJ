@@ -40,6 +40,19 @@ h1.tit{
     line-height: 80px;
     /* 그림자를 이용한 Glow효과 */
     text-shadow: 0 0 4px aquamarine;
+
+    /* 애니메이션 : 이지이지반방마 */
+    animation: titAni 1s ease-in infinite alternate;
+}
+
+/* 타이틀 글로우효과 애니메이션 */
+@keyframes titAni {
+    from{
+        text-shadow: 0 0 4px aquamarine;
+    }
+    to{
+        text-shadow: 0 0 12px aquamarine;
+    }
 }
 
 /* 1-2 전체메뉴(gnb) */
@@ -51,6 +64,10 @@ h1.tit{
 }
 /* gnb ul */
 .glist{
+    position: relative;
+    /* z-index 적용위해 */
+    z-index: 1;
+    /* 영사기보다위 */
     font-family: 'Jua', sans-serif;
     display: flex;
     /* 플렉스 박스 */
@@ -152,7 +169,7 @@ class */
     width: 50px;
     /*  영사기회전 */
     transform: rotate(25deg);
-    transition: width .5s ease-out;
+    transition: all .5s ease-out;
 }
 /* GNB에 마우스 오버시 영사기 회전하기 */
 .gnb:hover #cam img{
@@ -166,7 +183,7 @@ class */
     top: -17px;
     right: 0;
     /* 부모는? #cam */
-    width: 200px;
+    width: 0;
     height: 70px;
     background: url(../images/bim.png) no-repeat;
     background-position: right center;
@@ -174,19 +191,33 @@ class */
     /* 이미지의 크기를 세로에 맞춤! */
 
     /* 트랜지션 : 소시이지 */
-    transform: width .3s linear .5s;
+    transition: width .5s linear .5s;
 }
 /* gnb 에 오버시 영사기 쏘기(width:200px) */
 .gnb:hover .bim{
     width: 200px;
     transition-delay: .5s;
-    /* 오버시엔 0.5초 기다려! */
+    /* 오버시엔 0.5초 기다려! */ 
+    animation: bimAni .04s linear infinite alternate;
 }
 .gnb:hover #cam img{
     transform: rotate(0deg);
     /* 트랜지션:속시이지 */
     transition-delay: 0s;
+    /* 애니메니션: 이지이니반방마*/
+   
 }
+
+/* 빔이 너울너울 거리도록 애니메이션 키프레임 */
+@keyframes bimAni {
+    from{
+        opacity: 0.9;
+    }
+    to{
+        opacity: 0.5;
+        
+    }
+}/* bimAni 키프레임 */
 
 /************************** 2.메인영역 **************************/
 #cont{
