@@ -63,6 +63,8 @@ h1.tit{
     /* 나의 부모? #top */
 }
 /* gnb ul */
+
+
 .glist{
     position: relative;
     /* z-index 적용위해 */

@@ -47,6 +47,7 @@ body {
 
 /* click here!글자박스 */
 #enter span {
+
     display: block;
     /* 옆에 마무도못오고 width느 끝까지 간다! */
     font-family: 'Audiowide';
@@ -72,4 +73,15 @@ body {
 #enter:hover img {
     transform: rotate(-15deg) scale(1.5);
 
+}
+
+/* 미디어쿼리 - 600이하 */
+@media screen and (max-width:600px) {
+    /* click here 글자박스 */
+    #enter span{
+        white-space: nowrap;
+        /* 줄바꿈방지 */
+        font-size: 6vw;
+    }
+    
 }
