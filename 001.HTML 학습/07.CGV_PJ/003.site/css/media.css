@@ -30,9 +30,7 @@
         display: flex;
     }
 
-    .glist>li:hover{
-
-    }
+    .glist>li:hover {}
 
     .glist li {
         padding-bottom: 10px;
@@ -48,7 +46,7 @@
 /* 미디어쿼리 : 780px 이하 시작 */
 @media screen and (max-width:780px) {
 
-    #info address{
+    #info address {
         padding: 10px;
         text-align: center;
     }
@@ -70,29 +68,35 @@
 
 /* 미디어쿼리 : 600px 이하 시작 */
 @media screen and (max-width:600px) {
+
     /* 타이틀 글자크기 */
-    h1.tit{
+    h1.tit {
         font-size: 9vw;
     }
+
     /* 하단회사주소 숨기기 */
-    #info address span{
+    #info address span {
         display: none;
     }
-    #info{
+
+    #info {
         height: auto;
         padding: 10px;
     }
 
-    ul.sns{
+    ul.sns {
         margin: 0 auto;
     }
-    #info img{
+
+    #info img {
         margin: 0 auto;
     }
+
     /* 메인영역 높이값 비율변경하기 */
     #cont.rbx::before {
         padding-top: 150%;
     }
+
     #cont {
         background-position: center top;
         /* height: 788px; */
@@ -106,30 +110,31 @@
         height: 30.9%;
     }
 
-    .mlist{
+    .mlist {
         bottom: auto;
         top: 50%;
         width: 88%;
     }
 
-    .mlist ul{
+    .mlist ul {
         flex-wrap: wrap;
     }
 
-    .mlist ul>li{
+    .mlist ul>li {
         flex: none;
         width: 31.33%;
     }
 
-    .movtxt{
+    .movtxt {
         font-size: 20px;
         white-space: nowrap;
     }
+
     .movtxt li:first-child {
         color: aqua;
-        font-size: min(1.4vw,17px);
+        font-size: min(14.4vw, 21px);
         letter-spacing: -1px;
-        margin-top: 30%;
+        margin-top: 7%;
     }
 
 }
