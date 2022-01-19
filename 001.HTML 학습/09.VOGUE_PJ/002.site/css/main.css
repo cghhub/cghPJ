@@ -4,15 +4,11 @@
 /* 외부파일 합치기 */
 @import url(reset.css);
 @import url(core.css);
+@
 
 /* 박스표시 */
 body *{
     outline: 1px dashed gray;
-}
-/* 속박스 class */
-.ibx{
-    max-width: 1300px;
-    margin: 0 auto;
 }
 
 /* 임시 높이값 */
@@ -28,4 +24,50 @@ body *{
 }
 .pt3{
     height: 650px;
+}
+
+.bg1{
+    background: url(../images/cont1a.jpg);
+}
+.bg2{
+    background: url(../images/cont2-1.jpg);
+}
+.bg3{
+    background: url(../images/cont2-2.jpeg);
+}
+.bg4{
+    background: url(../images/cont2-3.jpg);
+}
+.bg5{
+    background: url(../images/cont3a.jpg);
+}
+.bg6{
+    background: url(../images/cont4-1.jpg);
+}
+.bg7{
+    background: url(../images/cont4-2.jpg);
+}
+.bg8{
+    background: url(../images/cont4-3.jpg);
+}
+.bg9{
+    background: url(../images/cont5a.jpg);
+}
+.bg10{
+    background: url(../images/cont6-1.png);
+}
+.bg11{
+    background: url(../images/cont6-2.jpg);
+}
+.bg12{
+    background: url(../images/cont6-3.png);
+}
+.bg13{
+    background: url(../images/cont7-1.jpg);
+}
+.bg14{
+    background: url(../images/cont7-2.jpg);
+}
+.bg15{
+    background: url(../images/cont7-3.png);
 }
