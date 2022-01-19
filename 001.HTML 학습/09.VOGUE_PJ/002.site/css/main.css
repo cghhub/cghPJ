@@ -6,10 +6,13 @@
 @import url(core.css);
 
 /* 박스표시 */
-
+body *{
+    outline: 1px dashed gray;
+}
 /* 속박스 class */
 .ibx{
     max-width: 1300px;
+    margin: 0 auto;
 }
 
 /* 임시 높이값 */
