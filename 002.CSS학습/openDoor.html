@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Door - CSS3 : 3D Perspective Animations</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+        /* font-family: 'Comfortaa', cursive; */
         html,body{
             margin: 0;
             padding: 0;
@@ -63,6 +65,15 @@
                 -두 값중 하나만 쓸스 있고 복합일 경우 
                 2가지를 같이 셋팅함!
             **********************************************************/
+            /* 애니메이션:이시이지반방마 */
+            animation:sea 5s ease-in-out infinite alternate;
+        }
+        /* 바다배경 애니 키프레임 */
+        @keyframes sea {
+            to{
+                background-size: auto 120%;
+            }
+            /* sea키프레임 */
         }
         /* 문짝 */
         .door{
@@ -76,17 +87,14 @@
             transform: rotateY(60deg);
             /* 축변경 */
             transform-origin: left;
-        }
-
-        .cont .door{
             /* 애니메이션: 이시이지반방마 */
             animation: openFirst 1s ease-in forwards;
             animation: openDoor 2s ease-in-out 1s infinite alternate;
-
             /* 애니메이션 상태관리하기 */
             animation-play-state: paused;
             /* paused - 멈춤상태, running - 진행상태 */
         }
+
         .cont:hover .door{
             /* 애니메이션 상태관리하기 */
             animation-play-state: running;
@@ -122,24 +130,139 @@
             background-color: blue;
         }
 
+        /* 엘사 */
+        #elsa{
+            position: absolute;
+            top: 0;
+            /* 나의부모? .frame */
+            width: 150px;
+            height: 280px;
+            overflow: hidden;
+            z-index: -1;
+            /* 문짝보다 아래 */
+        }
+        /* 엘사이미지 */
+        #elsa img{
+            margin-left: 140px;
+            margin-top: 19px;
+            transform: rotate(0deg);
+            transform-origin: bottom;
+            /* 애니메이션 상태관리하기 - 처음멈춤(아웃시멈춤) */
+            animation: elsa 1s ease-in-out infinite alternate; 
+            animation-play-state: paused;
+        }
+
+        .cont:hover #elsa img{
+            animation-play-state: running;
+        }
+        /* 엘사 키프레임 */
+        @keyframes elsa {
+            to{
+                transform: rotate(-10deg);
+            }
+        }/* elsa  키프레임 */
+
+        /* 창문만들기 */
+        .cont2{
+            position: absolute;
+            top: 210px;
+            left: 70%;
+            width: 150px;
+            height: 150px;
+            background-color: #900;
+        }
+
+        /* 창틀 */
+        .frame2{
+            position: relative;
+            top: 10px;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto;
+            background: url(./images/seashore.jpg) no-repeat center/auto 200%;
+            perspective:500px
+         }
+        .door2{
+            position: relative;
+            /* 부모자격 - .handle */
+            width: 130px;
+            height: 130px;
+            background-color: rgba(204, 153, 0, 0.363);
+
+            text-align: center;
+            /* 글자중앙(세로글자면 세로방향 중앙이다!) */
+            writing-mode: vertical-lr;
+            /* 
+                글자진행방향 설정속성
+                writing-mode:
+                옵션값
+                horizontal-tb 가로글자방향 위에서 아래로(기본값)
+                vertical-rl 세로글자방향 오른쪽에서 왼쪽으로
+                vertical-lr 세로글자방향 왼쪽에서 오른쪽으로
+            */
+            padding: 0 30px;
+            border: 5px solid red;
+            box-sizing: border-box;
+            /* 박스크기유지 - 보더,패딩포함 */
+
+            /* 문짝을 Y축회전 */
+            transform: rotateY(0deg);
+            /* 축변경(상단) */
+            transform-origin: top;
+            /* 트랜지션:속시이지 */
+            transition:all .4s;
+        }
+        /* 오버시 창문열기 */
+        .cont2:hover .door2{
+            transform: rotateX(65deg);
+        }
+        .handle2{
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform:translateX(-50%) ;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: blue;
+        }
 
 
-        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
-        /* font-family: 'Comfortaa', cursive; */
+
     </style>
 </head>
 <body>
     <h1 class="tit">Open Door</h1>
-    <!-- 전체문부모 -->
-    <div class="cont">
-        <!-- 문열었을때 뚫린부분 -->
-        <div class="frame">
-            <!-- 문짝 -->
-            <div class="door">
-                <!-- 손잡이 -->
-                <div class="handle"></div>
-            </div>
+<!-- 전체문부모 -->
+<div class="cont">
+    <!-- 문열었을때 뚫린부분 -->
+    <div class="frame">
+        <!-- 문짝 -->
+        <div class="door">
+            <!-- 손잡이 -->
+            <div class="handle"></div>
+        </div>
+        <!-- 엘사박스 -->
+        <div id="elsa">
+            <img src="./images/elsa.png" alt="엘사">
         </div>
     </div>
+</div>
+
+
+<!-- 창문만들기 -->
+<div class="cont2">
+    <!-- 문열었을때 뚫린부분 -->
+    <div class="frame2">
+        <!-- 문짝 -->
+        <div class="door2">
+            여기에 <br>
+            마우스 <br>
+            오버해
+            <!-- 손잡이 -->
+            <div class="handle2"></div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
