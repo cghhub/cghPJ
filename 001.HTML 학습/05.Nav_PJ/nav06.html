@@ -132,6 +132,15 @@
             color: #000;
         }
 
+                /* 각 서브메뉴별 배경이미지 넣기 */
+    .gnb>ul>li:nth-child(2) .smenu{
+        background: url(images/bgi001.jpg) no-repeat right 20px/auto 150px;
+    }
+    .gnb>ul>li:nth-child(3) .smenu{
+        background: url(images/bgi002.jpg) no-repeat right 20px/auto 150px;
+    }
+
+
         /* ul 에 가상요소로 서브메뉴 배경만들기 */
         .gnb>ul>li::after {
             content: '';
