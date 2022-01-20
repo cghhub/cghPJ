@@ -4,6 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Door - CSS3 : 3D Perspective Animations</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            
+            background-color: #9c0;
+        }
+        /* 타이틀 */
+        .tit{
+            font-family: 'Comfortaa', cursive;
+            font-size: 42px;
+            text-align: center;
+            color: #fff;
+            text-shadow: 2px 2px 2px #000;
+        }
+
+        /* 전체문부모 */
+        .cont{
+            position: relative;
+            top: 100%;
+            width: 200px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: #900;
+        }
+
+        /* 문열었을때 뚫린부분 */
+        .frame{
+            position: relative;
+            top: 20px;
+            width: 150px;
+            height: 280px;
+            margin: 0 auto;
+            background: url(./images/seashore.jpg) no-repeat center/auto 100%;
+            /****************************************************************
+                [3D 원근설정 
+                1.셋팅위치:
+                3D 원근 설정을 할 대상의 부모박스
+                2.설정방법:
+                perspective : 수치;
+                -수치는 px단위로 숫자가 클수록
+                소실점이 먼것이므로 각도가 작아짐
+                (이 거리는 기준점에서 소실점까지의 거리임)
+
+            ****************************************************************/
+            perspective: 480px;
+
+            /********************************************************** 
+                [뷰포인트(관찰자위치)변경옵션]
+                perspective-origin : 가로 세로;
+                -가로값:left, center, right
+                -세로값:top, center, bottom
+                -정해지지 않은값:px, %등 가능
+                -두 값중 하나만 쓸스 있고 복합일 경우 
+                2가지를 같이 셋팅함!
+            **********************************************************/
+        }
+        /* 문짝 */
+        .door{
+            position: relative;
+            /* 부모자격 - .handle */
+            width: 150px;
+            height: 280px;
+            background-color: #c90;
+
+            /* 문짝ㅇㄹ Y축회전 */
+            transform: rotateY(60deg);
+            /* 축변경 */
+            transform-origin: left;
+        }
+
+        .cont .door{
+            /* 애니메이션: 이시이지반방마 */
+            animation: openFirst 1s ease-in forwards;
+            animation: openDoor 2s ease-in-out 1s infinite alternate;
+
+            /* 애니메이션 상태관리하기 */
+            animation-play-state: paused;
+            /* paused - 멈춤상태, running - 진행상태 */
+        }
+        .cont:hover .door{
+            /* 애니메이션 상태관리하기 */
+            animation-play-state: running;
+            /* paused - 멈춤상태, running - 진행상태 */
+        }
+
+        /* 문짝 처음열기 키프레임 */
+        @keyframes openFirst {
+            to{
+                transform: rotateY(60deg);
+            }
+        }
+
+        /* 문짝 열기닫기 키프레임 */
+        @keyframes openDoor {
+            0%{
+                transform: rotateY(60deg);
+            }
+            100%{
+                transform: rotateY(-60deg);
+            }
+        } /* openDoor 키프레임 */
+
+        /* 손잡이 */
+        .handle{
+            position: absolute;
+            top: 140px;
+            right: 10px;
+            /* 부모는? .door */
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: blue;
+        }
+
+
+
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+        /* font-family: 'Comfortaa', cursive; */
+    </style>
 </head>
 <body>
     <h1 class="tit">Open Door</h1>
