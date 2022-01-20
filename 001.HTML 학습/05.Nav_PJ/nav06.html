@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>유형3.가로네비 서브별 드롭다운 전체창</title>
+    <title>유형6.가로네비 서브별 드롭다운 전체창</title>
     <style>
         /* ul,ol초기화 */
         ul,
@@ -70,7 +70,14 @@
 
         /* 서브메뉴 */
         .smenu {
+            width: 800px;
+            /* 특정가로크기설정 */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            /* 자식인  h2 ol 이 옆으로 흐르게함! */
             position: absolute;
+            /* top을 주지않아서 젠틀 */
             height: 0;
             overflow: hidden;
             /* 높이값0, 넘치는 자식요소 숨기기로 서브안보이게 함! */
@@ -79,9 +86,22 @@
             /* 트랜지션:속시이지 */
             transition: height .4s ease-out;
         }
+        /* 서브메뉴 타이틀 */
+        .smenu h2{
+            font-size: 28px;
+        }
+        /*  중분류 */
+        .smenu ol li:first-child a{
+            display: inline;
+            font-weight: bold;
+            font-size: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
 
         /* 상위 ul에 마우스 오버시 서브메뉴 전체보이기 */
-        .gnb>ul:hover>li .smenu {
+        .gnb>ul>li:hover .smenu {
             height: 180px;
         }
 
@@ -112,17 +132,8 @@
             color: #000;
         }
 
-        /* 각 서브메뉴별 배경이미지 넣기 */
-    .gnb>ul>li:nth-child(2) .smenu{
-        background: url(images/bgi001.jpg) no-repeat right 20px/auto 150px;
-    }
-    .gnb>ul>li:nth-child(3) .smenu{
-        background: url(images/bgi002.jpg) no-repeat right 20px/auto 150px;
-    }
-
-
         /* ul 에 가상요소로 서브메뉴 배경만들기 */
-        .gnb>ul::after {
+        .gnb>ul>li::after {
             content: '';
             display: block;
             position: absolute;
@@ -142,8 +153,9 @@
 
         }
 
-        /* 상위메뉴 li에 오버시 서브배경 가상요소 보이기 */
-        .gnb>ul>ul:hover::after{
+        /* 상위메뉴 li(2,3번)에 오버시 서브배경 가상요소 보이기 */
+        .gnb>ul>li:nth-child(2):hover:after,
+        .gnb>ul>li:nth-child(3):hover::after{
             height: 180px;
             border-bottom: 3px solid #000;
 
@@ -152,7 +164,7 @@
 </head>
 
 <body>
-    <h1>유형2.가로네비 서브별 드롭다운 세로형</h1>
+    <h1>유형6.가로네비 서브별 드롭다운 전체창</h1>
 
     <!-- gnb네비게이션 -->
     <div class="gnb">
@@ -163,6 +175,25 @@
             <li>
                 <a href="#">웹개발</a>
                 <div class="smenu">
+                    <!-- 서브메뉴제목 -->
+                    <h2>웹개발</h2>
+                    <ol >
+                        <li>
+                            <a href="#">웹디자인</a>
+                        </li>
+                        <li>
+                            <a href="#">HTML5+CSS3</a>
+                        </li>
+                        <li>
+                            <a href="#">JQUERY</a>
+                        </li>
+                        <li>
+                            <a href="#">웹+모바일</a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                    </ol>
                     <ol >
                         <li>
                             <a href="#">웹디자인</a>
@@ -185,6 +216,18 @@
             <li>
                 <a href="#">게시판</a>
                 <div class="smenu">
+                    <!-- 서브메뉴제목 -->
+                    <h2>게시판</h2>
+                    <ol >
+                        <li>
+                            <a href="#">q&AMP;A</a>
+                        </li>
+                        <li>
+                            <a href="#">HTML5+CSS3</a>
+                        </li>
+                        <li>
+                        </li>
+                    </ol>
                     <ol >
                         <li>
                             <a href="#">q&AMP;A</a>
