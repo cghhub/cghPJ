@@ -4,7 +4,22 @@
 /* 웹폰트, 공용클래스 */
 
 /*************** 1.웹폰트 : CDN ***************/
-
+/* Roboto체 + Roboto Condensed체 - CDN   */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:ital,wght@1,300&display=swap');
+/* 
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+*/
+/* 나눔바른고딕 */
+@font-face{
+    font-family: nbg;
+    src: url("../fonts/NanumBarunGothicLightSubset.woff") format("woff");
+}
+/* pistilli체 */
+@font-face{
+    font-family: pist;
+    src: url("../fonts/Pistilli-Roman.woff") format("woff");
+}
 
 /************ 2.공통 class ************/
 
