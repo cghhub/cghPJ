@@ -11,7 +11,8 @@
     font-family: 'Cute Font', cursive;
     font-family: 'Jua', sans-serif;
 */
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+/* font-family: 'Poppins', sans-serif; */
 /************ 2.공통 class ************/
 
 /* 비율유지박스 class  */

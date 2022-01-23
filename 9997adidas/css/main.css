@@ -8,10 +8,11 @@
 
 body{
     background-color: #000;
+    background: url(../images/WallpaperDog-10810946.jpg) no-repeat center/cover;
 }
 
 body *{
-    /* outline: 1px dashed #ccc; */
+    outline: 1px dashed #ccc;
 }
 
 /* 레이아웃 공통 class */
@@ -26,7 +27,7 @@ body *{
     position: relative;
     /* 부모자격 -gnb */
     height: 80px;
-    background: url(../images/curtain.jpg) repeat;
+    /* background: url(../images/curtain.jpg) repeat; */
     z-index: 9999;
     /* 메뉴를 포함한 부모박스의 위치를 가장높게
     -겹치는 하위메뉴를 위에 오도록하기 위함 */
@@ -225,7 +226,7 @@ class */
 #cont{
     /* height: 788px; */
     /* 높이값을 주지않고 비율유지 가상요소로 생성함! */
-    background: url(../images/bg.jpg) no-repeat ;
+    /* background: url(../images/bg.jpg) no-repeat ; */
     background-size: 100%;
 }
 
@@ -242,10 +243,10 @@ class */
 
 #screen{
     position: absolute;
-    top: 6.3%;
-    width: 58.4%;
-    left: 21.4%;
-    height: 61.4%;
+    top: 9.3%;
+    width: 84.4%;
+    left: 15%;
+    height: 82.4%;
     /* 부모는? #cont.rbx */
     background-color: #000;
 }
@@ -260,17 +261,18 @@ class */
 /* 2-2. 예고편 선택메뉴 */
 .mlist{
     position: absolute;
-    bottom: 10%;
-    left: 50%;
+    bottom: 1%;
+    left: 5%;
     /* 부모박스의 절반밀어놓고 */
     transform: translateX(-50%);
     /* x축방향으로 자기크기의 절반
     왼쪽으로이동하기->가로중앙이동! */
-    width: 60%;
+    width: 8%;
 
 
 }
 .mlist ul{
+    flex-direction: column;
     display: flex;
 }
 

@@ -38,12 +38,13 @@ body {
 /* 들어가기 버튼박스 */
 #enter {
     position: absolute;
-    top: 90%;
+    top: 63%;
     left: 50%;
     transform: translate(-50%, -50%);
     /* 트랜스폼으로 정중앙이동하기 */
     /* outline: 4px dotted lime; */
 }
+
 
 /* click here!글자박스 */
 #enter span {
@@ -52,7 +53,7 @@ body {
     /* 옆에 마무도못오고 width느 끝까지 간다! */
     font-family: 'Audiowide';
     text-align: center;
-    font: bold 34px/1.8 'Audiowide';
+    font: bold 90px/1.8 'Poppins';
     /* 트랜지션:속시이지 */
     transition: all .4s ease-out .2s;
 }
