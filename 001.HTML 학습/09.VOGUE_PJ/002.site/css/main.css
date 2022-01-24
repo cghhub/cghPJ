@@ -12,62 +12,62 @@ body *{
 }
 
 /* 임시 높이값 */
-.top{
+/* .top{
     height: 206px;
-}
-.info{
+} */
+/* .info{
     height: 286px;
-}
+} */
 /* 컨텐츠 유형1 */
-.pt1{
+/* .pt1{
     height: 724px;
-}
-.pt3{
+} */
+/* .pt3{
     height: 650px;
-}
+} */
 
 .bg1{
-    background: url(../images/cont1a.jpg);
+    background-image: url(../images/cont1a.jpg);
 }
 .bg2{
-    background: url(../images/cont2-1.jpg);
+    background-image: url(../images/cont2-1.jpg);
 }
 .bg3{
-    background: url(../images/cont2-2.jpeg);
+    background-image: url(../images/cont2-2.jpeg);
 }
 .bg4{
-    background: url(../images/cont2-3.jpg);
+    background-image: url(../images/cont2-3.jpg);
 }
 .bg5{
-    background: url(../images/cont3a.jpg);
+    background-image: url(../images/cont3a.jpg);
 }
 .bg6{
-    background: url(../images/cont4-1.jpg);
+    background-image: url(../images/cont4-1.jpg);
 }
 .bg7{
-    background: url(../images/cont4-2.jpg);
+    background-image: url(../images/cont4-2.jpg);
 }
 .bg8{
-    background: url(../images/cont4-3.jpg);
+    background-image: url(../images/cont4-3.jpg);
 }
 .bg9{
-    background: url(../images/cont5a.jpg);
+    background-image: url(../images/cont5a.jpg);
 }
 .bg10{
-    background: url(../images/cont6-1.png);
+    background-image: url(../images/cont6-1.png);
 }
 .bg11{
-    background: url(../images/cont6-2.jpg);
+    background-image: url(../images/cont6-2.jpg);
 }
 .bg12{
-    background: url(../images/cont6-3.png);
+    background-image: url(../images/cont6-3.png);
 }
 .bg13{
-    background: url(../images/cont7-1.jpg);
+    background-image: url(../images/cont7-1.jpg);
 }
 .bg14{
-    background: url(../images/cont7-2.jpg);
+    background-image: url(../images/cont7-2.jpg);
 }
 .bg15{
-    background: url(../images/cont7-3.png);
+    background-image: url(../images/cont7-3.png);
 }
