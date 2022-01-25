@@ -281,6 +281,63 @@
         없으면 이곳이 실행된다.(단,필요할때만 사용함)
             ->default에는 break문을 쓰지 않는다!
       ************************************************************/
+
+      /************************************************************* 
+        함수명 : gugu
+        기능 : 선택박스에서 선택된 구구단을 출력함
+        연결이벤트: change
+                ->선택박스(select)의 option 선택이 변경됄때
+                발생하는 이벤트
+      *************************************************************/
+     function gugu(U){ // U - select요소 자신을 전달하는 변수
+
+        // 0.전달값 읽기
+        var opt = U.value;
+        // value는 선택된 option의 value 값!
+
+        // 1.함수호출확인
+        console.log("구구단을 외자!",opt);
+
+        // 2.대상선정:출력대상 - .gugu
+        var gugu = document.querySelector(".gugu");
+
+        // 3.구구단 만들기
+        var code = `<h2>${opt}단</h2>`;
+
+        for(var i=1;i<=100;i++){
+            code += `${opt} × ${i} = ${opt*i} <br>`;
+        }//////for///////////////////////////////////
+
+        // 구구단 내용만들기 (기존내용에 더함 += 대입연산자사용!)
+        // code += `${opt} × 1 ＝ ${opt*1} <br>`;
+        // code += `${opt} × 2 ＝ ${opt*2} <br>`;
+        // code += `${opt} × 3 ＝ ${opt*3} <br>`;
+        // code += `${opt} × 4 ＝ ${opt*4} <br>`;
+
+        // 4.화면출력
+        gugu.innerHTML = code;
+
+
+     }///////////////////gugu 함수 ////////////////////////////////////
+     /////////////////////////////////////////////////////////////////
+
+     /*************************************************************** 
+        [for 문]
+        -어떤 실행문을 순서대로 여러번 반복 실행할 경우
+        사용하는 제어문
+
+        -구문구조:
+        -------------------------------------------------------
+
+        for(시;한;증){실행코드}
+        -시 -> 시작값(변수선언과 함께 숫자를 할당)
+        -한 -> 한계값(숫자를 조건문으로 사용)
+        -증 -> 증감(1씩 증가는 ++ / 1씩 감소는 --)
+
+        [for문의 진행순서]
+        1.
+     ***************************************************************/
+
     </script>
     <style>
         /* 칭찬스티커 */
@@ -305,6 +362,17 @@
             width: 0;
             height: 0;
             overflow: hidden;
+        }
+
+        /* 구구단 출력박스 */
+        .gugu{
+            width: 300px;
+            height: 300px;
+            border: 2px dashed blue;
+            text-align: center;
+            margin-top: 10px;
+            overflow-y: scroll;
+            /* 스크롤바 트랙 미리생성 */
         }
     </style>
 </head>
@@ -360,6 +428,66 @@
      placeholder="지역명에 '도'를 빼고 쓰세요!" 
      onkeypress="if (event.keyCode == 13)local()">
      <button class="sbtn" onclick="local()">국번문의</button>
+
+     <hr>
+
+
+     <!-- for문 연습 -->
+     <h2>for문연습</h2>
+     <h3>구구단 출력하기</h3>
+     <select name="sel" id="sel" onchange="gugu(this)">
+        <!-- this키워드 : select박스 자신의 정보를 보냄 -->
+         <option value="1">구구단을 선택하세요!</option>
+         <option value="2">2단</option>
+         <option value="3">3단</option>
+         <option value="4">4단</option>
+         <option value="5">5단</option>
+         <option value="6">6단</option>
+         <option value="7">7단</option>
+         <option value="8">8단</option>
+         <option value="9">9단</option>
+         <option value="10">10단</option>
+         <option value="11">11단</option>
+         <option value="12">12단</option>
+         <option value="13">13단</option>
+         <option value="14">14단</option>
+         <option value="15">15단</option>
+         <option value="16">16단</option>
+         <option value="17">17단</option>
+         <option value="18">18단</option>
+         <option value="19">19단</option>
+         <option value="20">20단</option>
+     </select>
+     <br>
+     <!-- 구구단 출력박스 -->
+     <div class="gugu"></div>
+     <!-- 
+         [select 요소]
+         -어떤 제시된 값을 드롭다운 메뉴에서 선택할수 있는
+         입력요소
+         -name 속성 : 백엔드 코딩에서 값을 얻기위한
+         구분이름으로 사용된다(name은 id명과 같아도 무관)
+         -하위 필수 속성 -> option 요소
+         ->선택옵션을 셋팅하는 요소
+         ->데이터로 값을 넣고 이 값을 선택했을때 코드를 넣는다!
+         value 속성이 구분코드임! 
+         ->만약 value 를 안쓰게 되면 데이터를 읽어감
+         (참고 : html 태그에서 데이터는 꺽쇠사이의 문자)
+      -->
+
+      <!-- 
+          [젠코딩 약어]
+          -젠코딩은 줄여서 코딩하는 법을 말함!
+          -vscode에서는 emmet(에밋)으로 기본내장됨!
+          option[value=$]{$단}*20
+          --------------------------------------------
+          대괄호[] - 속성
+          중괄호{} - 데이터
+          $ - 순번(1부터)
+          *숫자 - 여러개 만들때
+
+          (참고:공유자료 - zencoding.pdf)
+       -->
 </body>
 
 </html>
