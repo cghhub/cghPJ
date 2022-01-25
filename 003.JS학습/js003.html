@@ -344,6 +344,32 @@
         6. 조건에 맞는 동안 중괄로{}안의 코드를 반복실행함!
         7. 중앙에 한계값 조건에 맞지 않으면 (false이면)
             for문을 빠져나온다!
+
+
+
+
+        /************************************************* 
+            [ while문 ]
+            - 반복실행코드를 위한 조건으로 만드는 제어구문
+            - 구문형식:
+            ___________________
+            시작값;
+            while(한계값){
+                실행코드;
+                증감;
+            }
+            ____________________
+
+
+        -for문과 유사하나 시작값이 while문 윗쪽에 나옴
+        -한계값은 while문 소괄호안에 씀
+        -증감은 while문 실행코드 내부에 씀
+        (주의사항:만약 증감을 안쓰면 무한루프에 빠진다)
+
+        -while문은 사용용도에 따라 for문과 달리
+        조건에 맞을때 까지 반복 실행 구문으로 사용할수 있다!
+        (예컨데 중복숫자가 안나오게 할때 등)
+        ->이렇게 쓸 경우 시작값, 증감없이도 사용가능함!
      ***************************************************************/
 
     </script>
@@ -469,6 +495,38 @@
      <br>
      <!-- 구구단 출력박스 -->
      <div class="gugu"></div>
+     <hr>
+
+
+     <!-- while문 연습 -->
+     <h2>while문연습</h2>
+     <h3>구구단 출력하기</h3>
+     <select name="sel2" id="sel2" onchange="gugu2(this)">
+        <!-- this키워드 : select박스 자신의 정보를 보냄 -->
+         <option value="1">구구단을 선택하세요!</option>
+         <option value="2">2단</option>
+         <option value="3">3단</option>
+         <option value="4">4단</option>
+         <option value="5">5단</option>
+         <option value="6">6단</option>
+         <option value="7">7단</option>
+         <option value="8">8단</option>
+         <option value="9">9단</option>
+         <option value="10">10단</option>
+         <option value="11">11단</option>
+         <option value="12">12단</option>
+         <option value="13">13단</option>
+         <option value="14">14단</option>
+         <option value="15">15단</option>
+         <option value="16">16단</option>
+         <option value="17">17단</option>
+         <option value="18">18단</option>
+         <option value="19">19단</option>
+         <option value="20">20단</option>
+     </select>
+     <br>
+     <!-- 구구단 출력박스 -->
+     <div class="gugu gugu2"></div>
      <!-- 
          [select 요소]
          -어떤 제시된 값을 드롭다운 메뉴에서 선택할수 있는
