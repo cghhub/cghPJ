@@ -29,7 +29,7 @@
 .tmenu{
     display: flex;
     /* 플렉스박스 */
-    max-width: 970px
+    max-width: 970px;
     height: 45px;
     margin: 0 auto;
 }
@@ -53,7 +53,9 @@
     transition: opacity 0.2s;
 }
 /* a요소 오버시 */
-.sns a:hover
+.sns a:hover{
+    opacity: 0.8;
+}
 
 
 /* 트위터 아이콘 조정 */
@@ -82,7 +84,7 @@
 }
 /* 메뉴사이 구분선 넣기 */
 .smbx>li:first-child{
-    border-radius: ;
+    border-right: 1px solid #e5e5e5e5;
 }
 
 
@@ -167,7 +169,7 @@
     /* 좁아지면 자동줄바꿈 */
 }
 .gnb li{
-    padding-right: 40px;
+    padding-right: 35px;
 }
 /* 마지막 리스트 li  */
 .gnb li:last-child a{
@@ -189,6 +191,15 @@
 /* 슬림 스타일 상단영역 셋팅 */
 /* 상단변경은 모두 #top최상위 박스에 class="on" 이 된경우
 적용되도록 한다!!-> #top.on 하위변경 */
+
+#top.on{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+
 /* 로고이미지 */
 #top.on .logo{
     position: absolute;
@@ -199,6 +210,7 @@
 /* 로고이미지 크기변경 */
 #top.on .logo img{
     width: 100px;
+    width: 50px;
 }
 /* 상단메뉴 없애기 */
 .top.on .tmenu{
@@ -211,9 +223,17 @@
 
 /* gnb 마진탑 없애기(부모박스 바깥쪽을 밀기때문!) */
 #top.on .gnb{
-    
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 40px;
+    padding:5px 30px 15px 121px;
+    /* 기존양쪽패딩 30px 중 왼쪽만 로고만큼 더밀기 */
 }
-
+#top.on .gnb a{
+    font-size: 14px;
+    line-height: 50px;
+    margin-top: 0;
+}
 
 /****************************2.하단영역****************************/
 .info{
