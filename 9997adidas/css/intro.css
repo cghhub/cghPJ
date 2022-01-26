@@ -57,10 +57,19 @@ body {
     /* 트랜지션:속시이지 */
     transition: all .4s ease-out .2s;
 }
+#enter span:first-child{
+    transform: scaleX(4);
+    display: block;
+}
+#enter:hover span:first-child{
+    transform: scaleX(4.8);
+    display: block;
+}
+
 
 /* 엔터박스 오버시 글자박스 변경 */
 #enter:hover span {
-    transform: scale(2);
+    transform: scale(1.4);
     color: chartreuse;
 }
 

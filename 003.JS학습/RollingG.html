@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling Gallery</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            /* 보이는 화면 기준채우기 */
+        }
+        body{
+            background: url(./images/space.jpg) no-repeat center/auto 200%;
+        }
+        /* 요소 */
+        a{
+            color: #000;
+            text-decoration: none;
+        }
+        /* 갤러리 부모박스 */
+        .wrap{
+            width: 520px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 20px;
+            /* outline: 2px dotted red; */
+        }
+        /* 메인이미지박스 */
+        #mbox{
+            display: inline-block;
+        }
+        /* 이미지 중간맞추기 */
+        #mbox img{
+            vertical-align:-79px;
+        }
+    </style>
+    <!-- js코딩구역 -->
+    <script>
+        /* 
+            갤러리 기능정의:
+            1.버튼클릭시 이미지가 변경됨
+            2.오른쪽버튼 클릭시 다음이미지
+            3.왼쪽버튼 클릭시 이전이미지
+            4.맨처음과 맨끝에서는 서로의 끝으로
+            연결하여 이동함
+        */
+
+        // html이 모두 로딩된 후 실행구역
+        // js코드가 html 코드보다 위에 있으면
+        // 아래있는 html 코드를 모르게 됨
+        /* window.addEventListener(이벤트명,함수)
+        ->설정된 이벤트가 발생하면 함수를 실행
+        ->load이벤트를 사용하여 html 페이지가
+        모두 로딩된 후 함수를 실행함 
+        ->함수는 외부에 함수를 만들어도 되지만 
+        function(){}->익명함수를 사용할수 있다!*/
+        window.addEventListener("load", 
+            function(){
+                console.log("로딩완료!");
+                
+                // 대상선정:버튼요소 - .btn
+                var btn = document.querySelectorAll(".btn");
+                console.log("버튼개수:",btn.length);
+                
+                // 오른쪽버튼 클릭시
+                // item(순번)->버튼이 담긴 컬렉션집합 순번
+                // (오른쪽버튼은 2번째이므로 0,1 순서니까 1번이다!!!)
+                // onclick은 html요소의 이벤트속성이다!
+                // 이퀄뒤에 function(){코드} -> 이벤트발생시 실행코드!
+                btn.item(1).onclick = function(){
+                    chgImg(1);
+                }///////////////////Click함수////////////////////////////////
+
+                btn.item(0).onclick = function(){
+                    chgImg(0);
+                }///////////////////Click함수////////////////////////////////
+
+            });//////////////////load구역////////////////////////////////////
+            
+            /////////////////////////////////////////////////////////////////
+            // 함수바깥에 선언하여 쓰는 변수를 전역변수라고 한다!
+            // 전역변수의 의미는? -> 공용메모리의 의미임!
+            // 저장된 정보를 유지하며 업데이트하여 브라우저 프로그램
+            // 전체에서 그 현재정보를 공유함! 전역변수가 중요한 역할을 함
+            /////////////////////////////////////////////////////////////////
+
+
+            // 이미지번호 전역변수
+            var num = 1;
+        /***************************************************************** 
+            함수명: chgImg
+            기능: 버튼 클릭시 이미지변경
+        *****************************************************************/
+       function chgImg(gubun) {  
+            // gubun  - 구분값 전달변수(1-오른쪽,0-왼쪽)
+
+            // 1.함수호출확인
+            console.log("나야나!");
+
+            // 2.변경대상: #bbox img
+            var tg = document.querySelector("#mbox img");
+            // console.log("이미지경로:",tg.src);
+
+            // 3.이미지번호 전역변수 증감분기
+            // 3-1.오른쪽버튼처리
+            if(gubun){ //gubun에 1이 들어오면 true
+                num++;//1씩증가
+                if(num ===8) num=1; //한계값
+            }////////////if//////////////////////////////////
+            // 3-2.왼쪽버튼처리
+            else{
+                num--; //1씩감소
+                if(num ===0) num=7; //한계값
+            }///////////else/////////////////////////////////
+
+            console.log("이미지번호:",num);
+
+            // 4.변경내용:이미지src를 이전/다음 이미지로 변경
+            tg.src = `./images/img${num}.jpg`;
+
+       }///////////////chgImg함수/////////////////////////////////////////
+       ///////////////////////////////////////////////////////////////////
+    </script>
+</head>
+<body>
+    <!-- 갤러리 박스 -->
+    <div class="wrap">
+        <!-- 타이틀 -->
+        <h1>Rolling Gallery</h1>
+        <!-- 왼쪽이동버튼 -->
+        <a href="#" class="btn lb">
+            <img src="./images/left_btn.png" alt="왼쪽버튼">
+        </a>
+        <!-- 메인이미지박스 -->
+        <div id="mbox">
+            <img src="./images/img1.jpg" alt="메인이미지">
+        </div>
+        <!-- 오른쪽이동버튼 -->
+        <a href="#" class="btn rb">
+            <img src="./images/right_btn.png" alt="오른쪽버튼">
+        </a>
+    </div>
+
+
+</body>
+</html>
