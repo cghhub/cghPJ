@@ -71,12 +71,63 @@
             const fruit = ["배","사과","용과","딸기"];
 
             // 2.공통모듈요소
-            // 배열정보 출력
+            // (1)배열정보 출력
             let showit = document.querySelector(".showit");
-            // 배열 이미지 출력
+            // (2)배열 이미지 출력
             let cont = document.querySelector(".cont");
-            // 조작버튼요소들
+            // (3)조작버튼요소들
             let mbtn = document.querySelectorAll(".mbtn");
+            // (4)선택박스
+            let sel = document.querySelector("#sel");
+
+            // 3. 처음 배열 출력
+            showit.innerText = fruit.join("*");
+
+            // 4.각 기능버튼 함수 구현하기
+
+            // 4.-1.과일주세요~! 버튼 (버튼순서:0)
+
+            // 4-2.뒷배열추가요~! 버튼 (버튼순서:1)
+            mbtn[1].onclick = function(){
+                // 선택대상:#sel 인 선택박스의 값을
+                // 배열에 추가하기 - > push()배열뒤추가
+                fruit.push(sel.value);
+                // 배열정보 출력하기
+                showit.innerText = fruit.join("*");
+
+
+            };/////////////// click 함수 /////////////////////////////////////
+
+            // 4-3.앞배열추가요~! 버튼 (버튼순서:2)
+            mbtn[2].onclick = function(){
+                // 선택대상:#sel 인 선택박스의 값을
+                // 배열에 추가하기 - > unshift()배열앞추가
+                fruit.unshift(sel.value);
+                // 배열정보 출력하기
+                showit.innerText = fruit.join("*");
+
+
+            };/////////////// click 함수 /////////////////////////////////////
+
+            // 4-4.앞배열추가요~! 버튼 (버튼순서:3)
+            mbtn[3].onclick = function(){
+                // 뒷배열에 삭제하기 - > pop()배열뒤삭제
+                fruit.pop(sel.value);
+                // 배열정보 출력하기
+                showit.innerText = fruit.join("*");
+
+
+            };/////////////// click 함수 /////////////////////////////////////
+
+            // 4-5.앞배열추가요~! 버튼 (버튼순서:4)
+            mbtn[4].onclick = function(){
+                // 앞배열에 삭제하기 - > shift()배열앞삭제
+                fruit.shift(sel.value);
+                // 배열정보 출력하기
+                showit.innerText = fruit.join("*");
+
+
+            };/////////////// click 함수 /////////////////////////////////////
 
         });//////////////////////로드구역/////////////////////////////////////
         //////////////////////////////////////////////////////////////////////
