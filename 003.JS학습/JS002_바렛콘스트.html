@@ -203,9 +203,37 @@
         // pop() 메서드  - 맨뒤 배열삭제
         myArr.pop();
         console.log("상수 배열 myArr 전체값:",myArr.valueOf());
-
+        
         
         ///////////// 객체일 경우 //////////////////////////////
+        
+        const myObj = {
+            first:"나야나",
+            second:"너두야",
+            third:()=>console.log("객체함수실행!")
+        };////////////myObj객체//////////////////////////////
+        
+        
+        // 값찍기
+        myObj.second = "배불러~!";
+        console.log("상수 객체 myObj 중 second값:",myObj.second);
+        
+        
+        // 속성추가
+        // 추가방법:object 객체의 속성정의 메서드를 사용함
+        // ->object.defineProperty(객체명,속성명,{value:속성값})
+        Object.defineProperty(myObj,"name",{value:"톰소여"});
+        console.log("상수 객체 myObj 중 추가된 name값:",myObj.name);
+        console.log("상수 객체 myObj:",myObj);
+        
+        
+        // 속성지우기
+        delete myObj.second;
+        console.log("상수 객체 myObj 중 second값:",myObj.second);
+        console.log("상수 객체 myObj:",myObj);
+        
+        // 함수호출
+        myObj.third();
         
 
 

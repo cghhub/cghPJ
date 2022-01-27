@@ -267,7 +267,7 @@ class */
     transform: translateX(-50%);
     /* x축방향으로 자기크기의 절반
     왼쪽으로이동하기->가로중앙이동! */
-    width: 8%;
+    width: 11%;
 
 
 }
@@ -280,13 +280,13 @@ class */
     position: relative;
     /* 부모자격 */
     margin: 0 1%;
-    flex: 1;
+    /* flex: 1; */
     overflow: hidden;
     /* 넘치는 자식요소 숨기기 */
 }
 
 .mlist img{
-    width: 140%;
+    width: 100%;
     vertical-align: bottom;
     /* 이미지 박스하단 공백 없애기! */
 }
