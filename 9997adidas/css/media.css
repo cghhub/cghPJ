@@ -111,6 +111,7 @@
     }
 
     .mlist {
+        left: 6%;
         bottom: auto;
         top: 50%;
         width: 88%;
@@ -121,8 +122,9 @@
     }
 
     .mlist ul>li {
+        display: inline-block;
         flex: none;
-        width: 31.33%;
+        width: 29%;
     }
 
     .movtxt {
