@@ -271,10 +271,10 @@ class */
 
 
 }
-.mlist ul{
+/* .mlist ul{
     flex-direction: column;
     display: flex;
-}
+} */
 
 .mlist ul>li{
     position: relative;
@@ -286,7 +286,7 @@ class */
 }
 
 .mlist img{
-    width: 100%;
+    width: 140%;
     vertical-align: bottom;
     /* 이미지 박스하단 공백 없애기! */
 }

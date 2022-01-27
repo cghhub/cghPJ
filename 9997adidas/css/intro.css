@@ -49,7 +49,7 @@ body {
 /* click here!글자박스 */
 #enter span {
 
-    display: block;
+    /* display: block; */
     /* 옆에 마무도못오고 width느 끝까지 간다! */
     font-family: 'Audiowide';
     text-align: center;
@@ -59,11 +59,11 @@ body {
 }
 #enter span:first-child{
     transform: scaleX(4);
-    display: block;
+    /* display: block; */
 }
 #enter:hover span:first-child{
     transform: scaleX(4.8);
-    display: block;
+    /* display: block; */
 }
 
 
