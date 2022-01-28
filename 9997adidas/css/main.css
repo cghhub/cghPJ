@@ -12,7 +12,7 @@ body{
 }
 
 body *{
-    outline: 1px dashed #ccc;
+    /* outline: 1px dashed #ccc; */
 }
 
 /* 레이아웃 공통 class */
@@ -36,7 +36,7 @@ body *{
 h1.tit{
     color: aquamarine;
     font-size: 40px;
-    font-family: 'Audiowide';
+    /* font-family: 'Audiowide'; */
     text-align: center;
     line-height: 80px;
     /* 그림자를 이용한 Glow효과 */
@@ -181,28 +181,9 @@ class */
 
 
 /* 빔박스 */
-.bim{
-    position: absolute;
-    top: -17px;
-    right: 0;
-    /* 부모는? #cam */
-    width: 0;
-    height: 70px;
-    background: url(../images/bim.png) no-repeat;
-    background-position: right center;
-    background-size: auto 100%;
-    /* 이미지의 크기를 세로에 맞춤! */
 
-    /* 트랜지션 : 소시이지 */
-    transition: width .5s linear .5s;
-}
 /* gnb 에 오버시 영사기 쏘기(width:200px) */
-.gnb:hover .bim{
-    width: 200px;
-    transition-delay: .5s;
-    /* 오버시엔 0.5초 기다려! */ 
-    animation: bimAni .04s linear infinite alternate;
-}
+
 .gnb:hover #cam img{
     transform: rotate(0deg);
     /* 트랜지션:속시이지 */
@@ -338,7 +319,7 @@ class */
 #info address{
     color: #fff;
     font-style: normal;
-    font-family: 'Cute Font', cursive;
+    /* font-family: 'Cute Font', cursive; */
     font-size: 18px;
     line-height: 20px;
 
@@ -351,8 +332,12 @@ class */
 #info span:first-child{
     color: #fff;
     font-size: 60px;
-    
 }
+
+#info span:last-child{
+    padding-left: 50px;
+}
+
 /* #info img{
     float: left;
     /* 이미지는 왼쪽, 글자는 오른쪽에 흐르게 

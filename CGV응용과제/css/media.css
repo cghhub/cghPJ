@@ -1,0 +1,142 @@
+@charset "utf-8";
+
+/* CGV PJ 메인페이지 미디어쿼리 CSS - media.css */
+
+/* 미디어쿼리 : 1300px 이하 시작 */
+@media screen and (max-width:1300px) {
+
+    /* GNB 메뉴 위치이동 - 영사기 보이게 */
+    .gnb {
+        right: 63px;
+    }
+}
+
+/* 미디어쿼리 : 1300px 이하 끝 */
+
+
+/* 미디어쿼리 : 1050px 이하 시작 */
+@media screen and (max-width:1050px) {
+    .glist {
+        position: absolute;
+        left: -68px;
+        width: 120px;
+        flex-direction: column;
+        text-align: right;
+        display: none;
+
+    }
+
+    .gnb:hover .glist {
+        display: flex;
+    }
+
+    .glist>li:hover {}
+
+    .glist li {
+        padding-bottom: 10px;
+    }
+
+
+
+}
+
+/* 미디어쿼리 : 1050px 이하 끝 */
+
+
+/* 미디어쿼리 : 780px 이하 시작 */
+@media screen and (max-width:780px) {
+
+    #info address {
+        padding: 10px;
+        text-align: center;
+    }
+
+    #info img {
+        display: block;
+        float: none;
+        margin: 10px auto;
+    }
+
+    ul.sns {
+        position: static;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* 미디어쿼리 : 600px 이하 시작 */
+@media screen and (max-width:600px) {
+
+    /* 타이틀 글자크기 */
+    h1.tit {
+        font-size: 9vw;
+    }
+
+    /* 하단회사주소 숨기기 */
+    #info address span {
+        display: none;
+    }
+
+    #info {
+        height: auto;
+        padding: 10px;
+    }
+
+    ul.sns {
+        margin: 0 auto;
+    }
+
+    #info img {
+        margin: 0 auto;
+    }
+
+    /* 메인영역 높이값 비율변경하기 */
+    #cont.rbx::before {
+        padding-top: 150%;
+    }
+
+    #cont {
+        background-position: center top;
+        /* height: 788px; */
+        background-size: 140%;
+    }
+
+    #screen {
+        top: 10.6%;
+        width: 82.3%;
+        left: 9.4%;
+        height: 30.9%;
+    }
+
+    .mlist {
+        left: 6%;
+        bottom: auto;
+        top: 50%;
+        width: 88%;
+    }
+
+    .mlist ul {
+        flex-wrap: wrap;
+    }
+
+    .mlist ul>li {
+        display: inline-block;
+        flex: none;
+        width: 29%;
+    }
+
+    .movtxt {
+        font-size: 20px;
+        white-space: nowrap;
+    }
+
+    .movtxt li:first-child {
+        color: aqua;
+        font-size: min(14.4vw, 21px);
+        letter-spacing: -1px;
+        margin-top: 7%;
+    }
+
+}

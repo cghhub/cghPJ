@@ -1,0 +1,383 @@
+@charset "utf-8";
+
+/* CGV PJ 메인 페이지 CSS - main.css */
+
+/* 외부파일 합치기 */
+@import url(reset.css);
+@import url(core.css);
+
+body{
+    background-color: #000;
+    background: url(../images/WallpaperDog-10810946.jpg) no-repeat center/cover;
+}
+
+body *{
+    /* outline: 1px dashed #ccc; */
+}
+
+/* 레이아웃 공통 class */
+.part{
+    max-width: 1200px;
+    /* 최대 1200px, 이하일때 auto */
+    margin: 0 auto;
+    /* 마영오! - 가로중앙 */
+}
+/************************** 1.상단영역 **************************/
+#top{
+    position: relative;
+    /* 부모자격 -gnb */
+    height: 80px;
+    /* background: url(../images/curtain.jpg) repeat; */
+    z-index: 9999;
+    /* 메뉴를 포함한 부모박스의 위치를 가장높게
+    -겹치는 하위메뉴를 위에 오도록하기 위함 */
+}
+/* 1-1. 페이지타이틀 */
+h1.tit{
+    color: aquamarine;
+    font-size: 40px;
+    /* font-family: 'Audiowide'; */
+    text-align: center;
+    line-height: 80px;
+    /* 그림자를 이용한 Glow효과 */
+    text-shadow: 0 0 4px aquamarine;
+
+    /* 애니메이션 : 이지이지반방마 */
+    animation: titAni 1s ease-in infinite alternate;
+}
+
+/* 타이틀 글로우효과 애니메이션 */
+@keyframes titAni {
+    from{
+        text-shadow: 0 0 4px aquamarine;
+    }
+    to{
+        text-shadow: 0 0 12px aquamarine;
+    }
+}
+
+/* 1-2 전체메뉴(gnb) */
+.gnb{
+    position: absolute;
+    bottom: -10px;
+    right: 10px;
+    /* 나의 부모? #top */
+}
+/* gnb ul */
+
+
+.glist{
+    position: relative;
+    /* z-index 적용위해 */
+    z-index: 1;
+    /* 영사기보다위 */
+    font-family: 'Jua', sans-serif;
+    display: flex;
+    /* 플렉스 박스 */
+}
+/* GNB li 리스트 */
+.glist>li{
+    position: relative;
+    /* 상위메누 */
+    padding: 0 10px;
+    padding-bottom: 20px;
+    /* 하위메뉴와 영역이 연결되게함 */
+    font-size: 20px;
+}
+/* 서브메뉴 a에 오버시 가상요소로 이모지 보이기 */
+.glist>li:nth-child(1) .smenu li a:hover::after{
+    content: '🍕';
+    float: right;
+}
+
+/* 임시로 첫번째 .smenu만 보이게 하기 */
+/* .glist>li:first-child~li .smenu{
+    display: none;
+} */
+
+/* gnb 서브메뉴 */
+.smenu{
+    position: absolute;
+    width: 140px;
+    left: 50%;
+    background: url(../images/bg_smenu.png) no-repeat center/cover;
+    padding: 3px;
+    margin-top: 5px;
+    border-radius: 5px;
+    display: none;
+    box-shadow: 0 0 5px #fff;
+    transform: translateX(-50%);
+    /* x축방향으로 자신의 크기의 절반 왼쪽이동(중앙맞춤) */
+}
+/* 상위메뉴 li에 오버시에  .smenu보임 */
+.glist>li:hover .smenu{
+    display: block;
+}
+/* 가상요소로 삼각형 만들기 */
+.smenu::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid red;
+    border-bottom: 10px solid red;
+    /* border-top: 10px solid red; */
+    /* border-top: 10px solid red;  역삼각형  */
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    /* transparent 투명생 */
+}
+/* 서브메뉴 ol */
+.smenu ol{
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.smenu li{
+    font-size: 16px;
+    line-height: 2;
+}
+/* 서브메뉴 li중 보더탑 디자인용
+class */
+.bdt{
+    border-top: 1px solid #ccc;
+}
+/* 서브메뉴 a요소 확장 */
+.smenu a{
+    display: block;
+    /* li부모 */
+}
+
+
+/* 서브메뉴 a에 오버시 글자색 빨강 */
+.smenu a:hover{
+    color: red;
+}
+
+/* 영사기 박스 */
+#cam{
+    position: absolute;
+    bottom: 0;
+    right: -50px;
+    /* 부모는? .gnb */
+}
+/* 영사기 이미지 */
+#cam img{
+    position: relative;
+    z-index: 1;
+    /* 영사기가 빔박스보다 위에 보이게함! */
+    width: 50px;
+    /*  영사기회전 */
+    transform: rotate(25deg);
+    transition: all .5s ease-out;
+}
+/* GNB에 마우스 오버시 영사기 회전하기 */
+.gnb:hover #cam img{
+    transform: rotate(0deg);
+}
+
+
+/* 빔박스 */
+
+/* gnb 에 오버시 영사기 쏘기(width:200px) */
+
+.gnb:hover #cam img{
+    transform: rotate(0deg);
+    /* 트랜지션:속시이지 */
+    transition-delay: 0s;
+    /* 애니메니션: 이지이니반방마*/
+   
+}
+
+/* 빔이 너울너울 거리도록 애니메이션 키프레임 */
+@keyframes bimAni {
+    from{
+        opacity: 0.9;
+    }
+    to{
+        opacity: 0.5;
+        
+    }
+}/* bimAni 키프레임 */
+
+/************************** 2.메인영역 **************************/
+#cont{
+    /* height: 788px; */
+    /* 높이값을 주지않고 비율유지 가상요소로 생성함! */
+    /* background: url(../images/bg.jpg) no-repeat ; */
+    background-size: 100%;
+}
+
+/* 비율만들기 */
+#cont.rbx::before{
+    padding-top: 65.66%;
+    /* 
+        비율계산하기:
+        1200px : 788px = 100% : x%
+        x = 788px * 100% / 1200px
+          = 65.66%
+    */
+}
+
+#screen{
+    position: absolute;
+    top: 9.3%;
+    width: 84.4%;
+    left: 15%;
+    height: 82.4%;
+    /* 부모는? #cont.rbx */
+    background-color: #000;
+}
+/* 스크린 아이프레임 */
+#screen iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+    /* 아이프레임 기본보더 없앰! */
+}
+
+/* 2-2. 예고편 선택메뉴 */
+.mlist{
+    position: absolute;
+    bottom: 1%;
+    left: 0%;
+    /* 부모박스의 절반밀어놓고 */
+    /* transform: translateX(-50%); */
+    /* x축방향으로 자기크기의 절반
+    왼쪽으로이동하기->가로중앙이동! */
+    width: 14%;
+
+
+}
+/* .mlist ul{
+    flex-direction: column;
+    display: flex;
+} */
+
+.mlist ul>li{
+    position: relative;
+    /* 부모자격 */
+    margin: 0 1%;
+    /* flex: 1; */
+    overflow: hidden;
+    /* 넘치는 자식요소 숨기기 */
+}
+
+.mlist img{
+    width: 80%;
+    vertical-align: bottom;
+    /* 이미지 박스하단 공백 없애기! */
+}
+
+/* 영화정보박스 */
+.movtxt{
+    position: absolute;
+    top: 100%;
+    /* 아래쪽 나가있음! 오버시 0으로 올라옴! */
+    width: 100%;
+    height: 100%;
+    /* 부모는? .nav ul>li */
+    background-color: rgba(129, 115, 115, 0.508);
+    /* 반투명배경색 */
+
+    /* 글자색 */    
+    font-family: 'Cute Font', cursive;
+    font-size:min(1.3vw,14px);
+    color: #fff;
+
+    line-height: 2;
+    text-align: center;
+
+    /* 트랜지션:속시이지 */
+    transition: top .4s ease-out;
+}
+
+/* 부모li에 오버시 설명박스 올라오기 */
+.mlist ul>li:hover .movtxt{
+    top: 0;
+}
+/* 첫번째 li는 영화제목 */
+.movtxt li:first-child{
+    color: aqua;
+    font-size: min(1.4vw,17px);
+    /* min(유동사이즈,고정사이즈) 메서드 */
+    /* 1.4vw와 17px중 작은 사이즈선택! */
+    letter-spacing: -1px;
+    margin-top: 30%;
+}
+
+/************************** 3.하단영역 **************************/
+#info{
+    position: relative;
+    /* 부모자격 - .sns */
+    height: 100px;
+}
+/* 3-1 회사정보 */
+#info address{
+    color: #fff;
+    font-style: normal;
+    /* font-family: 'Cute Font', cursive; */
+    font-size: 18px;
+    line-height: 20px;
+
+    /* 안쪽여백 */
+    padding-left: 20px;
+    padding-top: 20px;
+
+}
+/* 하단로고 이미지 */
+#info span:first-child{
+    color: #fff;
+    font-size: 60px;
+}
+
+#info span:last-child{
+    padding-left: 50px;
+}
+
+/* #info img{
+    float: left;
+    /* 이미지는 왼쪽, 글자는 오른쪽에 흐르게 
+    margin-right: 20px;
+} */
+
+/* 3-2. sns박스 */
+ul.sns{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    /* 부모는? #info */
+    display: flex;
+    /* 플렉스박스 */
+}
+.sns li{
+    width: 34px;
+    height: 34px;
+    background: url(../images/sprites_logo.png) no-repeat;
+    filter: grayscale(100%);
+    /* 필터 흙백처리 */
+}
+/* 오버시 칼라 */
+.sns li:hover{
+    filter: grayscale(0%);
+}
+
+.sns li:first-child{
+    background-position: -510px -430px;
+}
+.sns li:nth-child(2){
+    background-position: -551px -430px;
+}
+.sns li:last-child{
+    background-position: -593px -430px;
+}
+
+/* sns a링크 확장 */
+.sns a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
