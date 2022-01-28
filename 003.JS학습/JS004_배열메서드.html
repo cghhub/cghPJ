@@ -61,6 +61,10 @@
             padding: 10px;
             border-radius: 10px;
         }
+        /*  입력양식 */
+        labe,input,select {
+            font-size: 20px;
+        }
     </style>
     <script>
         ////////////////////////////로드구역////////////////////////////////
@@ -70,6 +74,8 @@
 
                 // 배열번호 selelct박스
                 let arrNum = document.querySelector("#anum");
+                // 배열번호 selelct박스
+                let delnum = document.querySelector("#delNum");
 
                 // 0.현재배열개수만큼 번호새성하여 select 박스 만들기
                 const makeNum = () => {
@@ -91,7 +97,13 @@
                     "배": "fruits_01",
                     "사과": "fruits_02",
                     "용과": "fruits_14",
-                    "딸기": "fruits_09"
+                    "딸기": "fruits_09",
+                    "바나나": "fruits_15",
+                    "수박": "fruits_12",
+                    "파인에플": "fruits_13",
+                    "망고": "fruits_24",
+                    "오렌지": "fruits_03",
+                    "체리": "fruits_05"
                 }; ///frObj 객체///////////////
 
                 // 1.5.배열에 맞게 지우기 선택번호 생성하기!
@@ -191,6 +203,42 @@
 
                 }; /////////////// click 함수 /////////////////////////////////////
 
+                // 4-6.중간배열삭제!  버튼 (버튼순서:5)
+                mbtn[5].onclick = function () {
+                    // 앞배열에 삭제하기 - > splice(순번,지울개수)
+                    // splice(순번) - > 순번만쓰면 순번부터 모두지움!
+                    // 순번은 순번선택박스  : arrNum변수
+                    // 지울개수는 지울개수입력박스 : delNum
+                    if(delNum.value!="")// 지울값이 빈값이 아니면
+                        fruit.splice(arrNum.value,delNum.value);
+                    else //지울값이 빈값이면 순번하나만씀!
+                        fruit.splice(arrNum.value);
+                    // 순번부터 뒤쪽배열 모두지움
+
+                    // 배열정보 출력하기
+                    showit.innerText = fruit.join("*");
+                    // 1.5.배열에 맞게 지우기 선택번호 생성하기!
+                    makeNum();
+
+                }; /////////////// click 함수 /////////////////////////////////////
+
+                // 4-7.중간배열삽입!  버튼 (버튼순서:6)
+                mbtn[6].onclick = function () {
+                    // 중간배열삽입하기 - > splice(순번,0,넣을값,...)
+                    // 지울개수를 0으로 하고 뒤에 넣을값을 콤마로 여러개 넣을수있다!
+                    // 순번은 순번선택박스  : arrNum변수
+                    // 넣을값은 과일선택리스트:sel변수
+
+                        fruit.splice(arrNum.value,0,sel.value);
+
+
+                    // 배열정보 출력하기
+                    showit.innerText = fruit.join("*");
+                    // 1.5.배열에 맞게 지우기 선택번호 생성하기!
+                    makeNum();
+
+                }; /////////////// click 함수 /////////////////////////////////////
+
             }); //////////////////////로드구역/////////////////////////////////////
         //////////////////////////////////////////////////////////////////////
     </script>
@@ -204,13 +252,14 @@
     <!-- 컨트롤 버튼 -->
     <div class="controler">
         <!-- 과일기능버튼 -->
-        <button class="mbtn">과일주세요~!</button>
+        <button class="mbtn">과일주세요~!</button> <br>
         <button class="mbtn">뒷배열추가요~!</button>
         <button class="mbtn">앞배열추가요~!</button>
         <button class="mbtn">뒷배열삭제요~!</button>
         <button class="mbtn">앞배열삭제요~!</button>
 
-        <button class="mbtn">중간배열삭제~!</button>
+        <button class="mbtn">중간배열삽입!</button>
+        위의 선택번호사용+과일은 리스트에서 선택!
         <label for="anum">선택번호:</label>
         <select name="anum" id="anum">
             <option>0</option>
@@ -225,6 +274,11 @@
             <option>배</option>
             <option>용과</option>
             <option>딸기</option>
+            <option>바나나</option>
+            <option>수박</option>
+            <option>파인에플</option>
+            <option>망고</option>
+            <option>오렌지</option>
         </select>
     </div>
     <!-- 출력박스 -->

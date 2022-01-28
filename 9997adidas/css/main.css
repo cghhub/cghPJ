@@ -348,11 +348,16 @@ class */
 
 }
 /* 하단로고 이미지 */
-#info img{
-    float: left;
-    /* 이미지는 왼쪽, 글자는 오른쪽에 흐르게 */
-    margin-right: 20px;
+#info span:first-child{
+    color: #fff;
+    font-size: 60px;
+    
 }
+/* #info img{
+    float: left;
+    /* 이미지는 왼쪽, 글자는 오른쪽에 흐르게 
+    margin-right: 20px;
+} */
 
 /* 3-2. sns박스 */
 ul.sns{
