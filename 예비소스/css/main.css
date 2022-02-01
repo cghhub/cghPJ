@@ -27,21 +27,8 @@ body *{
 
 /* 1. 상단영역 */
 .top{
-    background-color: #000;
     height: 54px;
 }
- .logo>ul{
-     display: flex;
- }
-.logo>ul>li img{
-    width: 70px;
-    height: 50px;
-}
-.gnb{
-    display: inline-block;
-}
-
-
 /* 2. 하단영역 */
 .info{
     height: 396px;
