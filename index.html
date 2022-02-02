@@ -3,8 +3,8 @@
 
 <head>
     <title>나의 첫페이지!</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width", initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 메타요소:웹페이지 기본정보 셋팅 
         charset="utf-8"  -> 인토딩형식 지정
         utf-8 한글등 2byte문자 안깨짐!
@@ -38,28 +38,99 @@
             margin-top: 50px;
             border-radius: 15px;
             padding: 15px;
+            max-width: 85%;
+            white-space: nowrap;
         }
         .tit{
             text-align: center;
         }
 
         .tit img{
-            min-width: 80%;
+            max-width: 80%;
         }
         /* 프로젝트 박스 */
         .pbx{
             display: flex;
             /* 자식 블록요소를 옆으로 흐르게함! */
         }
-        .pbx>div{
-            display: flex;
-            /* 부모가 flex인 자식을 등분할시 설정값은1 */
+        .pbx>div {
+            position: relative;
+            flex: 1;
+            /* 부모가 flex인 자식을 등분할시 설정값은 1 */
+            padding: 10px;
         }
+
+        .pbx h2 {
+            font-family: 'Gugi', sans-serif;
+            color: #fff;
+            font-weight: normal;
+            text-shadow: 2px 2px 2px #000;
+            font-size: 3rem;
+            text-align: center;
+        }
+        .pbx ul {
+            padding-top: 50px;
+        }
+
+        .pbx ul li {
+            padding-left: 5rem;
+        }
+        .pbx>div:first-child::after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 70%;
+            top: 20%;
+            right: 10%;
+            border-right: 4px dotted rgb(204, 133, 0);
+
+        }
+
+        .pbx a {
+            font-family: 'Black And White Picture', sans-serif;
+            font-size: 2rem;
+            line-height: 2;
+        }
+
+        .pbx a:hover {
+            color: rgb(251, 123, 48);
+            text-decoration: overline;
+        }
+
 
         @media screen and (max-width:1000px){
             .pbx{
                 flex-direction: column;
                 /* 레이아웃 진행방향 */
+                text-align: center;
+
+            }
+            .pbx>div:first-child::after {
+                width: 60%;
+                height: 1px;
+                top: auto;
+                bottom: 0;
+                right: 20%;
+                border-right: none;
+                border-bottom: 4px dotted rgb(204, 133, 0);
+
+
+            }
+
+            .pbx>div:last-child {
+                margin-top: 50px;
+            }
+
+            .pbx ul li {
+                padding-left: 0;
+            }
+
+            .pbx a {
+                font-size: 7vmin;
+            }
+
+            .pbx h2 {
+                font-size: 8vmin;
             }
         }   
         /* 1000px이하 */
@@ -67,53 +138,53 @@
 </head>
 
 <body>
-    <div class=""wrap>
+    <div class="wrap">
         <h1 class="tit">
             <img src="imgs/mylogo_14.png" alt="아카이브로고">
         </h1>
         <div class="pbx">
             <!--  공통프로젝트 -->
-        </div>
-        <div>
-            <h2>공통 프로젝트</h2>
-                <ul>
-                    <li>
-                        <a href="001.HTML 학습/03.DKB_PJ/index.html" target="_blank">
-                            도깨비
-                    </li>
-                    <li>
-                        <a href="001.HTML 학습/04.Robot_PJ/robot.html" target="_blank">
-                            로봇
-                    </li>
-                    <li>
-                        <a href="001.HTML 학습/04.Robot_PJ/avengers.html" target="_blank">
-                            어벤져스
-                        </a>
-                    </li>
-                    <li>
-                        <a href="001.HTML 학습/07.CGV_PJ/003.site/intro.html" target="_blank">
-                            CGV_PJ
-                        </a>
-                    </li>
-                </ul>
-        </div>
-        <div>
-            <h2>개인프로젝트</h2>
-                <ul>
-                    <li>
-                        <a href="0000포트폴리오/index.html" target="_blank">
-                            기본전달사항
-                    </li>
-                    <li>
-                        <a href="001.HTML 학습/01.Info_PJ/info.html" target="_blank">
-                            포폴괂리페이지
-                    </li>
-                    <li>
-                        <a href="001.HTML 학습/01.Info_PJ/info.html" target="_blank">
-                            도깨비
-                        </a>
-                    </li>
-                </ul>
+            <div>
+                <h2>공통 프로젝트</h2>
+                    <ul>
+                        <li>
+                            <a href="001.HTML 학습/03.DKB_PJ/index.html" target="_blank">
+                                도깨비
+                        </li>
+                        <li>
+                            <a href="001.HTML 학습/04.Robot_PJ/robot.html" target="_blank">
+                                로봇
+                        </li>
+                        <li>
+                            <a href="001.HTML 학습/04.Robot_PJ/avengers.html" target="_blank">
+                                어벤져스
+                            </a>
+                        </li>
+                        <li>
+                            <a href="001.HTML 학습/07.CGV_PJ/003.site/intro.html" target="_blank">
+                                CGV_PJ
+                            </a>
+                        </li>
+                    </ul>
+            </div>
+            <div>
+                <h2>개인프로젝트</h2>
+                    <ul>
+                        <li>
+                            <a href="0000포트폴리오/index.html" target="_blank">
+                                로지텍
+                        </li>
+                        <li>
+                            <a href="9999muse/index.html" target="_blank">
+                                뮤즈
+                        </li>
+                        <li>
+                            <a href="9997adidas/index.html" target="_blank">
+                                아디다스
+                            </a>
+                        </li>
+                    </ul>
+            </div>
         </div>
     </div>
 
