@@ -84,8 +84,9 @@ body *{
 }
 /* 3. 메인영역 */
 .cont1{
-    background: url(../images/m650-hp-banner-desktop.jpg) no-repeat center/cover;
+    background: url(../images/3786860.jpg) no-repeat center/cover;
     height: 494px;
+    /* height:947px; */
 }
 
 .icon>img{
@@ -120,8 +121,9 @@ body *{
 
 
 .cont3{
+    /* height: 419px; */
+    height: 513px;
 
-    height: 419px;
 }
 .goodsBox{
     margin: 0 auto;
@@ -154,7 +156,9 @@ body *{
 
 
 .cont4{
+    background: url(../images/4014327.jpg) no-repeat center/cover;
     height: 500px;
+    /* height: 1013px; */
 }
 .cont5{
     height: 429px;
