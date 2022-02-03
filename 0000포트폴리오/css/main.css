@@ -39,6 +39,7 @@ body *{
 }
 
 .gnb{
+    margin: auto 50px;
     /* margin-right: 100px; */
     /* position: absolute; */
     line-height: 54px;
@@ -83,6 +84,9 @@ body *{
     height: 396px;
 }
 /* 3. 메인영역 */
+.slideBox{
+    
+}
 .cont1{
     background: url(../images/3786860.jpg) no-repeat center/cover;
     height: 494px;
