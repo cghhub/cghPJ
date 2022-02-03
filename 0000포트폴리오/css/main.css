@@ -12,6 +12,9 @@ body *{
 
 /* 속박스 class */
 .ibx{
+    display: flex;
+    /* flex-direction: row; */
+    
     max-width: 90%;
     /* 최대 90% 보다 작아지면 auto */
     margin: 0 auto;
@@ -39,6 +42,9 @@ body *{
 }
 
 .gnb{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     margin: auto 50px;
     /* margin-right: 100px; */
     /* position: absolute; */
@@ -46,10 +52,11 @@ body *{
 }
 
 .gnb>ul{
+    
     margin-top: 13px;
     display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    /* justify-content: flex-start; */
+    /* flex-wrap: wrap; */
 }
 .gnb li a{
     font-size: 12px;
@@ -69,13 +76,12 @@ body *{
 .gnb li:nth-child(4){
     padding:0 5px 0 5px;
 }
-
-
-.sideMenu>ul{
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
+.sideMenu{
+    
+    margin-left: auto;
+    /* flex: 1; */
 }
+
 
 
 
@@ -85,7 +91,7 @@ body *{
 }
 /* 3. 메인영역 */
 .slideBox{
-    
+
 }
 .cont1{
     background: url(../images/3786860.jpg) no-repeat center/cover;
