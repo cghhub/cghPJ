@@ -23,6 +23,14 @@
 
 /************ 2.공통 class ************/
 
+/* 속박스 class */
+.ibx{
+    max-width: 1300px;
+    /* 최대 1300px, 보다 작아지면 auto */
+    margin: 0 auto;
+    /* 박스 중앙정렬 */
+}
+
 /* 비율유지박스 class  */
 .rbx{
     position: relative;
@@ -155,4 +163,16 @@
 /* 배경색class */
 .bgc{
     background-color: #fff;
+}
+
+/* 등장액션 class */
+.scAct{
+    transform: translateY(100px);
+    opacity: 0;
+    transition: .8s ease-out;
+}
+/* 원위치 복귀 등장! */
+.scAct.on{
+    transform: translateY(0);
+    opacity: 1;
 }
