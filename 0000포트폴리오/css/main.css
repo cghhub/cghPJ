@@ -48,34 +48,23 @@ body *{
     margin: auto 50px;
     /* margin-right: 100px; */
     /* position: absolute; */
-    line-height: 54px;
+    line-height: 40px;
 }
 
 .gnb>ul{
     
-    margin-top: 13px;
+    /* margin-top: 13px; */
     display: flex;
     /* justify-content: flex-start; */
     /* flex-wrap: wrap; */
 }
-.gnb li a{
-    font-size: 12px;
-}
 .gnb li{
-    padding:0 20px 0 20px;
+    padding: 0 20px;
 }
-.gnb li:first-child{
-    padding:0 5px 0 5px;
+.gnb li a{
+    font-size: 14px;
 }
-.gnb li:nth-child(2){
-    padding:0 5px 0 5px;
-}
-.gnb li:nth-child(3){
-    padding:0 5px 0 5px;
-}
-.gnb li:nth-child(4){
-    padding:0 5px 0 5px;
-}
+
 .sideMenu{
     
     margin-left: auto;
