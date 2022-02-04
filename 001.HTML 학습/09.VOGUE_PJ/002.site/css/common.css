@@ -213,46 +213,51 @@
     color: red;
 }
 
-/************** 슬림 스타일 상단영역 셋팅 **************/
-/* 상단변경은 모두 #top최상위 박스에 class="on"이 된경우
-적용되도록 한다!!! -> #top.on 하위변경 */
+/* 슬림 스타일 상단영역 셋팅 */
+/* 상단변경은 모두 #top최상위 박스에 class="on" 이 된경우
+적용되도록 한다!!-> #top.on 하위변경 */
 
-/* 전체 상단영역 고정하기 */
-#top.on{
+#top.on {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
 }
 
-/* 로고박스이동 */
-#top.on .logo{
+
+/* 로고이미지 */
+#top.on .logo {
     position: absolute;
     top: 0;
     left: 0;
     padding: 10px;
 }
+
 /* 로고이미지 크기변경 */
-#top.on .logo img{
+#top.on .logo img {
     width: 100px;
+    /* width: 50px; */
 }
+
 /* 상단메뉴 없애기 */
-#top.on .tmenu{
+#top.on .tmenu {
     display: none;
 }
+
 /* 속박스에 최소높이 없애기 */
-#top.on .top{
+#top.on .top {
     min-height: 50px;
 }
 
-/* GNB 마진탑 없애기(부모박스 바깥쪽을 밀기때문!) */
-#top.on .gnb{
+/* gnb 마진탑 없애기(부모박스 바깥쪽을 밀기때문!) */
+#top.on .gnb {
     margin-top: 0;
     font-size: 14px;
     line-height: 37px;
     padding: 5px 30px 5px 121px;
-    /* 기존양쪽패딩 30px 중 왼쪽만 로고만큼 더 밀기 */
+    /* 기존양쪽패딩 30px 중 왼쪽만 로고만큼 더밀기 */
 }
+
 /* 메뉴글자색 변경 */
 #top.on .gnb a {
     color: #333;
@@ -261,8 +266,6 @@
 #top.on .gnb li {
     padding-right: 35px;
 }
-
-
 /****************************2.하단영역****************************/
 .info {
     min-height: 286px;

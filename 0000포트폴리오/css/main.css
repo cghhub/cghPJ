@@ -12,7 +12,6 @@ body *{
 
 /* 속박스 class */
 .ibx{
-    display: flex;
     /* flex-direction: row; */
     
     max-width: 90%;
@@ -30,8 +29,9 @@ body *{
 
 /* 1. 상단영역 */
 .top{
+    /* display: flex; */
     /* position: relative; */
-    background-color: #000;
+    background-color: #fff;
     height: 54px;
 }
 
@@ -45,10 +45,10 @@ body *{
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin: auto 50px;
+    /* margin: auto 50px; */
     /* margin-right: 100px; */
     /* position: absolute; */
-    line-height: 40px;
+    line-height: 54px;
 }
 
 .gnb>ul{
@@ -63,6 +63,7 @@ body *{
 }
 .gnb li a{
     font-size: 14px;
+    color: #000;
 }
 
 .sideMenu{
@@ -80,12 +81,12 @@ body *{
 }
 /* 3. 메인영역 */
 .slideBox{
-
-}
-.cont1{
     background: url(../images/3786860.jpg) no-repeat center/cover;
     height: 494px;
+    /* height: 494px; */
     /* height:947px; */
+    width: 100%;
+
 }
 
 .icon>img{
