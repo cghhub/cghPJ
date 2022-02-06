@@ -43,7 +43,7 @@ body *{
 
 .gnb{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
     /* margin: auto 50px; */
     /* margin-right: 100px; */
@@ -83,14 +83,14 @@ body *{
 .slideBox{
     background: url(../images/3786860.jpg) no-repeat center/cover;
     height: 494px;
-    /* height: 494px; */
-    /* height:947px; */
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
+    
 
 }
 
 .icon>img{
-    margin-top: 26px;
+    /* margin-top: 26px; */
     width: 125px;
     /* height: 125px; */
 }
@@ -100,11 +100,15 @@ body *{
     height: 197px;
 }
 .iconBox{
+    padding: 24px;
+    padding-top: 24px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     width: 40%;
 }
+
+
 .icon{
     padding: 0 35px;
 }
@@ -126,18 +130,19 @@ body *{
 
 }
 .goodsBox{
+    padding-top: 50px;
     margin: 0 auto;
-    width: 100%;
+    width: 90%;
     font-size: 14px;
     text-align: left;
     display: flex;
-    justify-self: center;
+    justify-content: space-between;
 
 }
 
 .goods{
-    width: 25%;
-    margin: 50px;
+    width: 24%;
+    /* margin: 50px; */
 }
 
 
@@ -156,13 +161,34 @@ body *{
 
 
 .cont4{
+    /* height: 1013px; */
+}
+.oneriveBox{
     background: url(../images/4014327.jpg) no-repeat center/cover;
     height: 500px;
-    /* height: 1013px; */
+    width: 90%;
+    margin: 0 auto;
+
 }
 .cont5{
     height: 429px;
 }
+.businessBox{
+    padding-top: 128px;
+    height: 300px;
+    display: flex;
+    justify-content:space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+.business{
+    height: 200px;
+    width: 24%;
+}
+.business>img{
+    width: 100%;
+}
+
 .cont6{
     height: 80px;
 }
