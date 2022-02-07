@@ -211,6 +211,12 @@ body *{
     width: 90%;
     height: 396px;
 }
+.blinkBox{
+    padding-top: 50px;
+}
+.blinkBox ul li{
+    margin: 20px;
+}
 .blink{
     margin: 0 auto;
     width: 90%;
@@ -225,4 +231,9 @@ body *{
     font-size: 16px;
     /* text-align: center; */
     color: #000;
+}
+.addr{
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 50px;
 }
