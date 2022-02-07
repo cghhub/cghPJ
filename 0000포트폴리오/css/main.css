@@ -187,21 +187,25 @@ body *{
 }
 .business>img{
     width: 100%;
-}
+}   
 
 .cont6{
     height: 80px;
 }
+.sns{
+    width: 90%;
+    margin: 0px auto;
+}
+
 .sns a {
-    width: 16px;
-    height: 16px;
-    /* .fi설정에 inline-block되어 있음(크기적용됨) */
-    font-size: 16px;
+    width: 35px;
+    height: 24px;
+    font-size: 24px;
     text-align: center;
-    vertical-align: top;
-    line-height: 16px;
-    /* 위치조정 */
-    margin-top: 15px;
+    vertical-align: baseline;
+    line-height: 24px;
+    margin-top: 24px;
     margin-right: 16px;
     color: #000;
-    }
+}
+   
