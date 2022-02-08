@@ -111,7 +111,7 @@ body *{
 }
 
 .iconBox h3{
-    font-size: 16px;
+    /* font-size: 16px; */
     text-align: center;
 }
 .ibx{
@@ -127,10 +127,10 @@ body *{
 
 }
 .goodsBox{
-    padding-top: 50px;
+    padding-top: 30px;
     margin: 0 auto;
     width: 90%;
-    font-size: 14px;
+    /* font-size: 14px; */
     text-align: left;
     display: flex;
     justify-content: space-between;
@@ -144,10 +144,10 @@ body *{
 
 
 .goods p{
-    font-size: 10px;
+    /* font-size: 10px; */
 }
 .goodsBox h3{
-    font-size: 16px;
+    /* font-size: 16px; */
 }
 .goods>img{
     width: 100%;
@@ -171,7 +171,7 @@ body *{
     height: 429px;
 }
 .businessBox{
-    padding-top: 128px;
+    padding-top: 80px;
     height: 300px;
     display: flex;
     justify-content:space-between;
@@ -212,6 +212,10 @@ body *{
     height: 396px;
 }
 .blinkBox{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+
     padding-top: 50px;
 }
 .blinkBox ul li{
@@ -220,8 +224,8 @@ body *{
 .blink{
     margin: 0 auto;
     width: 90%;
-    display: flex;
-    justify-content: space-between;
+    /* display: flex; */
+    /* justify-content: space-between; */
 
 }
 /* .blink ul{
@@ -232,8 +236,9 @@ body *{
     /* text-align: center; */
     color: #000;
 }
+
 .addr{
     margin: 0 auto;
     width: 90%;
-    margin-top: 50px;
+    margin-top: 150px;
 }
