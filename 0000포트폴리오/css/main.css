@@ -78,7 +78,7 @@ body *{
 
 /* 3. 메인영역 */
 .slideBox{
-    background: url(../images/3786860.jpg) no-repeat center/cover;
+    /* background: url(../images/m650-hp-banner-desktop.jpg) no-repeat center/cover; */
     height: 494px;
     width: 90%;
     margin: 0 auto;
@@ -241,4 +241,7 @@ body *{
     margin: 0 auto;
     width: 90%;
     margin-top: 150px;
+}
+.addr p{
+    
 }
