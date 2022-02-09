@@ -79,25 +79,45 @@ body *{
 /* 3. 메인영역 */
 .slideBox{
     /* background: url(../images/m650-hp-banner-desktop.jpg) no-repeat center/cover; */
-    height: 494px;
-    width: 90%;
-    margin: 0 auto;
+    /* height: 494px; */
+    /* width: 90%; */
+    /* margin: 0 auto; */
     
 
 }
 
-.icon>img{
-    /* margin-top: 26px; */
-    /* width: 125px; */
-    /* height: 125px; */
+.slide {
+    /*사진을 싸고 있는 슬라이드*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*모든 슬라이드 5장이 옆으로 나열되도록 
+    width 크기를 확보해야한다!!!*/
+    width: 400%;/*5배크기*/
+    height: 100%;
+}
+
+.slide li {
+    /*부모가 5배되었으므로 5등분함!*/
+    width: 25%;
+    height: 100%;
+}
+
+.slide li img {
+    /*이미지는 박스에 맞춤!*/
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 이미지 비율유지 채우기 */
 }
 .slideBox{
     position: relative;
     width: 1477px;
     height: 709px;
-    float: left;
+    /* float: left; */
     overflow: hidden;
     box-sizing: border-box;
+    margin: 0 auto;
 }
 
 #slide {
@@ -107,7 +127,7 @@ body *{
     left: 0;
     /*모든 슬라이드 5장이 옆으로 나열되도록 
     width 크기를 확보해야한다!!!*/
-    width: 500%;/*5배크기*/
+    width: 400%;/*5배크기*/
     height: 100%;
 }
 
@@ -116,7 +136,7 @@ body *{
 
 
 .cont2{
-    height: 197px;
+    height: 359px;
 }
 .iconBox{
     padding: 24px;
