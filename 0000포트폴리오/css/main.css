@@ -88,9 +88,31 @@ body *{
 
 .icon>img{
     /* margin-top: 26px; */
-    width: 125px;
+    /* width: 125px; */
     /* height: 125px; */
 }
+.slideBox{
+    position: relative;
+    width: 1477px;
+    height: 709px;
+    float: left;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#slide {
+    /*사진을 싸고 있는 슬라이드*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*모든 슬라이드 5장이 옆으로 나열되도록 
+    width 크기를 확보해야한다!!!*/
+    width: 500%;/*5배크기*/
+    height: 100%;
+}
+
+
+
 
 
 .cont2{

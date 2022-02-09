@@ -1,8 +1,72 @@
 // 공통 기능 구현 js -common.js//
 
+
+// 전역변수 구역 /////////////////////////////////////////
+// 모바일여부변수(1-모바일,0-아님)
+let mob = 0;
+
+// 모바일 체크 함수
+const chgMob = () => {
+    // 500px이하 모바일
+    if ($(window).width() <= 500) {
+        mob = 1;
+        // 상단영역 변경 클래스 강제제거하기!
+        $("#top").removeClass("on");
+        // removeClass(클래스명)->클래스제거
+    }/////if ///////////////////////////////////
+    // 500px 초과시
+    else mob=0;
+    console.log("모바일:", mob);
+
+
+}; ///////////chgMob //////////////////////////////////
+
+// 모바일 체크 함수 최초호출
+chgMob();
+
+// 윈도우 리자이즈시 모바일 체크함수 호출
+$(window).resize(chgMob);
+
+
+
+// 제이쿼리 코드구역 /////////////////////////////////////
+$(() => {
+
+    // 1.햄버거 버튼 클릭시
+    // 전체 메뉴 보이기
+    $(".hbtn").click(()=>{
+        $(".mobwrap").slideToggle(400,"easeOutQuint");
+        $(".mos").hide();
+    }); ////click //////////////////////////////////////
+    
+    // 2.검색 버튼(.sbtn)클릭시
+    // 검색창 보이기 : .mos
+    $(".sbtn").click(()=>{
+        $(".mos").slideToggle(300,"easeOutQuint");
+        $(".mobwrap").hide();
+    });
+
+    /* 
+        slideUp(시간,이징,함수)
+        원래크기에서 height값을 0으로 만듬
+        0이된후 display:none
+
+        slideDown(시간,이징,함수)
+        display:none이 다시 보이면서
+        height값이 0에서 원래 크기로 돌아감
+        내가 계산 안해도 됨!!!
+
+        slideToggle(시간,이징,함수)
+        slideUp/slideDown 자동전환함!
+    */
+
+
+});
+
+
 ///////////로드구역///////////////////////////////////////
 window.addEventListener("DOMContentLoaded", () => {
-    console.log("로딩완료!");
+    // console.log("로딩완료!");
 
     /// 부드러운 스크롤 호출!(제이쿼리 아님!)
     startSS();
@@ -28,7 +92,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // for(시작값;한계값;증감){코드}
     for (let i = 0; i < scAct.length; i++) {
         scPos[i] = scAct[i].offsetTop;
-        console.log("페이지위치값:", i, "번째:", scPos[i]);
+        // console.log("페이지위치값:", i, "번째:", scPos[i]);
     } /////////////for문///////////////////////////////////////
 
     /********************************************************** 
@@ -58,7 +122,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // 위로가기버튼 클릭시 맨위로 가기! ////////////////////
     // 부드러운 스크롤의 위치변수 pos에 0값을 주면 위로이동함
-    tbtn.onclick = () => {pos=0; return false;};
+    tbtn.onclick = () => {
+        pos = 0;
+        return false;
+    };
     // return false -> a요소의 기본이동기능을 못하게 막음!
 
 
@@ -99,8 +166,8 @@ window.addEventListener("DOMContentLoaded", () => {
         // 상단영역 스크롤 반응하기 ///
         ///////////////////////////////
 
-        // 1. 스크롤위치가 100px이상일때
-        if (scTop >= 100) {
+        // 1. 스크롤위치가 100px이상일때+모바일아닐때
+        if (scTop >= 100 && !mob) {
             topA.classList.add("on");
         } //////////if//////////////////
         // 2.스크롤위치가 100px미만일때
@@ -132,8 +199,8 @@ window.addEventListener("DOMContentLoaded", () => {
         // 이 배열을 이용하여 forEach() 메서드로
         // 위치체크를 하여 클래스"On"을 넣어주는 함수
         // scAction() 함수를 순번과 함께 호출해 준다!!!
-        
-        scPos.forEach((val,idx)=>scAction(idx));
+
+        scPos.forEach((val, idx) => scAction(idx));
 
         /* 
           배열객체.forEach(function(item,index,arr){})
