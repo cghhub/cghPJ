@@ -131,7 +131,53 @@ body *{
     height: 100%;
 }
 
+        /*이동버튼*/
+        .abtn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            /*Y축 중앙이동*/
+        }
 
+        /*왼쪽버튼*/
+        .ab1 {
+            left: 50px;
+        }
+
+        /*오른쪽버튼*/
+        .ab2 {
+            right: 50px;
+        }
+
+        /*블릿버튼*/
+        .indic {
+            position: absolute;
+            bottom: 50px;
+            left: 80px;
+        }
+
+        .indic li {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .indic li img {
+            position: absolute;
+            /*이미지 겹치게*/
+        }
+
+        .indic li img:last-child {
+            /*회색이미지만 투명하게*/
+            opacity: 0;
+        }
+
+        /*회색블릿이미지가 보이게하는 class*/
+        .indic li.on img:last-child {
+            /*회색이미지만 투명하게*/
+            opacity: 1;
+            /*우선적용!*/
+        }
 
 
 
