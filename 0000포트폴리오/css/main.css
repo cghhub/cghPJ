@@ -111,8 +111,9 @@ body *{
     /* 이미지 비율유지 채우기 */
 }
 .slideBox{
+    
     position: relative;
-    width: 1477px;
+    /* width: 1477px; */
     height: 709px;
     /* float: left; */
     overflow: hidden;
@@ -121,6 +122,7 @@ body *{
 }
 
 #slide {
+    
     /*사진을 싸고 있는 슬라이드*/
     position: absolute;
     top: 0;
@@ -151,6 +153,8 @@ body *{
 
         /*블릿버튼*/
         .indic {
+            display: flex;
+            transform: translateX(-50%);
             position: absolute;
             bottom: 50px;
             left: 80px;
