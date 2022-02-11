@@ -113,7 +113,7 @@ body *{
 .slideBox{
     
     position: relative;
-    /* width: 1477px; */
+    width: 90%;
     height: 709px;
     /* float: left; */
     overflow: hidden;
@@ -123,13 +123,14 @@ body *{
 
 #slide {
     
+    
     /*사진을 싸고 있는 슬라이드*/
     position: absolute;
     top: 0;
     left: 0;
-    /*모든 슬라이드 5장이 옆으로 나열되도록 
+    /*모든 슬라이드 4장이 옆으로 나열되도록 
     width 크기를 확보해야한다!!!*/
-    width: 400%;/*5배크기*/
+    width: 400%;/*4배크기*/
     height: 100%;
 }
 
@@ -144,6 +145,8 @@ body *{
         /*왼쪽버튼*/
         .ab1 {
             left: 50px;
+            border-radius: 50%;
+            color: #000;
         }
 
         /*오른쪽버튼*/
@@ -154,7 +157,7 @@ body *{
         /*블릿버튼*/
         .indic {
             display: flex;
-            transform: translateX(-50%);
+            transform: translateX(50%);
             position: absolute;
             bottom: 50px;
             left: 80px;
@@ -215,10 +218,10 @@ body *{
 
 .cont3{
     /* height: 419px; */
-    height: 513px;
-
+    
 }
 .goodsBox{
+    height: 533px;
     padding-top: 30px;
     margin: 0 auto;
     width: 90%;

@@ -25,7 +25,16 @@ $(() => {
     // pm - 카테고리명
 
     // 2.서브 타이틀 넣기 : .stit
-    $(".stit").text(data["제목"]);
+    let stit = $(".stit");
+    stit.text(data["제목"]);
+    // 만약 pm값이 "runway" 이면
+    // -> 배경이미지넣고 글자색 흰색
+    if(pm==="runway"){
+        stit.css({
+            background:"url(images/bg_02.jpg) no-repeat center/cover",color:"#fff"
+        });//////css//////////////
+        
+    } //////if//////////////////////////////////////////////////////////////////////
 
     // 3.서브메뉴 넣기 : .lnb
     // 서브가 있는 경우에만 ul>li>a 구조로 만든다!
@@ -50,6 +59,25 @@ $(() => {
         lnb.html(`<ul>${temp}</ul>`);
     }//////////if /////////////////////
 
+    else{//////"없음" 이면 nav.lnb를 없앤다////////////
+        lnb.remove();
+    }//////////else ///////////////////////////////////
+
+    // 4. 컨텐츠 타이틀 넣기
+    // 대상 : .cbx h2
+    let cbxtit = $(".cbx h2");
+    // 배열데이터개수만큼 forEash()메서드 사용!
+    // forEach((값,순번)=>{})
+    // data["타이틀"].forEach((tit,idx)=>{
+        // console.log(idx);
+        // cbxtit.eq(idx).html(tit);
+    // });///////forEach////////////////////
+
+    // 제이쿼리 each()메서드사용하면?
+    // eash((idx,ele)=>{})
+    cbxtit.each((idx,ele)=>{
+        $(ele).html(data["타이틀"][idx]);
+    });
 
 
 }); ////////////////////jqb///////////////////////////////////////

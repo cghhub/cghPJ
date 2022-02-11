@@ -10,8 +10,8 @@ $(()=>{/////////////////jqb //////////////////////////////
     });/////click ///////////////////
 
     //// gnb 메뉴 클릭시 이동하기 ///////
-    // 대상 : .gnb a
-    $(".gnb a").click(function(e){
+    // 대상 : .gnb a + .mognb a (모바일추가)
+    $(".gnb a, .mognb a").click(function(e){ // e-이벤트전달변수
         
         // 기본이동막가
         e.preventDefault();
