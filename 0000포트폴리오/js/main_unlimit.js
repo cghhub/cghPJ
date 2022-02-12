@@ -178,7 +178,7 @@ window.addEventListener("load", () => {
          기능 : 인터발함수로 슬라이드 자동넘기기
     *****************************************************/
     const autoSlide = () => {
-        autoI = setInterval(() => goSlide(1), 12000);
+        autoI = setInterval(() => goSlide(1), 2000);
     }; /////// autoSlide 함수 /////////////////////////
 
     //  자동넘김 최초호출하기!(함수아래에서 호출해야함!) 
