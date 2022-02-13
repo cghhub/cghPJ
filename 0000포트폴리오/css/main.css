@@ -7,7 +7,7 @@
 
 /* 박스표시 */
 body *{
-    outline: 1px dashed gray;
+    /* outline: 1px dashed gray; */
 }
 
 /* 속박스 class */
@@ -21,11 +21,22 @@ body *{
 }
 
 .ibx h2{
-    text-align: center;
+    text-align: left;
     font-size: 35px;
     color: lightseagreen;
     outline: none;
 }
+#slideText{
+    margin-top:80px;
+    margin-left: 150px;
+}
+#slideText p{
+    text-align: left;
+    font-size: 16px;
+    color: #000;
+    margin: 20px auto;
+}
+
 
 /* 1. 상단영역 */
 .top{
@@ -37,8 +48,8 @@ body *{
 
 .gnb img{
     margin-bottom: -6px;
-    width: 68px;
-    height: 25px;
+    width: 100%;
+    height: 21px;
 }
 
 .gnb{
@@ -66,19 +77,9 @@ body *{
     color: #000;
 }
 
-.sideMenu{
-    
-    margin-left: auto;
-    /* flex: 1; */
-}
-
-
-
-
 
 /* 3. 메인영역 */
-.slideBox{
-    /* height: 494px; */
+.cont1>.slideBox{
     position: relative;
     width: 90%;
     height: 494px;
@@ -87,9 +88,9 @@ body *{
     box-sizing: border-box;
     margin: 0 auto;
     
-}
+}   
 
-.slide {
+#slide {
     /*사진을 싸고 있는 슬라이드*/
     position: absolute;
     top: 0;
@@ -99,14 +100,27 @@ body *{
     width: 400%;/*4배크기*/
     height: 100%;
 }
+#slideText{
+    position: absolute;
+    top: 20%;
+    left: 0;
+    
+}
 
-.slide li {
+#slideText span{
+    background: #000;
+    color:#fff;
+    padding: 5px;
+}
+
+#slide li {
+    float: left;
     /*부모가 4배되었으므로 4등분함!*/
     width: 25%;
     height: 100%;
 }
 
-.slide li img {
+#slide li img {
     /*이미지는 박스에 맞춤!*/
     width: 100%;
     height: 100%;
@@ -124,8 +138,9 @@ body *{
         }
 
         /*왼쪽버튼*/
-        .ab1 {
+        .ab1 {  
             left: 50px;
+            width: 100px;
             border-radius: 50%;
             color: #000;
         }
@@ -176,12 +191,15 @@ body *{
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    width: 40%;
+    width: 87%;
 }
 
 
 .icon{
-    padding: 0 35px;
+    padding: 110px 35px;
+}
+.icon>img{
+    width: 100px;
 }
 
 .iconBox h3{
@@ -208,12 +226,26 @@ body *{
     text-align: left;
     display: flex;
     justify-content: space-between;
-
+    
 }
 
 .goods{
     width: 24%;
     /* margin: 50px; */
+}
+.goods h3{
+    text-align-last: left;
+
+}
+.goods p{
+    margin: 20px auto;
+    font-size: 14px;
+    /* text-align-last: left; */
+}
+.goods span{    
+    font-size: 16px;
+    color: skyblue;
+    font-weight: bold;
 }
 
 
@@ -227,17 +259,39 @@ body *{
 
 .oneriveBox{
     /* height: 1013px; */
-    background: url(../images/4014327.jpg) no-repeat center/cover;
+    background: url(../images/107037-light-blue-abstract.jpg) no-repeat center/cover;
     height: 500px;
     width: 90%;
     margin: 0 auto;
+    text-align: left;
 
 }
+
+.oneriveBox h3{
+    margin-left: 150px;
+    padding-top: 150px;
+    font-size: 30px;
+}
+.oneriveBox p{
+    padding: 26px 42px 29px 0px;
+    margin-left: 150px;
+    font-size: 14px;
+}
+.oneriveBox span{
+    margin-left: 150px;
+    font-size: 12px;
+    color: #000;
+    background: #fff;
+    font-weight: bold;
+    padding: 10px 30px;
+
+}
+
 .cont5{
     height: 429px;
 }
 .businessBox{
-    padding-top: 80px;
+    padding-top: 70px;
     height: 300px;
     display: flex;
     justify-content:space-between;
@@ -247,6 +301,15 @@ body *{
 .business{
     height: 200px;
     width: 24%;
+}
+.business p{
+    margin: 20px auto;
+    font-size: 14px;
+}
+.business span{
+    font-size: 16px;
+    color: skyblue;
+    font-weight: bold;
 }
 .business>img{
     width: 100%;
@@ -273,16 +336,22 @@ body *{
 }
    
 /* 2. 하단영역 */
+
+#footer{
+    /* width: 100%; */
+    background: #ccc;
+}
 .info{
     width: 90%;
     height: 396px;
 }
+
 .blinkBox{
     width: 90%;
     margin: 0 auto;
     display: flex;
-
-    padding-top: 50px;
+    
+    padding-top: 30px;
 }
 .blinkBox ul li{
     margin: 20px;
@@ -290,15 +359,15 @@ body *{
 .blink{
     margin: 0 auto;
     width: 90%;
-    /* display: flex; */
-    /* justify-content: space-between; */
-
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 /* .blink ul{
     text-align-last: left;
 } */
 .blink a{
-    font-size: 16px;
+    font-size: 12px;
     /* text-align: center; */
     color: #000;
 }
@@ -306,5 +375,8 @@ body *{
 .addr{
     margin: 0 auto;
     width: 90%;
-    margin-top: 150px;
+    margin-top: 120px;
+}
+.addr p{
+    font-size: 14px;
 }
