@@ -183,26 +183,56 @@
 			// 사용 메서드:fadeTo(시간,오파,이징,함수)
 			// 시간-1/1000초, 오파-opacity값, 이징-easing,함수-콜백함수
 			menu.find("li").hover(
-				function () {//over
-					// 자기자신(li)의 opacity를 1로 변경애니
-					$(this).stop().fadeTo(200,1);
-					// 자기자신 아래 span태그 글자보이기 애니
-					$("span",this).stop().delay(100).fadeIn(200);
-					// $(this).find("span") === $("span",this)
-					// $(this).children("span") === $(">span",this)
-				},
-				function () {//out
-					// 자기자신(li)의 opacity를 .7로 변경애니
-					$(this).stop().fadeTo(200,.7);
-					// 자기자신 아래 span태그 글자숨기기 애니
-					$("span",this).stop().fadeOut(200);
+					function () { //over
+						// 자기자신(li)의 opacity를 1로 변경애니
+						$(this).stop().fadeTo(200, 1);
+						// 자기자신 아래 span태그 글자보이기 애니
+						$("span", this).stop().delay(100).fadeIn(200);
+						// $(this).find("span") === $("span",this)
+						// $(this).children("span") === $(">span",this)
+					},
+					function () { //out
+						// 자기자신(li)의 opacity를 .7로 변경애니
+						$(this).stop().fadeTo(200, .7);
+						// 자기자신 아래 span태그 글자숨기기 애니
+						$("span", this).stop().fadeOut(200);
 
-				})/////hover /////////
+					}) /////hover /////////
 
 				// 메뉴 클릭시 사이트 새창 띄우기
-				.click(function(){
-					
+				.click(function (e) {
+					e.stopPropagation();
+					// 메뉴 클릭시 문제발생!!!!!!!
+					// li클릭시 상위 요소로 이벤트가 올라간다!
+					// ->이벤트 버블링발생!!!!!!
+					// 막는 방법:jquery에서는 e.stopPropagation()
+					// 또는 하단에 return false
+					// 이벤트
+
+					// 클릭된 li요서 span글자읽어오기
+					// 링크주소 구분하기 위해!
+					let txt = $("span", this).text();
+					console.log("링크:", txt);
+
+					// 이동할 주소
+					let url;
+					switch (txt) {
+						case "Google":
+							url = "https://www.google.com/";
+							break;
+						case "Naver":
+							url = "https://www.naver.com/";
+							break;
+						case "Daum":
+							url = "https://www.daum.net/";
+							break;
+					} ///////// switch case //
 				});
+
+			// url 새창열기
+			window.open().location.href = url;
+			// window.open() -> 새창열기
+			// location.href = 주소 -> 페이지 이동하기
 
 
 

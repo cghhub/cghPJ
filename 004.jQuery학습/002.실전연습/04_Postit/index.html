@@ -63,6 +63,12 @@
 			// [ 드래그 기능 적용하기 ]
 			// 제이쿼리 UI의 draggable() 메서드를 호출함
 			// 대상: .draggable
+			$(".draggable").draggable({
+				cursor:"move", //커서모양이 "이동중"표시로 변경
+				stack:".draggable",  //드래그대상 상위처리(선택요소명)
+				opacity:0.7
+				// 이동중 투명도 설정
+			});///////draggable //////////////////////////////
 			
 
 			/// 1. 드래그가 시작될때 배경이미지 class로 변경하기
@@ -70,13 +76,21 @@
 			// 이벤트와 함수를 묶어주는 메서드를 사용함!
 			// -> on(이벤트명,함수)
 			// 대상: .draggable
+			$(".draggable").on("dragstart", function(){
+				console.log("드래그시작!");
+				$(this).addClass("invert");
+			});/////////draggstart/////////////////////////////
 			
-
+			
 			/// 2. 드래그가 끝날때 배경이미지 class로 변경하기
 			// 이벤트 종류: dragstop (드래그끝날때 발생하는 이벤트)
 			// 이벤트와 함수를 묶어주는 메서드를 사용함!
 			// -> on(이벤트명,함수)
 			// 대상: .draggable
+			$(".draggable").on("dragstop", function(){
+				console.log("드래그멈춤!");
+				$(this).removeClass("invert");
+			});/////////draggstart/////////////////////////////
 			
 
 			//// 드롭할때 발생하는 이벤트 처리하기 ///////
