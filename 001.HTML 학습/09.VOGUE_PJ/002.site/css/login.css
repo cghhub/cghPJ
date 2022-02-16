@@ -63,9 +63,16 @@
     margin-top: 20px;
 }
 
-/* 크롬브라우저 포커스 아웃아린 제거 */
-.btns{
-
+/* 크롬브라우저 포커스 아웃라인 제거 */
+input:focus{
+    outline: none;
+    /* 기본 진한 테두리 없앰 */
+}
+/* 버튼영역 */
+.btnbx{
+    position: absolute;
+    top: 60px;
+    right: 40px;
 }
 
 /* 서브밋버튼 */
@@ -77,6 +84,7 @@
     font-size: 15px;
     color: #fff;
     text-shadow: 1px 1px 0 #666;
+    border-radius: 5px;
 }
 
 /* 기타 체크링크 박스 */
