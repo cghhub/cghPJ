@@ -13,9 +13,9 @@ const chgMob = () => {
         // 상단영역 변경 클래스 강제제거하기!
         $("#top").removeClass("on");
         // removeClass(클래스명)->클래스제거
-    }/////if ///////////////////////////////////
+    } /////if ///////////////////////////////////
     // 500px 초과시
-    else mob=0;
+    else mob = 0;
     // console.log("모바일:", mob);
 
 
@@ -34,15 +34,15 @@ $(() => {
 
     // 1.햄버거 버튼 클릭시
     // 전체 메뉴 보이기
-    $(".hbtn").click(()=>{
-        $(".mobwrap").slideToggle(400,"easeOutQuint");
+    $(".hbtn").click(() => {
+        $(".mobwrap").slideToggle(400, "easeOutQuint");
         $(".mos").hide();
     }); ////click //////////////////////////////////////
-    
+
     // 2.검색 버튼(.sbtn)클릭시
     // 검색창 보이기 : .mos
-    $(".sbtn").click(()=>{
-        $(".mos").slideToggle(300,"easeOutQuint");
+    $(".sbtn").click(() => {
+        $(".mos").slideToggle(300, "easeOutQuint");
         $(".mobwrap").hide();
     });
 
@@ -60,8 +60,52 @@ $(() => {
         slideUp/slideDown 자동전환함!
     */
 
+    /******************************************************* 
+        [따라다니는 원 구현하기]
+        -이벤트 대상:window
+        -이벤트 종류:mousemove
+        -변경대상:body에 #cs를 추가함
+    *******************************************************/
+//     $("body").append('<div id="cs"></div>');
+//     //커서 변수에 할당    
+//     let cs = $("#cs");
+//     // 커서에 css설정
+//     cs.css({
+//         position:"absolute",
+//         top:"0",
+//         left:"0",
+//         width:"80px",
+//         height:"80px",
+//         borderRadius:"50%",
+//         backgroundColor:"silver",
+//         transition:".4s ease-out",
+//         mixBlendMode:"exclusion",
+//         /* 겹쳐질때 색상변경모드 */
+//         zIndex:"9999"
+//     });/////// css /////////
 
-});
+//     // 윈도우에서 마우스 움직일때 커서 따라다니기!
+//     $(window).mousemove((e)=>{
+//         // console.log(e.pageX, e.pageY);
+//         // 커서에 top, left 위치값 변경
+//         cs.css({
+//             top:(e.pageY-40) + "px",
+//             left:(e.pageX-40) + "px"
+//         }); ///// css ////////////////////
+
+//         /* 
+//             mix-blend-mode 속성
+//             https://www.w3schools.com/csSref/playdemo.asp?filename=playcss_mix-blend-mode&preval=normal
+//         */
+
+//     }); ////////////// mousemove  //////////////////
+
+//     // a요소를 따라다니는 커서보다 위에오도록
+//     // 포지션을 주고 z-index를 높인다!
+//     // z-index는 포지션이 있어야 적용됨!
+//     $("a").css({position:"relative", zIndex:"99999"})
+
+// });
 
 
 ///////////로드구역///////////////////////////////////////
