@@ -56,7 +56,7 @@ window.addEventListener("load", () => {
     // 오른쪽버튼 클릭시
     abtn[1].onclick = () => {
         goSlide(1);
-        clearAuto();//자동넘김지우기
+        clearAuto(); //자동넘김지우기
         return false; //
     }
     ////// click ////////////////////////////////////
@@ -64,7 +64,7 @@ window.addEventListener("load", () => {
     // 왼쪽버튼 클릭시
     abtn[0].onclick = () => {
         goSlide(0);
-        clearAuto();//자동넘김지우기
+        clearAuto(); //자동넘김지우기
         return false; //
     }
     ////// click ////////////////////////////////////
@@ -75,6 +75,62 @@ window.addEventListener("load", () => {
     // 광클금지 상태변수
     let prot = 0;
     // 0-허용 1-불허용
+
+
+    // 등장글자 배열
+    let stxt = [
+        "What a Wonderfull",
+        "You are a Good Guy!",
+        "What's up!",
+        "Check it Out"
+    ];
+
+    /******************************************************* 
+    		함수명:showTxt
+    		기능: 배너이동후 글자보이기
+    *******************************************************/
+    const showTxt = () => {
+
+        console.log("글자등장");
+
+        // 기존에 만들어졌을 수 있는 .sldtit를 지운다!
+        $(".sldtit").remove();
+
+        // 대상:첫번째 슬라이드 !
+        let tg = sbx.find("li").first();
+
+        // 슬라이드 순번
+        let snum = tg.attr("data-seq");
+
+        // 글자태그만들기
+        let txt = `<h2 class="sldtit">${stxt[stxt]}</h2>`;
+
+        // 글자태그 넣기:기존이미지 다음에 추가
+        tg.append(txt);
+
+        // 글자디자인잡기
+        $(".sldtit").css({
+                position: "absolute",
+                top: "60%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                whiteSpace: "nowrap",
+                color: "#fff",
+                textShadow: "1px 1px 1px #000",
+                fontSize: "min(3vw,30px)",
+                opacity: "0"
+            }) ////////css //////////////////////////////////
+            .animate({
+                top: "50%",
+                opacity: "1"
+            }, 400);
+
+
+    } ////////////// showTxt /////////////////////////////////
+
+    // 최초호출
+    setTimeout(showTxt, 1000);
+
 
     /*************************************************** 
         함수명 : goSlide
@@ -191,13 +247,13 @@ window.addEventListener("load", () => {
         기능 : 자동넘김지우고 일정시간뒤 다시 자동호출
         ->오른쪽,왼쪽 이동버튼 클릭시에만 호출됨!
     ********************************************************/
-    const clearAuto = () =>{
+    const clearAuto = () => {
         // 1.인터발지우기
         clearInterval(autoI);
         // 2.타임아웃 지우기 : 실행쓰나미 방지!
         clearTimeout(autoT);
         // 3.타임아웃 셋팅 : 일정시간뒤 인터발실행
-        autoT = setTimeout(autoSlide,3000);
+        autoT = setTimeout(autoSlide, 3000);
         // 3초후 인터발호출, 2초후 인터발 최초실행
-    };////////// clearAuto 함수 /////////////////////////
+    }; ////////// clearAuto 함수 /////////////////////////
 }); /////////// load ////////////////////////////////////////
