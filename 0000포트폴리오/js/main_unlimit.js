@@ -71,10 +71,11 @@ window.addEventListener("load", () => {
         $(".sldtit").remove();
 
         // 대상:첫번째 슬라이드 !
-        let tg = sbx.find("#slide li").first();
+        let tg = $("#slide li").first();
+        $("#slide li").css({position:"relative"})
 
         // 슬라이드 순번
-        let snum = tg.attr("data-seq");
+        let snum = tg.attr("class").substring(1);
 
         // 글자태그만들기
         let txt = `<h2 class="sldtit">${stxt[snum]}</h2>`;
@@ -232,6 +233,8 @@ window.addEventListener("load", () => {
         // console.log("클래스명",clsnum);
         indic[clsnum].classList.add("on");
 
+        setTimeout(showTxt,500);
+
         // a요소 기본이동막기!
         return false;
 
@@ -251,7 +254,7 @@ window.addEventListener("load", () => {
     }; /////// autoSlide 함수 /////////////////////////
 
     //  자동넘김 최초호출하기!(함수아래에서 호출해야함!) 
-    autoSlide();
+    // autoSlide();
 
     // 타임아웃용변수
     let autoT; //지우기용(실행쓰나미방지!)
