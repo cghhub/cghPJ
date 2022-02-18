@@ -103,7 +103,7 @@ window.addEventListener("load", () => {
         let snum = tg.attr("data-seq");
 
         // 글자태그만들기
-        let txt = `<h2 class="sldtit">${stxt[stxt]}</h2>`;
+        let txt = `<h2 class="sldtit">${stxt[snum]}</h2>`;
 
         // 글자태그 넣기:기존이미지 다음에 추가
         tg.append(txt);
