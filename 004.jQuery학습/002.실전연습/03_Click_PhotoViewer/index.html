@@ -10,62 +10,69 @@
 	<script>
 		$(function () { ///// jQB ///////////////////////////
 
-		/// 광클금지
-		let sprot = 0; //0-허용,1-불허용
+			/// 광클금지
+			let sprot = 0; //0-허용,1-불허용
 
-		// 등장글자 배열
-		let stxt = [
-			"What a Wonderfull",
-			"You are a Good Guy!",
-			"What's up!",
-			"Check it Out"
-		];
+			// 등장글자 배열
+			let stxt = [
+				"What a Wonderfull",
+				"You are a Good Guy!",
+				"What's up!",
+				"Check it Out"
+			];
 
-		/******************************************************* 
-				함수명:showTxt
-				기능: 배너이동후 글자보이기
-		*******************************************************/
-		const showTxt = ()=>{
+			/******************************************************* 
+					함수명:showTxt
+					기능: 배너이동후 글자보이기
+			*******************************************************/
+			const showTxt = () => {
 
-			console.log("글자등장");
-			
-			// 기존에 만들어졌을 수 있는 .sldtit를 지운다!
-			$(".sldtit").remove();
+				console.log("글자등장");
 
-			// 대상:첫번째 슬라이드 !
-			let tg = sbx.find("li").first();
+				// 기존에 만들어졌을 수 있는 .sldtit를 지운다!
+				$(".sldtit").remove();
 
-			// 슬라이드 순번
-			let snum = tg.attr("data-seq");
+				// 대상:첫번째 슬라이드 !
+				let tg = sbx.find("li").first();
 
-			// 글자태그만들기
-			let txt = `<h2 class="sldtit">${stxt[stxt]}</h2>`;
+				// 슬라이드 순번
+				let snum = tg.attr("data-seq");
 
-			// 글자태그 넣기:기존이미지 다음에 추가
-			tg.append(txt);
+				// 글자태그만들기
+				let txt = `<h2 class="sldtit">${stxt[snum]}</h2>`;
 
-			// 글자디자인잡기
-			$(".sldtit").css({
-				position: "absolute",
-				top: "60%",
-				left: "50%",
-				transform: "translate(-50%, -50%)",
-				whiteSpace: "nowrap",
-				color: "#fff",
-				textShadow: "1px 1px 1px #000",
-				fontSize:"min(3vw,30px)",
-				opacity:"0"
-			})////////css //////////////////////////////////
-			.animate({
-				top:"50%",
-				opacity: "1"
-			},400);
+				// 글자태그 넣기:기존이미지 다음에 추가
+				tg.append(txt);
+
+				// 글자디자인잡기
+				$(".sldtit").css({
+						position: "absolute",
+						top: "60%",
+						left: "50%",
+						transform: "translate(-50%, -50%)",
+						whiteSpace: "nowrap",
+						color: "#fff",
+						textShadow: "1px 1px 1px #000",
+						fontSize: "min(3vw,30px)",
+						opacity: "0"
+					}) ////////css //////////////////////////////////
+					.animate({
+						top: "50%",
+						opacity: "1"
+					}, 400);
 
 
-		}////////////// showTxt /////////////////////////////////
+			} ////////////// showTxt /////////////////////////////////
 
-		// 최초호출
-		setTimeout(showTxt,1000);
+			// 최초호출
+			setTimeout(showTxt, 1000);
+
+			// 글자등장함수 호출함수! 이동시간후!
+			let callT;
+			const callshow = () => {
+				clearTimeout(callT); //기존설정지우기
+				callT = setTimeout(showTxt, 1000);
+			}; ///////////// callshow /////////////////////////////////
 
 
 
@@ -125,7 +132,7 @@
 						left: "-100%"
 					}, 600, "easeInOutQuint",
 					function () { //콜백함수
-						// 첫번째 슬라이드 맨뒤로이동
+						// 1.첫번째 슬라이드 맨뒤로이동
 						// this는 sbx요소
 						$(this).append($("li", this).first())
 							// 2.이때 동시에 left값 0
@@ -133,9 +140,6 @@
 								left: "0%"
 							});
 						// 맨뒤이동 매서드:append()
-
-						// 3.글자등장 호출
-						showTxt();
 
 					}); ////animate ////////////////////////////////
 
@@ -145,6 +149,9 @@
 				let num = sbx.find("li").eq(1).attr("data-seq");
 				console.log("순번:", num);
 				chgIndic(num);
+
+				// 글자등장함수 호출함수
+				callshow();
 
 			}); /////////////////click /////////////////////////
 
@@ -177,9 +184,9 @@
 					// 슬라이드 박스 left:0으로 애니메이션!
 					.animate({
 						left: "0"
-					}, 600, "easeInOutQuint",showTxt);
-					// 이동후 바로 글자등장 함수를 호출
-					// (전달값없으면 이름만 써도된다)
+					}, 600, "easeInOutQuint");
+				// 이동후 바로 글자등장 함수를 호출
+				// (전달값없으면 이름만 써도된다)
 
 				// 블릿변경하기:슬라이드 순번 2번째가 주인공!
 				// 주인공 슬라이드의 data-seq값을 읽어와서
@@ -187,6 +194,9 @@
 				let num = sbx.find("li").eq(0).attr("data-seq");
 				console.log("순번:", num);
 				chgIndic(num);
+
+				// 글자등장함수 호출함수
+				callshow();
 
 			});
 
@@ -305,6 +315,9 @@
 				*******************************************************/
 
 				chgIndic(cseq);
+
+				// 글자등장함수 호출함수
+				callshow();
 
 			}); ///////////////click /////////////////////////////////
 
