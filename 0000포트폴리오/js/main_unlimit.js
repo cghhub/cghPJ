@@ -1,4 +1,3 @@
-// 쇼핑몰 배너 js //
 // 로드구역 ////////
 window.addEventListener("load", () => {
 
@@ -46,31 +45,6 @@ window.addEventListener("load", () => {
     // 슬라이드 개수 구해오기
     const scnt = document.querySelectorAll('#slide li').length;
 
-    // 슬라이드가 잘려지므로 처음에 슬라이드 li에
-    // 클래스를 순번에 맞게 부여해 준다!
-    for (let i = 0; i < scnt; i++) {
-        slide.querySelectorAll("li")[i].classList.add("s" + i);
-    } /////// for //////////////////////////////////
-
-
-    // 오른쪽버튼 클릭시
-    abtn[1].onclick = () => {
-        goSlide(1);
-        clearAuto(); //자동넘김지우기
-        return false; //
-    }
-    ////// click ////////////////////////////////////
-
-    // 왼쪽버튼 클릭시
-    abtn[0].onclick = () => {
-        goSlide(0);
-        clearAuto(); //자동넘김지우기
-        return false; //
-    }
-    ////// click ////////////////////////////////////
-
-    // 슬라이드 번호 전역변수
-    let snum = 0;
 
     // 광클금지 상태변수
     let prot = 0;
@@ -97,7 +71,7 @@ window.addEventListener("load", () => {
         $(".sldtit").remove();
 
         // 대상:첫번째 슬라이드 !
-        let tg = sbx.find("li").first();
+        let tg = sbx.find("#slide li").first();
 
         // 슬라이드 순번
         let snum = tg.attr("data-seq");
@@ -130,6 +104,45 @@ window.addEventListener("load", () => {
 
     // 최초호출
     setTimeout(showTxt, 1000);
+
+    // 글자등장함수 호출함수! 이동시간후!
+    let callT;
+    const callshow = () => {
+        clearTimeout(callT); //기존설정지우기
+        callT = setTimeout(showTxt, 1000);
+    }; ///////////// callshow //////////////////////////////////
+
+
+
+
+    // 슬라이드가 잘려지므로 처음에 슬라이드 li에
+    // 클래스를 순번에 맞게 부여해 준다!
+    for (let i = 0; i < scnt; i++) {
+        slide.querySelectorAll("li")[i].classList.add("s" + i);
+    } /////// for //////////////////////////////////
+
+
+    // 오른쪽버튼 클릭시
+    abtn[1].onclick = () => {
+        goSlide(1);
+        clearAuto(); //자동넘김지우기
+        return false; //
+    }
+    ////// click ////////////////////////////////////
+
+    // 왼쪽버튼 클릭시
+    abtn[0].onclick = () => {
+        goSlide(0);
+        clearAuto(); //자동넘김지우기
+        return false; //
+    }
+    ////// click ////////////////////////////////////
+
+    // 슬라이드 번호 전역변수
+    let snum = 0;
+
+    
+
 
 
     /*************************************************** 
