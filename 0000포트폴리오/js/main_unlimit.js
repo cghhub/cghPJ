@@ -53,10 +53,10 @@ window.addEventListener("load", () => {
 
     // 등장글자 배열
     let stxt = [
-        "What a Wonderfull",
-        "You are a Good Guy!",
-        "What's up!",
-        "Check it Out"
+        "LIGHTSPEED 무선",
+        "하나의 앱으로. 모든 기어 제어",
+        "베스트셀러",
+        "L게이밍 키보드"
     ];
 
     /******************************************************* 
