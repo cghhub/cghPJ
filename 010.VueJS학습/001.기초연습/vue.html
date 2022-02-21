@@ -45,17 +45,63 @@
                         e.target.innerText = "놀랐지?";
                         e.target.style.fontSize = "60px";
                         e.target.style.transition ="1s";
-                        e.target.style.transform ="rotate(690deg)";
-                    }/////////myClick함수 //////////////////
+                        // e.target.style.transform ="rotate(690deg)";
+
+                        // 4초후에 새로운 요소 추가하기!
+                        setTimeout(()=>{
+                            this.$el.innerHTML += '<div id="my">하하하</div>'
+                        },4000);
+
+                        /* 
+                            vue 의 methods속성 내부의 함수에서 this는?
+                            this는 vue로 생성된 인스턴스자신을 말한다!
+                            (인스턴스:  instance란?new키워드로 생성된 
+                            메모리상의 객체를 말한다!)
+                            하위속성 선택요소인 element를 선택하려면 $el
+                            이라고 표현한다! -> 여기서는 선택된 부모요소인
+                            "#app3"를 말함
+
+                            _________________________________________________
+
+                            [인스턴스 속성:instance properties]
+                            -$el:vue인스턴스가 관리하는 컴포넌트 인스턴스인
+                            루트 DOM요소
+                            -$data:컴포넌트 인스턴스의 데이터 객체
+                        */
+
+                    },/////////myClick함수 //////////////////
+                    myOver:function(){
+                        //  함수 전달변수 e를 쓰지 않아도 
+                        // event라는 키워드는 이벤트전달값을 셋팅함!
+                        // event.target으로 쓰면 이 함수를 호출한 이벤트가 
+                        // 발생한 요소 자신이 된다!
+                        event.target.innerText = "오버하지마!";
+                        // 나를 불러줘 div#call에 글자 바꾸기!
+                        this.$el.querySelector("#call").innerText="지금 너를 불렀어!!";
+                    },////////myOver ////////////////////////
+                    myClick2:function(txt){
+                        // txt함수 호출시 전달변수
+                        event.target.innerText = `내가 ${txt} 야!`;
+                    }
                 }////////methods속성/////////////////
                 // methods속성은 함수기능을 구현하여 할당함
             });///////vue /////////////////////////////
 
             // 4. 입력 양식과 동기화하기 /////////
-            
+            new Vue({
+                el:"#app4",
+                data:{
+                    msg
+                }
+            })
 
             // 5. 조건분기 ///////////////
-            
+            new Vue({
+                el:"#app5",
+                data:{
+                    show:true
+                }
+            });////////////////// vue ////////////////////
 
         }); ///////////// 로딩구역 ///////////////////
         //////////////////////////////////////////////
@@ -106,20 +152,53 @@
     <h2>3. 이벤트 사용하기</h2>
     <div id="app3">
         <button v-on:click="myClick">click</button>
+        <button v-on:mouseover="myOver" @click="myClick2('후계자')">오버해봐!</button>
+        <div id="call">나를 불러줘!</div>
+        <!-- 
+            v-on:이벤트명(v-on:을 줄여서 @)
+            이벤트와 함수를 연결해 주는 뷰js속성
+            값은 내가 만든 methods안의 함수명을 써준다!
+
+         -->
     </div>
 
     <hr>
 
     <h2>4. 입력 양식과 동기화하기</h2>
     <div id="app4">
-        
+        <input v-model="msg">
+        <p>{{msg}}</p>
+        <!-- 
+            v-model 속성은 요소 자신의 값이 타겟 값으로 반영되게함
+            변경 데이터와 뷰js 
+
+         -->
     </div>
 
     <hr>
 
     <h2>5. 조건분기</h2>
     <div id="app5">
-        
+        <button v-on:click="show=!show">변경하기</button>
+        <!-- 
+            v-on:click="값" -> 값으로 함수를 호출하면 함수가 실행됨
+            값으로 js명령문을 쓰면 그것이 실행됨!
+            여기서는 show변수값을 Not연산자(!)를 이용하여
+            true이면 false,false이면 true로 변경하는 코드를 실행함
+         -->
+        <p v-if="show">나는 프런트앤드 개발자다!</p>        
+        <!-- 
+            v-if 속성은 조건에 따라 결과를 다르게 해주는 기능
+            값에 show를 쓴것은 이 값이  true일때 해당요소를 보이게함
+            false이면 요소 자체의 display를 없앰(가상돔에서 태그를 지운다!)
+
+            ________________________________________________________________
+
+            가상돔에 먼저 반영하는 의미는?
+            여러개의 변경사항이 있을 경우 모두 가상돔에 먼저 반영후
+            실제 DOM에는 한꺼번에 단 한번만 반영하여 리소스 낭비를
+            줄이고 랜더링 속도를 향상시킨다!
+         -->
     </div>
 
 
