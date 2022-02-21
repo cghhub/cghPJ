@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤리빌 테스트</title>
+
+    <style>
+        body {
+            height: 3000px;
+            background-image: linear-gradient(to bottom, #2121, #456);
+            text-align: center;
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 1200px;
+        }
+
+        img {
+            margin: 100px auto;
+        }
+
+        /*  */
+        .js-reveal {
+            opacity: 1;
+            transition: opacity .7s ease-in, margin-top .7s ease-out;
+        }
+
+        .js-reveal--hidden {
+            opacity: 0;
+            margin-top: 3em;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.scroll-reveal.js"></script>
+    <script>
+        $(function () { /// jQB //////////////////        
+
+            $.fn.scrollReveal();
+
+        }); ////////// jQB //////////////////////
+    </script>
+</head>
+
+<body>
+    <h1>스크롤 리빌 테스트</h1>
+    <img src="images/lamp.jpg" alt="" class="js-reveal">
+    <img src="images/nature.jpg" alt="" class="js-reveal">
+    <img src="images/robot.jpg" alt="" class="js-reveal">
+    <img src="images/seashore.jpg" alt="" class="js-reveal">
+    <img src="images/street.jpg" alt="" class="js-reveal">
+</body>
+
+</html>
