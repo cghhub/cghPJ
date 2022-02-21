@@ -32,7 +32,14 @@ window.addEventListener("DOMContentLoaded",()=>{
             axios // 엑시오스 객체
             .get("js/real.json") // 파일읽기
             .then(x => this.vals = x); // 할당(x변수로 전달!)
-        } /// mounted /////
+        }, /// mounted /////
+        methods:{
+            // 탭 타이틀 변경 메서드!
+            chgTit:function(tit){
+                document.querySelector("title").innerText = 
+                tit + "| 보그 코리아(vogue Korea)";
+            }//chgTit////////////////////////
+        }////////methods/////////////////////
     }); ///////////// Vue /////////////////
 
 }); ///////////// 로딩구역 ////////////////////////
