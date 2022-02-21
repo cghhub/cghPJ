@@ -10,8 +10,9 @@
     <!-- 엑시오스 라이브러리 스텐드얼론 버전 가져오기(제이슨불러오기) -->
     <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
     <script>
+
         //////////// 로딩구역 /////////////////////
-        window.addEventListener("DOMContentLoaded", () => {
+        window.addEventListener("DOMContentLoaded",()=>{
 
             console.log("로딩완료");
 
@@ -19,34 +20,18 @@
             new Vue({
                 el: "#app",
                 data: {
-                    vals: {} //json데이터가 객체임     
-                }, ///data//////////////
-                // mounted 소성 :Vue 인스턴스가 메모리에 읽여지면 
-                // 실행하는 함수구역(mousted는'읽어들여진'의 뜻)
-                mounted: function () {
-                    // 외부파일을 가져오기 위해 axios 라이브러리를 사용함!
-                    axios //엑시오스 객체
-                        .get("real.json")
-                        // .then(response => this.vals = response)
-                        .then(x => this.vals = x);
-                    // 위와 같음
-                    // .then((response) => {this.vals = response})
-
-                    /* 
-                        axios.get(제이슨파일).then(내부로값전달)
-                        해석:제이슨에서 가져온 파일내용을
-                        response 변수로 함수 내부에 전달하여
-                        이 값을 Vue js에 셋팅된 데이터 변수 vals에
-                        집어 넣어라!
-                        this.vals는 Vue 인스턴스 내부의 데이터 변수임!
-                    */
-                }
-
-            }); ////////////vue////////////////////////////////
-
+                    vals: {} // json 데이터가 객체임!
+                }, //// data ////
+                mounted: function(){
+                    axios // 엑시오스 객체
+                    .get("real.json")
+                    .then(x => this.vals = x);
+                } /// mounted /////
+            }); ///////////// Vue /////////////////
 
         }); ///////////// 로딩구역 ////////////////////////
         //////////////////////////////////////////////////
+        
     </script>
 
 
@@ -56,24 +41,35 @@
     <h1>Vue JS 데이터 바인딩 연습</h1>
     <ul id="app">
         <!-- 
-            v-for 디렉티브를 사용해서 데이터 for문을 돌릴때
+            v-for 디렉티브를 사용해서
+            데이터 for문을 돌릴때
             각 변수의 의미는
-            [객체일때]
+
+            [ 객체일때 ]
             (값,속성명) in 변수.data
 
-            [배열일때]
+            [ 배열일때 ]
             (값,순번) in 변수.data
 
             v-if 디렉티브를 사용하여 조건에 맞을때만 출력!
+            쌍따옴표 안에 조건문을 쓴다!
+
+            v-if="value.메뉴!=='없음'"
+            해석: 메뉴의 값이 '없음'이 아니면 출력함!
+
          -->
-        <li>
-            <h2></h2>
-            <ol>
-                <li></li>
+        <li v-for="(value,name) in vals.data">
+            <h2>{{value.제목}}</h2>
+            <!-- 
+                속성명은 문자형이지만 아래 두가지로 사용가능 
+                value.제목 or value["제목"]
+            -->
+
+            <ol v-if="value.메뉴!=='없음'">
+                <li v-for="(v,i) in value.메뉴">{{v}}</li>
             </ol>
         </li>
     </ul>
-
 </body>
 
 </html>
